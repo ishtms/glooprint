@@ -10,6 +10,9 @@ IMPLEMENT_MODULE(FDefaultModuleImpl, BlueprintAssistBaseline)
 #include "Editor/Transactor.h"
 #include "Framework/Application/SlateApplication.h"
 #include "HAL/FileManager.h"
+#include "HAL/PlatformMemory.h"
+#include "Misc/CommandLine.h"
+#include "Misc/Parse.h"
 #include "ImageUtils.h"
 #include "Misc/FileHelper.h"
 #include "Misc/Paths.h"
@@ -66,6 +69,11 @@ public:
             Test.AddError(FString::Printf(TEXT("Blueprint Assist benchmark timed out in stage %d; no accepted latency."), Phase));
             return Finish();
         }
+        if (Phase == 3)
+        {
+            if (++Frames < 12) { return false; }
+            Capture(); return Finish();
+        }
         if (Phase == 0)
         {
             const auto Active = FBATabHandler::Get().GetActiveGraphHandler();
@@ -77,11 +85,13 @@ public:
         if (Phase == 1)
         {
             if (++Frames < 12 || Handler->IsCalculatingNodeSize() || Handler->IsLerpingViewport()) { return false; }
-            CacheMs = (FPlatformTime::Seconds() - CacheStarted) * 1000;
+            if (CacheMs == 0) { CacheMs = (FPlatformTime::Seconds() - CacheStarted) * 1000; }
             Editor->ClearSelectionSet(); Editor->SetNodeSelection(Entry, true);
             Before = CaptureValues(*Fixture->Graph); Editor->GetViewLocation(View, Zoom);
+            if (Original.IsEmpty()) { Original = Before; }
+            Completed = 0; CompletedFrame = 0; CompletionCount = 0;
             Anchor = FIntPoint(Entry->NodePosX, Entry->NodePosY);
-            Queue = GEditor->Trans->GetQueueLength();
+            Queue = GEditor->Trans->GetQueueLength() - GEditor->Trans->GetUndoCount();
             OnComplete = Handler->OnPostFormatting.AddLambda([this]()
             {
                 Completed = FPlatformTime::Seconds(); CompletedFrame = GFrameCounter; ++CompletionCount;
@@ -114,22 +124,48 @@ public:
                     Before.FindChecked(Prefix + TEXT(".NodePosY")) != After.FindChecked(Prefix + TEXT(".NodePosY"))) { ++Changed; }
                 for (UEdGraphPin* Pin : Node->Pins) if (Pin->Direction == EGPD_Output) { Links += Pin->LinkedTo.Num(); }
             }
-            Test.TestTrue(TEXT("Reference F changes the unformatted chain"), Changed > 0);
+            if (!bRepeat) { Test.TestTrue(TEXT("Reference F changes the unformatted chain"), Changed > 0); }
             Test.TestEqual(TEXT("Every original connection remains"), Links, Count - 1);
             Compare(Before, After, true, TEXT("F"));
-            Test.TestEqual(TEXT("Reference command creates one undo entry"), GEditor->Trans->GetQueueLength(), Queue + 1);
+            const int32 AddedTransactions = GEditor->Trans->GetQueueLength() - GEditor->Trans->GetUndoCount() - Queue;
+            if (!bRepeat) { Test.TestEqual(TEXT("Reference command creates one undo entry"), AddedTransactions, 1); }
+            else { Test.TestTrue(TEXT("Repeat creates at most one transaction"), AddedTransactions >= 0 && AddedTransactions <= 1); }
             FVector2f EndView; float EndZoom = 0; Editor->GetViewLocation(EndView, EndZoom);
             const bool bAnchor = Anchor == FIntPoint(Entry->NodePosX, Entry->NodePosY);
             const bool bView = View == EndView && Zoom == EndZoom;
-            Csv += FString::Printf(TEXT("%d,%d,%d,%.6f,%.6f,%.6f,%.6f,%llu,%d,%d,%d\n"), Count, Pins, Links, CacheMs,
+            Csv += FString::Printf(TEXT("%d,%d,%d,%.6f,%.6f,%.6f,%.6f,%llu,%d,%d,%d,%d,%s,%d\n"), Count, Pins, Links, CacheMs,
                 (Dispatched - Started) * 1000, (FMath::Max(Completed, Dispatched) - Started) * 1000,
-                (Observed - Started) * 1000, CompletedFrame - StartedFrame, Changed, int32(bAnchor), int32(bView));
-            Capture();
-            Test.TestTrue(TEXT("Reference format undoes"), GEditor->UndoTransaction()); Compare(Before, CaptureValues(*Fixture->Graph), false, TEXT("Undo"));
-            Test.TestTrue(TEXT("Reference format redoes"), GEditor->RedoTransaction()); Compare(After, CaptureValues(*Fixture->Graph), false, TEXT("Redo"));
-            Test.AddInfo(FString::Printf(TEXT("Blueprint Assist 4.4.7 diagnostic: %d nodes/%d pins/%d links, warm F completion %.3f ms, transaction first observed finished %.3f ms; initial caching %.3f ms. Actual Blueprint editor, one sample, no p95 or direct speedup claim. Anchor/view retained=%d/%d."),
-                Count, Pins, Links, (FMath::Max(Completed, Dispatched) - Started) * 1000, (Observed - Started) * 1000, CacheMs, int32(bAnchor), int32(bView)));
-            return Finish();
+                (Observed - Started) * 1000, CompletedFrame - StartedFrame, Changed, int32(bAnchor), int32(bView),
+                Sample, bRepeat ? TEXT("Repeat") : TEXT("Format"), AddedTransactions);
+            Test.TestTrue(TEXT("Reference preserves its anchor and camera"), bAnchor && bView);
+            Test.AddInfo(FString::Printf(TEXT("Reference sample %d %s: dispatch %.3f ms, completion %.3f ms, changed %d, added transactions %d."),
+                Sample, bRepeat ? TEXT("Repeat") : TEXT("Format"), (Dispatched - Started) * 1000,
+                (FMath::Max(Completed, Dispatched) - Started) * 1000, Changed, AddedTransactions));
+            if (!bRepeat)
+            {
+                Formatted = After;
+                Test.TestTrue(TEXT("Reference format undoes"), GEditor->UndoTransaction()); Compare(Before, CaptureValues(*Fixture->Graph), false, TEXT("Undo"));
+                Test.TestTrue(TEXT("Reference format redoes"), GEditor->RedoTransaction()); Compare(After, CaptureValues(*Fixture->Graph), false, TEXT("Redo"));
+                bRepeat = true;
+            }
+            else
+            {
+                if (AddedTransactions == 1)
+                {
+                    Test.TestTrue(TEXT("Reference repeat undoes"), GEditor->UndoTransaction());
+                    Compare(Formatted, CaptureValues(*Fixture->Graph), false, TEXT("Repeat undo"));
+                }
+                else { Compare(Formatted, After, false, TEXT("Repeat without transaction")); }
+                if (++Sample >= SamplesWanted)
+                {
+                    Editor->ZoomToFit(false); Phase = 3; Frames = 0; return false;
+                }
+                Test.TestTrue(TEXT("Restore original layout for next reference sample"), GEditor->UndoTransaction());
+                Compare(Original, CaptureValues(*Fixture->Graph), false, TEXT("Next sample"));
+                bRepeat = false;
+            }
+            if (Test.HasAnyErrors()) { return Finish(); }
+            Phase = 1; Frames = 0; Deadline = FPlatformTime::Seconds() + 180; return false;
         }
         return false;
     }
@@ -140,6 +176,8 @@ private:
         OriginalKnots = Settings.bCreateKnotNodes; bRestore = true;
         Settings.bGloballyDisableAutoFormatting = true; Settings.bCreateKnotNodes = false;
         OriginalCursor = FSlateApplication::Get().GetCursorPos();
+        if (FParse::Value(FCommandLine::Get(), TEXT("GlooPrintBenchmarkSamples="), SamplesWanted)) { Sample = -1; }
+        SamplesWanted = FMath::Clamp(SamplesWanted, 1, 100);
         Directory = FPaths::ProjectSavedDir() / TEXT("ReferenceBenchmarks"); IFileManager::Get().MakeDirectory(*Directory, true);
         Test.AddInfo(FString::Printf(TEXT("Reference settings: node padding=%d,%d; parameter padding=%d,%d; formatting style=%d; parameter style=%d; knot creation=off; auto format=off; explicit native size refresh before timed F."),
             Settings.BlueprintFormatterSettings.Padding.X, Settings.BlueprintFormatterSettings.Padding.Y,
@@ -198,17 +236,20 @@ private:
     TSharedPtr<SGraphEditor> Editor;
     TSharedPtr<FBAGraphHandler> Handler;
     FDelegateHandle OnComplete;
-    TMap<FString, FString> Before;
+    TMap<FString, FString> Before, Original, Formatted;
     FVector2D OriginalCursor;
     FVector2f View;
     FIntPoint Anchor;
     float Zoom = 0;
     double Deadline = 0, CacheStarted = 0, CacheMs = 0, Started = 0, Dispatched = 0, Completed = 0;
     uint64 StartedFrame = 0, CompletedFrame = 0;
-    bool bRestore = false, OriginalAuto = false, OriginalKnots = true;
+    bool bRestore = false, OriginalAuto = false, OriginalKnots = true, bRepeat = false;
+    int32 Sample = 0, SamplesWanted = 1;
     FString Directory;
-    FString Csv = TEXT("nodes,pins,links,initial_cache_ms,dispatch_ms,completion_ms,transaction_observed_ms,completion_frames,changed_nodes,anchor_retained,view_retained\n");
+    FString Csv = TEXT("nodes,pins,links,initial_cache_ms,dispatch_ms,completion_ms,transaction_observed_ms,completion_frames,changed_nodes,anchor_retained,view_retained,sample,operation,added_transactions\n");
 };
+#include "ReferenceWirePaint.h"
+
 class FReferenceVisual final : public IAutomationLatentCommand
 {
     struct FPlacement { FIntPoint Position; FVector2f Size; };

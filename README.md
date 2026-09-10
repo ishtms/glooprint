@@ -18,7 +18,7 @@ Very large graphs, or nodes with lots of pins, can take minutes on the first pas
 
 You can grab the [1.0.0-rc1 prerelease](https://github.com/ishtms/glooprint/releases/tag/v1.0.0-rc1) to try it. Download `GlooPrint_1.0.0_rc1_UE5_8_Source.zip` for the plugin, or `GlooPrint_1.0.0_rc1_WindowsTestKit.zip` for the same source with a small test host and Windows instructions. Both need a UE 5.8 C++ toolchain. The Fab listing is still in draft.
 
-The C++ source and guide are included. There are no extra plugins or services to sign up for. Turn GlooPrint off later and your Blueprints still work, with the saved layout and Unreal's usual wires. The cover is promotional artwork; the Fab gallery uses actual Unreal captures.
+The C++ source and guide are included. There are no extra plugins or services to sign up for. Turn GlooPrint off later and your Blueprints still work, with the saved layout and Unreal's usual wires. The cover combines artwork and actual Unreal captures. The gallery uses native graph captures with captions.
 
 [Get help or report a bug](https://github.com/ishtms/glooprint/issues). Include your engine and plugin versions, OS and a small example that shows what's going wrong.
 
