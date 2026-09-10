@@ -34,7 +34,7 @@ public:
             Fixture = MakeUnique<FFixture>();
             Output = Fixture->Branch->FindPinChecked(UEdGraphSchema_K2::PN_Then);
             Input = Output->LinkedTo[0];
-            Input->GetOwningNode()->SetPosition({bOffscreen ? -700 : 700, 280});
+            Input->GetOwningNode()->SetPosition({bOffscreen ? -700.f : 700.f, 280.f});
             Fixture->Print->SetPosition(bOffscreen ? FVector2f(1000, 1000) : FVector2f(320, 30));
             Key = {Output->GetOwningNode()->NodeGuid, Output->PinId, Input->GetOwningNode()->NodeGuid, Input->PinId};
             FString NativeTooltip;
@@ -159,7 +159,8 @@ private:
         if (++Frames < 8) { return false; }
         if (Phase == 0)
         {
-            FVector2f FromMin, FromMax, ToMin, ToMax;
+            FVector2f FromMin = FVector2f::ZeroVector, FromMax = FVector2f::ZeroVector;
+            FVector2f ToMin = FVector2f::ZeroVector, ToMax = FVector2f::ZeroVector;
             if (!Test.TestTrue(TEXT("Both native endpoint node bounds are available"),
                 Panel.GetBoundsForNode(Output->GetOwningNode(), FromMin, FromMax) &&
                 Panel.GetBoundsForNode(Input->GetOwningNode(), ToMin, ToMax))) { return Finish(); }

@@ -296,7 +296,7 @@ public:
         auto& Slate = FSlateApplication::Get();
         if (bProgressCase && !bRequestedActivation)
         {
-            FPlatformApplicationMisc::ActivateApplication(); bRequestedActivation = true;
+            RequestEditorActivation(); bRequestedActivation = true;
             ActivationDeadline = FPlatformTime::Seconds() + 10;
             return false;
         }

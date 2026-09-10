@@ -3,6 +3,7 @@
 #if WITH_DEV_AUTOMATION_TESTS
 #include "GlooPrintTestUtils.h"
 #include "Framework/Application/SlateApplication.h"
+#include "HAL/PlatformApplicationMisc.h"
 #include "Input/HittestGrid.h"
 #include "SGraphPanel.h"
 #include "Serialization/ObjectWriter.h"
@@ -11,6 +12,39 @@
 
 namespace GlooPrint::Tests
 {
+DEFINE_LOG_CATEGORY_STATIC(LogGlooPrintTestActivation, Log, All);
+
+void RequestEditorActivation()
+{
+#if PLATFORM_MAC
+    FPlatformApplicationMisc::ActivateApplication();
+    UE_LOG(LogGlooPrintTestActivation, Display, TEXT("Requested Mac editor activation; waiting for foreground confirmation."));
+#else
+    auto& Slate = FSlateApplication::Get();
+    TSharedPtr<SWindow> Window = Slate.GetActiveTopLevelRegularWindow();
+    if (!Window)
+    {
+        for (const auto& Candidate : Slate.GetTopLevelWindows())
+        {
+            if (Candidate->IsRegularWindow() && Candidate->IsVisible())
+            {
+                Window = Candidate;
+                break;
+            }
+        }
+    }
+    if (Window)
+    {
+        Window->BringToFront(true);
+        UE_LOG(LogGlooPrintTestActivation, Display, TEXT("Requested foreground for editor window '%s'; waiting for foreground confirmation."), *Window->GetTitle().ToString());
+    }
+    else
+    {
+        UE_LOG(LogGlooPrintTestActivation, Warning, TEXT("No regular editor window is available for foreground activation."));
+    }
+#endif
+}
+
 void MoveMouseOverGraph(FAutomationTestBase& Test, const TSharedRef<SWindow>& Window, SGraphPanel& Panel, FVector2f ScreenPosition)
 {
     auto& Slate = FSlateApplication::Get();

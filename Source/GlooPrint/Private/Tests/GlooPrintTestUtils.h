@@ -24,6 +24,9 @@ class SGraphPanel;
 
 namespace GlooPrint::Tests
 {
+/** Request editor foreground activation; callers must wait for and verify foreground status. */
+void RequestEditorActivation();
+
 struct FFixture
 {
     TStrongObjectPtr<UBlueprint> Blueprint;
