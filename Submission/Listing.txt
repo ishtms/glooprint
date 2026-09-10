@@ -29,6 +29,8 @@ Get help or report a bug - https://github.com/ishtms/glooprint/issues
 Technical details
 Code module - GlooPrint, Editor only
 Number of C++ modules - 1
+C++ classes - 15 production classes, including one settings UObject
+Blueprint assets - 0
 Engine version - Unreal Engine 5.8
 Development platforms - Windows 64-bit and Mac, pending final release tests
 Runtime platforms - No runtime module
@@ -38,6 +40,12 @@ Content assets - None
 Other plugins or services needed - None
 Documentation - Documentation/UserGuide.txt is included in the download
 Example project - The guide walks through a small graph using Unreal's own nodes
+
+Fab format selections
+Distribution method - Plugin
+Tool type - Editor extension
+Third party software - No, based on the shipped files and engine-only dependencies
+Is open source - No, source is included but no open-source license is granted
 
 Install it as an engine plugin through Fab when the release is available. The
 source ZIP needs your matching UE 5.8 C++ toolchain. Fab's compiled plugin can
@@ -74,8 +82,14 @@ editing and using the Blueprint without GlooPrint. Your saved layout stays,
 and the wires go back to Unreal's usual curves.
 
 Before review
-Finish Windows testing and the remaining performance work. Host the final
-source ZIP and use that link in the version form. Confirm the source and art
-rights, finish the gallery, and remove candidate wording only after testing.
+Finish Windows testing and the remaining performance work. Replace the candidate
+download with the final source ZIP after fixes and version signoff. Confirm the
+source and art rights, and remove candidate wording only after testing.
 The saved Fab listing currently shows Standard License and Free. Keep the
 owner's selected pricing. Do not substitute a development-repository ZIP.
+
+Saved candidate links
+GitHub prerelease - https://github.com/ishtms/glooprint/releases/tag/v1.0.0-rc1
+Fab project file link - https://github.com/ishtms/glooprint/releases/download/v1.0.0-rc1/GlooPrint_1.0.0_rc1_UE5_8_Source.zip
+Windows test kit - https://github.com/ishtms/glooprint/releases/download/v1.0.0-rc1/GlooPrint_1.0.0_rc1_WindowsTestKit.zip
+Both ZIPs were downloaded without authentication and matched the local hashes.

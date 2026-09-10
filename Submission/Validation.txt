@@ -1,4 +1,4 @@
-GLOOPRINT RELEASE VALIDATION - CANDIDATE, NOT CLEARED FOR PUBLICATION
+GLOOPRINT RELEASE VALIDATION - CANDIDATE, NOT CLEARED FOR FAB PUBLICATION
 Date: September 10, 2026
 Candidate: 1.0.0-rc1 | UE 5.8 | Intended platforms: Win64 and Mac
 
@@ -109,12 +109,26 @@ The new thumbnail and both gallery captures are saved. The native picker worked
 after the extension upload helper refused local file access. No Chrome security
 permissions were changed. Old gallery-disconnection status is now resolved.
 
-The Unreal version form is filled with 1.0.0-rc1 - UE 5.8, engine 5.8, Windows,
-Mac and notes within the 255-character limit. Only the hosted source ZIP link
-is missing. Confirm is disabled. The form is left open for that link; these
-version details are not yet saved as a format. No placeholder download link or
-development-repository ZIP was used. The required link was requested from the
-owner. Remaining technical copy is in Listing.txt.
+The Unreal version 1.0.0-rc1 - UE 5.8 is saved with engine 5.8, Windows, Mac,
+notes within the 255-character limit and the public GitHub source-asset URL.
+The format has Windows/macOS development platforms, Plugin distribution,
+Editor extension, 0 Blueprint assets and 15 production C++ classes. Counts
+exclude forward declarations, structs, build rules and automation helpers.
+Third-party software is set to No based on the shipped file/dependency audit.
+Is open source is No because the source has no open-source license grant.
+Source inclusion and setup requirements are explained in Additional information.
+All fields were inspected after saving. Fab is still a draft, not under review.
+
+GitHub prerelease - https://github.com/ishtms/glooprint/releases/tag/v1.0.0-rc1
+Release commit - fec74d8e8b70b5169dd54ff8d5f9757171e028a8
+Source asset - https://github.com/ishtms/glooprint/releases/download/v1.0.0-rc1/GlooPrint_1.0.0_rc1_UE5_8_Source.zip
+Windows kit - https://github.com/ishtms/glooprint/releases/download/v1.0.0-rc1/GlooPrint_1.0.0_rc1_WindowsTestKit.zip
+Both ZIPs and SHA256SUMS.txt were downloaded without credentials and matched the
+local files byte for byte. Archive integrity passed. The release is marked as
+a prerelease, with the Windows and performance limitations in its notes.
+All 57 source-asset files match the tagged commit. The new public README,
+thumbnail and user guide were pushed with that commit. Unrelated local reference
+adapter edits and output files were excluded from the commit and release assets.
 
 README local links, source archive inventory/hashes and diff whitespace were
 checked after these changes. The previous native build/test results above
@@ -126,8 +140,8 @@ game packaging must be verified using WindowsTesting.txt. Physical DPI changes,
 physical Cancel dispatch, disabled-startup gestures, broader readability and
 whole-command responsiveness retain their open project acceptance status.
 The 5000-node readiness failure must be addressed before a clean release signoff.
-Final rights declaration, hosted source link, technical/version fields and
-updated public documentation remain pending. Pricing and media are filled.
+Final rights confirmation remains pending. Hosted source link, technical/version
+fields, updated public documentation, pricing and media are filled.
 After fixes/platform signoff, finalize version/docs and regenerate the package.
 
 This preparation addresses current Fab submission requirements; it does not

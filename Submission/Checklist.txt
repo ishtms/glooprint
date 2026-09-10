@@ -59,7 +59,7 @@ LISTING AND PUBLISHER ITEMS
 
 [x] Draft product type Tools & Plugins, category Engine Tools, description and
     Blueprint / Editor / CodePlugin tags. Scope and performance limits disclosed.
-[ ] Add the prepared technical details when the hosted ZIP link is available.
+[x] Technical details saved in the Unreal format, with guide/support links.
 [x] Publisher profile has a public support channel (hello@ishtms.com) and
     website (ishtms.com), observed on the existing Fab About page. The plugin
     additionally links its public GitHub issue tracker. Copyright uses Ishtmeet
@@ -78,20 +78,21 @@ LISTING AND PUBLISHER ITEMS
     bytes. Built-in imagegen artwork is disclosed in the listing.
 [x] Both native gallery captures uploaded and confirmed, 3100x1946 and about
     0.53 MB each. The uploaded thumbnail and two gallery items were inspected.
-[ ] Add the UE project version with distribution method Code Plugin, UE 5.8,
-    Windows and Mac only after verification. Initial submissions must support
-    the latest engine release; verify 5.8 is still current on submission day.
-[x] Version form filled with 1.0.0-rc1 - UE 5.8, engine 5.8, Windows, Mac and
-    short notes. Form is open and unsaved because the source download link is
-    missing. Enter that link before Confirm; the prepared fields are not a
-    saved Unreal format/version yet.
-[ ] Fill the remaining technical fields and third-party declaration once Fab
-    creates the Unreal format. Prepared copy is in Listing.txt.
-[ ] Host the final source ZIP on a download page reviewers can access without
-    login. The link must remain available until Epic has built the files.
+[x] UE project version saved in the draft with Plugin distribution, UE 5.8,
+    Windows and Mac. Initial submissions must support the latest engine release;
+    verify 5.8 is still current on submission day. Platform testing is pending.
+[x] Version 1.0.0-rc1 - UE 5.8 saved with the GitHub release asset URL and
+    candidate notes. Both target and development platform fields are filled.
+[x] Remaining technical fields saved - Editor extension, 0 Blueprint assets,
+    15 production C++ classes. Third-party software set to No from the shipped
+    file/dependency audit. Is open source set to No because source availability
+    alone does not grant an open-source license. Source is included in the ZIP.
+[x] Candidate source ZIP hosted on the public v1.0.0-rc1 GitHub prerelease.
+    Anonymous downloads of both ZIPs and checksums matched local files.
+    The link must remain available until Epic has built the files.
     Documentation download links should not auto-start a download (4.3.8.d).
-[ ] Publish/update the public README/user guide so DocsURL resolves to the new
-    instructions. Local edits do not update GitHub. Guide is also in the ZIP.
+[x] Public README, new thumbnail and user guide pushed to GitHub. The release
+    tag points to fec74d8 and all 57 plugin files match the source asset.
 [ ] After Windows results, finalize version and remove candidate wording,
     regenerate ZIP, record hashes, preview all fields/media, then submit for
     review with manual activation if publication should wait for owner action.
