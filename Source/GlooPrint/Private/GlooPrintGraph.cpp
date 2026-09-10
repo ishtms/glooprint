@@ -1,3 +1,5 @@
+// Copyright 2026 Ishtmeet Singh. All Rights Reserved.
+
 #include "GlooPrintGraph.h"
 
 #include "EdGraph/EdGraph.h"

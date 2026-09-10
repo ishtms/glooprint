@@ -1,0 +1,81 @@
+Title
+GlooPrint - Blueprint Formatter
+
+Product type and category
+Tools & Plugins - Engine Tools
+
+Description
+Blueprints get messy pretty quickly. GlooPrint helps with that - press F and it arranges the graph for you.
+
+Select a node first if you'd like it to stay where it is. The whole active graph gets formatted around it, including groups that aren't connected. Your camera, zoom and selection stay put, so you can carry on from where you were.
+
+Pick rounded wires, 45-degree turns or Unreal's own splines. You still get the usual pin colours, hover feedback and execution highlights. Double-click a visible wire to add a normal reroute.
+
+Your connections, pin values and existing reroutes are kept. Comments can resize to fit their nodes, and you can undo a changed layout in one step. Turn GlooPrint off later and your Blueprints still work, with the saved layout and Unreal's usual wires.
+
+It works in Blueprint Event Graphs, functions, macros, Construction Scripts, opened collapsed graphs and graphs made entirely of pure nodes. An Animation Blueprint's ordinary Event Graph works too. Material graphs, animation pose graphs, Niagara, Control Rig and behaviour trees aren't supported.
+
+The C++ source and a setup guide are included. There are no extra plugins to install or services to sign up for. You'll find the wire and spacing settings under Editor Preferences > Plugins > GlooPrint.
+
+A couple of things to know before using it. Very large graphs, or nodes with lots of pins, can take minutes on the first pass and may pause the editor. Some wires use Unreal's usual curves while GlooPrint is still working out a route. Other formatting or wire plugins can also clash with the F shortcut or wire drawing.
+
+This is the UE 5.8 release candidate for Windows and Mac. Windows testing and some large-graph performance work are still to do, so the listing is staying in draft for now.
+
+The gallery shows ordinary Unreal nodes being formatted. The cover is promotional artwork. No game content pack is included.
+
+Read the guide - https://github.com/ishtms/glooprint#readme
+Get help or report a bug - https://github.com/ishtms/glooprint/issues
+
+Technical details
+Code module - GlooPrint, Editor only
+Number of C++ modules - 1
+Engine version - Unreal Engine 5.8
+Development platforms - Windows 64-bit and Mac, pending final release tests
+Runtime platforms - No runtime module
+Network replication - Not applicable
+Source code - Included
+Content assets - None
+Other plugins or services needed - None
+Documentation - Documentation/UserGuide.txt is included in the download
+Example project - The guide walks through a small graph using Unreal's own nodes
+
+Install it as an engine plugin through Fab when the release is available. The
+source ZIP needs your matching UE 5.8 C++ toolchain. Fab's compiled plugin can
+be used in a Blueprint-only project.
+
+F formats the whole active graph. Select a node first if you'd like it to stay
+put. Event Graphs, functions, macros, Construction Scripts, opened collapsed
+graphs and pure-node graphs are supported. You can also use it in an Animation
+Blueprint's ordinary Event Graph. Other graph types aren't supported.
+
+Choose rounded wires, 45-degree turns or native curves in Editor Preferences
+> Plugins > GlooPrint. Very large graphs or nodes with lots of pins can take
+minutes on the first pass and may pause the editor. The guide covers the UE 5.8
+Shift gesture issue and possible clashes with other wire or formatting plugins.
+
+Version title
+1.0.0-rc1 - UE 5.8
+
+Version notes
+UE 5.8 release candidate for Windows and Mac. Whole-graph formatting with F, rounded and 45-degree wires, C++ source and a user guide. Mac build passed. Windows testing and large-graph performance checks are pending.
+
+Tags
+Blueprint, Editor, CodePlugin
+
+FAQ
+Does F only format the nodes I select?
+No, it formats the whole graph you're working in. Selecting a node tells
+GlooPrint which one you'd like to keep in place. Groups that aren't connected
+get tidied too. Other graphs in the Blueprint are left alone.
+
+Will my Blueprints still work if I turn GlooPrint off?
+Yes. The nodes and connections are ordinary Unreal data, so you can keep
+editing and using the Blueprint without GlooPrint. Your saved layout stays,
+and the wires go back to Unreal's usual curves.
+
+Before review
+Finish Windows testing and the remaining performance work. Host the final
+source ZIP and use that link in the version form. Confirm the source and art
+rights, finish the gallery, and remove candidate wording only after testing.
+The saved Fab listing currently shows Standard License and Free. Keep the
+owner's selected pricing. Do not substitute a development-repository ZIP.

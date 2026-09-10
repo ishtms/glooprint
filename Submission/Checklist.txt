@@ -1,0 +1,114 @@
+GLOOPRINT FAB SUBMISSION CHECKLIST
+Prepared against Fab's technical requirements updated March 17, 2026.
+Checked online September 10, 2026. Recheck before submission.
+
+Draft: https://www.fab.com/portal/listings/148b61c2-57d4-4deb-9df2-c4e6479a08b9/edit
+Scope: UE 5.8, Windows 64-bit and macOS, one editor-only C++ plugin.
+Current candidate - 1.0.0-rc1. Do not publish before Windows validation.
+Latest source and Windows kit - Release/FabListingRevision.
+Only descriptor Description and guide prose changed since the previous kit.
+Native source and recorded build/test evidence are unchanged.
+
+TECHNICAL PREPARATION
+
+[x] Descriptive .uplugin metadata, UE 5.8.0 EngineVersion, and Win64/Mac
+    PlatformAllowList on the editor module (4.3.6.a-b).
+[x] FabURL uses the actual draft ID (4.3.6.c). MarketplaceURL also carries the
+    launcher URL because UE 5.8's editor reads that field for its plugin link.
+[x] Publisher copyright notice in every supplied C++ source/header and build
+    rules file (4.3.6.1.b). Name follows the publisher's existing project.
+[x] Complete Unreal-dependent source included. No third-party library/plugin
+    or service dependency in the production plugin (4.3.6.1.a, 4.3.6.d).
+[x] Resources/Icon128.png plus original vector source.
+[x] Free English installation, usage, settings, limitations and troubleshooting
+    guide in Documentation/UserGuide.txt; support URL provided (4.3.8).
+[x] Config/FilterPlugin.ini explicitly includes shipped documentation.
+[x] Allowlist packaging script excludes repository notes, reference plugins,
+    host projects, Saved/Intermediate/Binaries, unrelated designs and reports.
+    Paths are checked against the 170-character plugin limit (4.3.7.3).
+[x] Installed-engine Mac BuildPlugin -StrictIncludes passes; record exact
+    source hashes, engine version and architectures in Validation.txt.
+[x] Candidate loaded as an engine plugin in a fresh isolated editor; native
+    screenshot review completed. See Validation.txt for build provenance.
+[ ] Clean native release validation: full run passed 105/107; one timing case
+    passed in isolation, but the 5000-node readiness deadline remains unresolved.
+    All functional/editor cases passed. Do not treat this as a clean full run.
+[ ] Windows installed-engine packaging, engine-plugin installation and native
+    desktop acceptance pass. Follow WindowsTesting.txt.
+[ ] Physical DPI changes, cancellation, disabled-plugin wire gestures, broader
+    readability and responsiveness acceptance in TODO.md have been reviewed.
+    These are real open project criteria; packaging does not close them.
+
+PACKAGE CONTENTS
+
+Use the source ZIP produced by Scripts/PrepareRelease.py. It contains exactly
+one GlooPrint folder with GlooPrint.uplugin, Source, Config, Resources and
+Documentation. The plugin has no content assets; do not add dummy Content,
+Public or ThirdParty folders. The detailed rules prohibit unused directories.
+Native automation under Source is retained, guarded by WITH_DEV_AUTOMATION_TESTS.
+The separate Tests/ReferenceComparison adapter and sibling commercial plugins
+are never included. No .exe/.msi, local binaries, build intermediates or private
+development reports belong in the submission (4.3.6.1.e, 4.3.7.3.a).
+
+UAT build output is a local test installation only; it contains binaries and
+intermediates that must not be in the reviewer source ZIP. A source-only ZIP
+does not prove that either platform was built. ReleaseRecord.json makes that
+distinction and hashes every included file.
+
+LISTING AND PUBLISHER ITEMS
+
+[x] Draft product type Tools & Plugins, category Engine Tools, description and
+    Blueprint / Editor / CodePlugin tags. Scope and performance limits disclosed.
+[ ] Add the prepared technical details when the hosted ZIP link is available.
+[x] Publisher profile has a public support channel (hello@ishtms.com) and
+    website (ishtms.com), observed on the existing Fab About page. The plugin
+    additionally links its public GitHub issue tracker. Copyright uses Ishtmeet
+    Singh, matching the publisher's existing project. Continue monitoring
+    support; account/trader/tax/payout declarations remain owner responsibilities.
+[x] Existing owner settings show Standard License and 0.0 USD for both Personal
+    and Professional. Kept those settings. No agreement was accepted.
+[x] Generative-AI disclosure reflects actual use. This preparation includes
+    generated code/documentation, so answer Yes to partly/fully AI-created.
+    No mature content. Do not create a public forum post without instruction.
+[ ] Confirm all source/art rights and third-party declaration. The plugin has
+    no observed non-Epic dependency; the publisher must confirm historical
+    authorship/rights of existing code and media. No copied reference-plugin
+    code or benchmark screenshots should be submitted.
+[x] New orange GlooPrint cover saved as the thumbnail, 1920x1080 and 387927
+    bytes. Built-in imagegen artwork is disclosed in the listing.
+[x] Both native gallery captures uploaded and confirmed, 3100x1946 and about
+    0.53 MB each. The uploaded thumbnail and two gallery items were inspected.
+[ ] Add the UE project version with distribution method Code Plugin, UE 5.8,
+    Windows and Mac only after verification. Initial submissions must support
+    the latest engine release; verify 5.8 is still current on submission day.
+[x] Version form filled with 1.0.0-rc1 - UE 5.8, engine 5.8, Windows, Mac and
+    short notes. Form is open and unsaved because the source download link is
+    missing. Enter that link before Confirm; the prepared fields are not a
+    saved Unreal format/version yet.
+[ ] Fill the remaining technical fields and third-party declaration once Fab
+    creates the Unreal format. Prepared copy is in Listing.txt.
+[ ] Host the final source ZIP on a download page reviewers can access without
+    login. The link must remain available until Epic has built the files.
+    Documentation download links should not auto-start a download (4.3.8.d).
+[ ] Publish/update the public README/user guide so DocsURL resolves to the new
+    instructions. Local edits do not update GitHub. Guide is also in the ZIP.
+[ ] After Windows results, finalize version and remove candidate wording,
+    regenerate ZIP, record hashes, preview all fields/media, then submit for
+    review with manual activation if publication should wait for owner action.
+
+An example project is encouraged, not required for this editor-only tool.
+The included guide provides a minimal native-node walkthrough. If one is
+added later, distribute it separately without bundling the plugin (4.3.6.3).
+This code plugin has no 3D viewport functionality requiring a demo map.
+
+SOURCES
+
+https://www.fab.com/o/technical-requirements
+  General support/marketing and 4.2 / 4.3.6 / 4.3.7.3 / 4.3.8 code-plugin rules.
+https://dev.epicgames.com/documentation/en-us/fab/asset-file-format-and-structure-requirements-in-fab
+  File structure and image dimensions/size limits.
+https://dev.epicgames.com/documentation/en-us/fab/publishing-assets-for-sale-or-free-download-in-fab
+  Draft/review workflow, version updates and required listing details.
+
+Fab review is independent. These checks address known requirements and common
+submission defects; they are not a guarantee of marketplace approval.

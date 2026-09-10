@@ -1,17 +1,33 @@
 {
   "FileVersion": 3,
   "Version": 1,
-  "VersionName": "0.1.0-dev",
+  "VersionName": "1.0.0-rc1",
   "FriendlyName": "GlooPrint",
-  "Description": "Blueprint graph formatting. Current development milestone: read-only graph geometry prototype.",
+  "Description": "Press F to tidy your whole Blueprint graph. Pick a node to keep in place, and choose rounded wires, 45-degree turns or Unreal's own curves.",
   "Category": "Editor",
+  "CreatedBy": "Ishtmeet Singh",
+  "CreatedByURL": "https://github.com/ishtms",
+  "DocsURL": "https://github.com/ishtms/glooprint#readme",
+  "SupportURL": "https://github.com/ishtms/glooprint/issues",
+  "FabURL": "com.epicgames.launcher://ue/Fab/product/148b61c2-57d4-4deb-9df2-c4e6479a08b9",
+  "MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/148b61c2-57d4-4deb-9df2-c4e6479a08b9",
   "EngineVersion": "5.8.0",
+  "SupportedTargetPlatforms": [
+    "Win64",
+    "Mac"
+  ],
   "CanContainContent": false,
+  "IsBetaVersion": false,
+  "Installed": false,
   "Modules": [
     {
       "Name": "GlooPrint",
       "Type": "Editor",
-      "LoadingPhase": "PostEngineInit"
+      "LoadingPhase": "PostEngineInit",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac"
+      ]
     }
   ]
 }

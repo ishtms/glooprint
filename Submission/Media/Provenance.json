@@ -1,0 +1,35 @@
+[
+  {
+    "file": "RoundedWires.png",
+    "width": 3100,
+    "height": 1946,
+    "bytes": 530006,
+    "source": "Release/FabCandidate1/TestHost/Saved/GlooPrint-DependencyPacking-Rounded.png",
+    "sha256": "70e14cbf6fa978a54ffc9e1c4f7c3c34669096eb75c7c2dc325457963f510db0",
+    "uploaded_to_fab": true
+  },
+  {
+    "file": "DiagonalWires.png",
+    "width": 3100,
+    "height": 1946,
+    "bytes": 530156,
+    "source": "Release/FabCandidate1/TestHost/Saved/GlooPrint-DependencyPacking-Diagonal.png",
+    "sha256": "e868ee15bda4e47977892e2b55fd71e4a3ea90959954e93c4cbbea9bb9cb9e29",
+    "uploaded_to_fab": true
+  },
+  {
+    "file": "GlooPrintThumbnail.jpg",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 387927,
+    "sha256": "0639df4dccf010917eef66c87eaa22cd6d8d4f122fde01a80c659fa90cf32e32",
+    "kind": "AI-generated promotional cover",
+    "tool": "built-in imagegen",
+    "design_reference": "https://github.com/ishtms/OpenPocketBaseSDK/blob/main/thumb.png",
+    "graph_reference": "RoundedWires.png",
+    "generation_prompt": "ThumbnailPrompt.txt",
+    "generated_original": "output/imagegen/GlooPrint-thumbnail-original.png",
+    "export": "Original generated image resampled from 1672x941 to 1920x1080 and encoded as JPEG quality 92 with sips. No new detail is claimed.",
+    "uploaded_to_fab": true
+  }
+]

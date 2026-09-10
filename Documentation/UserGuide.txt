@@ -1,0 +1,138 @@
+GLOOPRINT - USER GUIDE
+Release candidate 1.0.0-rc1 | Unreal Engine 5.8
+Copyright 2026 Ishtmeet Singh. All Rights Reserved.
+
+GET STARTED
+
+GlooPrint tidies up your Blueprint graph when you press F. Select a node first
+if you'd like it to stay put, then move the pointer over the graph and press F.
+The whole active graph gets formatted, including groups that aren't connected.
+Your camera, zoom and selection stay put. Other graphs are left alone, and you
+can undo a changed layout in one step.
+
+INSTALLATION
+
+For a Fab installation, install GlooPrint to your supported engine version
+through the Epic Games Launcher library. Open your project, find GlooPrint in
+Edit > Plugins, enable it, and restart the editor if prompted. Do not keep both
+an engine installation and a project installation of GlooPrint.
+
+For a source installation or release-candidate test, close your project and
+place the GlooPrint folder inside YourProject/Plugins. The descriptor must be
+YourProject/Plugins/GlooPrint/GlooPrint.uplugin, with Source beside it. Compile
+with the matching Unreal Engine 5.8 C++ toolchain, then open the project and
+enable the plugin. A source ZIP contains no prebuilt DLL or dylib; it is not a
+binary installation. Windows needs the engine-supported Visual Studio C++
+toolchain; macOS needs the engine-supported Xcode toolchain.
+
+FIRST FORMAT
+
+1. Open an Actor Blueprint and its Event Graph.
+2. Add an Event BeginPlay and two Print String nodes. Connect the execution
+   pins in order and spread the nodes around the canvas.
+3. Select BeginPlay, move the pointer over the graph canvas, and press F.
+   Both Print String nodes move into the layout while the selected entry stays
+   anchored. Unconnected node groups in this graph are formatted too.
+4. Undo and Redo to compare. Press F again - an unchanged layout adds no new
+   layout transaction.
+5. Switch wire styles in Editor Preferences > Plugins > GlooPrint.
+
+The graph context menu also offers GlooPrint > Format Graph. Rebind the command
+under Editor Preferences > Keyboard Shortcuts by searching for GlooPrint.
+Typing F in a text field should type text, not format a graph. The graph must
+be editable; formatting is unavailable during PIE, debugging and read-only
+contexts. Wires can still be drawn in those contexts.
+
+ANCHORS, COMMENTS AND REROUTES
+
+An eligible selected execution entry is preferred as the anchor, then another
+selected ordinary node. With no eligible selected node, GlooPrint chooses an
+execution entry or an ordinary node using stable ordering. Selecting only a
+comment does not make the operation selection-only.
+
+Formatting moves existing nodes and can resize comments to fit their groups.
+It preserves graph links, node/pin identities and existing reroute nodes.
+It does not create shared junctions, delete unused nodes, change pin defaults,
+or rewrite Blueprint logic. A reroute is an existing waypoint and may move.
+
+SETTINGS
+
+All settings are in Editor Preferences > Plugins > GlooPrint and are stored
+per user, per project.
+
+Formatting enabled - on by default. Turn it off to stop GlooPrint formatting.
+Wire Style - Rounded 90 by default; Diagonal 45 and Native are also available.
+Horizontal Spacing - 96 graph units by default (range 16-2048).
+Vertical Spacing - 48 graph units by default (range 16-2048).
+Comment Padding - 32 graph units by default (range 8-512).
+
+Spacing applies when you next format. Wire-style changes refresh drawing.
+Native uses Unreal's spline rendering. To disable both GlooPrint behaviors,
+turn formatting off and choose Native, or disable the plugin and restart.
+
+WIRES AND EDITING
+
+Rounded and diagonal routes aim to avoid node bodies and comment titles and
+separate neighboring connections where space permits. Native pin colors,
+hover feedback and execution highlighting are retained. Double-click a
+visible wire to add a native reroute; use Unreal's normal connection, break,
+slice and reconnect gestures. The wire does not change the connection type.
+
+Some links may draw as native splines while geometry is being measured or a
+safe custom route is unavailable. GlooPrint keeps the connection visible.
+Very dense graphs may still have crossings. It does not promise crossing-free
+layouts or fixed completion times. Very large or pin-heavy graphs can take
+minutes when geometry is cold and can have noticeable editor pauses. Longer
+format jobs show a Cancel button;
+cancelling before application leaves the layout unchanged. A graph change,
+selection change or closed tab may cancel a pending format; retry once the
+graph is stable. No asset is automatically saved by formatting.
+
+In UE 5.8, a Shift gesture started on a wire has a native mouse-capture
+limitation, also seen with native splines. Start a Shift connection from the
+pin. Other wire tools can compete for the same drawing factory or F shortcut;
+disable competing graph formatters/wire overrides when diagnosing conflicts.
+
+SUPPORTED SCOPE
+
+Standard K2 Blueprint graphs - Event Graphs, functions, macros, Construction
+Scripts, opened collapsed graphs, and pure-data graphs. An Animation
+Blueprint's ordinary Event Graph is included. Animation pose graphs, state
+machines, Materials, Niagara, Control Rig, behavior trees and other graph
+schemas are outside this release's scope. Third-party custom node widgets
+are not universally supported.
+
+The launch target is UE 5.8 on Windows 64-bit and macOS. Windows release
+verification is pending for this candidate. Local development validation uses
+UE 5.8.1 on Apple Silicon. A universal macOS compile is not proof of runtime
+testing on Intel hardware. Do not infer Linux or other UE-version support.
+
+GlooPrint has one editor-only module and no runtime module, network service,
+external account requirement, subscription or third-party plugin dependency.
+Formatted Blueprints use native nodes and remain usable without GlooPrint;
+custom wire appearance returns to Unreal's native rendering when disabled.
+
+TROUBLESHOOTING AND SUPPORT
+
+F does nothing - check the plugin is enabled, formatting is enabled, the graph
+is supported/editable, the pointer is over its canvas, and the shortcut is
+not assigned to a competing plugin. Try the graph context menu command.
+
+A format is refused - read the editor notification. Finish editing or
+reconstructing the graph, reopen its tab if needed, and retry. A refusal must
+not partially apply the proposed layout. Use Native wires to isolate a
+drawing issue and include a minimal reproduction in a support report.
+
+A version/module error appears - use the package for the matching engine
+version and platform, remove duplicate installations, and compile source
+with that engine's supported toolchain. Do not copy Mac binaries to Windows.
+
+Support - https://github.com/ishtms/glooprint/issues
+Online documentation - https://github.com/ishtms/glooprint#readme
+
+Include the GlooPrint and UE versions, OS, graph type, wire style, display
+scale, reproduction steps, and a small sample or screenshot you can share.
+Do not include credentials or proprietary project content in a public issue.
+The source and this guide are included in the distribution. Changes to
+layout/routing source require recompiling the editor module. Edits to
+Blueprint logic are ordinary Unreal edits and do not require plugin changes.

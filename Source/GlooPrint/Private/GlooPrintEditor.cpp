@@ -1,3 +1,5 @@
+// Copyright 2026 Ishtmeet Singh. All Rights Reserved.
+
 #include "GlooPrintEditor.h"
 #include "GlooPrintMeasurementCache.h"
 #include "GlooPrintSettings.h"

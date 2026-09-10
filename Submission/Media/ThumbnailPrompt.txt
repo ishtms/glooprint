@@ -1,0 +1,13 @@
+Use case - ads-marketing
+Asset type - Fab marketplace thumbnail, landscape 1920 by 1080 pixels, 16 by 9, crisp readable typography.
+Create a GlooPrint edition of the first supplied marketing image, using it as the visual design reference. Replace all PocketBase content and lettering with GlooPrint content. Image 2 is the actual GlooPrint Blueprint graph to use as the background, not a style reference.
+Match the first image's bold condensed type, oversized orange product name, charcoal black background, fine graph grid, thin orange framing accents and warm orange light near the right edge. Make this look like a companion product from the same developer. Excellent thumbnail readability, with restrained detail and a strong clean hierarchy.
+Keep the second image's real connected Blueprint diagram as a dim but recognizable backdrop across the upper half and right. Preserve the actual node and wire arrangement when using it. Avoid invented editor controls, new node labels or fabricated before/after comparisons. Do not reuse any PocketBase nodes or words.
+Main title is the exact one-word name "GLOOPRINT" in enormous condensed orange capitals, positioned on the left around the middle of the canvas, with ample room for every letter.
+Below the title use a thin orange rule, then these exact two lines in clear tall condensed capitals
+"PRESS F."
+"TIDY YOUR BLUEPRINTS."
+Make PRESS F. white and the second line orange or soft white so both are easily readable.
+Bottom left small text exactly "FOR UNREAL ENGINE".
+Include one tasteful small dark keyboard key with the single letter "F" near the diagram on the right, no extra UI panels.
+Keep all text at least 70 pixels from image edges. No colon characters, no em dashes, no extra captions, no slogan beyond the specified text, no badges claiming validation or speed, no Epic or Unreal logo, no watermark. This is polished promotional cover art, while unchanged real screenshots will be used separately in the gallery. Output the finished image at 1920x1080 or larger 16 by 9 with both dimensions at least those values.
