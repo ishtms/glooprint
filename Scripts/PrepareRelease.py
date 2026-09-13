@@ -17,6 +17,9 @@ import subprocess
 import sys
 import zipfile
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "Tests"))
+from RunEditorTests import run as run_editor_tests
+
 
 def prepare(args):
     root = Path(__file__).resolve().parents[1]
@@ -32,6 +35,8 @@ def prepare(args):
 
     host = {"Darwin": "Mac", "Windows": "Win64"}.get(platform.system())
     engine = args.engine_root.expanduser().resolve() if args.engine_root else None
+    if args.run_editor_tests and not engine:
+        raise ValueError("--run-editor-tests requires --engine-root.")
     if engine:
         if not host:
             raise ValueError("Native release builds are supported on Windows and macOS only.")
@@ -56,7 +61,7 @@ def prepare(args):
                 raise ValueError("Release input must not be a symlink: " + str(path))
             if path.is_file() and path.suffix in allowed:
                 files.append(path)
-    descriptor = json.loads(files[0].read_text())
+    descriptor = json.loads(files[0].read_text(encoding="utf-8-sig"))
     for key in ("CreatedBy", "DocsURL", "SupportURL", "FabURL", "EngineVersion", "VersionName"):
         if not descriptor.get(key):
             raise ValueError("Missing descriptor field: " + key)
@@ -85,7 +90,7 @@ def prepare(args):
         if any(not re.fullmatch(r"[A-Za-z0-9_.]+", part) for part in relative.parts):
             raise ValueError("Unsupported release filename: " + str(relative))
         if relative.parts[0] == "Source":
-            first_line = path.read_text().splitlines()[0]
+            first_line = path.read_text(encoding="utf-8-sig").splitlines()[0]
             if "Copyright 2026 " + descriptor["CreatedBy"] not in first_line:
                 raise ValueError("Missing publisher copyright header: " + str(relative))
         manifest[archive_path] = hashlib.sha256(path.read_bytes()).hexdigest()
@@ -103,7 +108,7 @@ def prepare(args):
     record_path = output / "ReleaseRecord.json"
 
     def save_record():
-        record_path.write_text(json.dumps(record, indent=2) + "\n")
+        record_path.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
 
     save_record()
     if engine:
@@ -114,23 +119,60 @@ def prepare(args):
         record["build"] = {"status": "running", "platform": host, "engine": version, "command": command}
         save_record()
         print("Running installed-engine BuildPlugin; log: " + str(output / "Build.log"), flush=True)
-        with (output / "Build.log").open("w") as log:
-            result = subprocess.run(command, stdout=log, stderr=subprocess.STDOUT, check=False)
+        try:
+            with (output / "Build.log").open("w", encoding="utf-8") as log:
+                result = subprocess.run(command, stdout=log, stderr=subprocess.STDOUT, check=False)
+        except OSError as error:
+            record["build"].update(status="failed", error=str(error))
+            save_record()
+            raise
         record["build"]["exit_code"] = result.returncode
         record["build"]["status"] = "passed" if result.returncode == 0 else "failed"
         save_record()
         if result.returncode:
             raise RuntimeError("BuildPlugin failed. Read Build.log; no submission ZIP was produced.")
-        built = json.loads((package / "GlooPrint.uplugin").read_text())
+        built = json.loads((package / "GlooPrint.uplugin").read_text(encoding="utf-8-sig"))
         if built.get("FabURL") != descriptor["FabURL"]:
             # UE 5.8 UAT rewrites only recognized fields and drops FabURL.
             # Keep Fab's required metadata in the local test installation too.
             built["FabURL"] = descriptor["FabURL"]
-            (package / "GlooPrint.uplugin").write_text(json.dumps(built, indent=2) + "\n")
+            (package / "GlooPrint.uplugin").write_text(json.dumps(built, indent=2) + "\n", encoding="utf-8")
             record["build"]["descriptor_note"] = "Restored FabURL after UAT descriptor rewriting."
             save_record()
         if not (package / "Documentation/UserGuide.txt").is_file():
             raise RuntimeError("BuildPlugin omitted the customer guide. Check FilterPlugin.ini.")
+        if args.run_editor_tests:
+            test_output = output / "EditorTests"
+            record["editor_tests"] = {"status": "running", "evidence": "EditorTests/TestRecord.json"}
+            save_record()
+            test_args = argparse.Namespace(engine_root=engine, plugin=package, output=test_output,
+                                           tests="GlooPrint", test_filter="Engine", timeout=1800)
+            try:
+                test_result = run_editor_tests(test_args)
+            except (OSError, ValueError, KeyError) as error:
+                record["editor_tests"].update(status="failed", error=str(error))
+                save_record()
+                raise
+            record["editor_tests"]["status"] = "passed" if test_result == 0 else "failed"
+            save_record()
+            if test_result:
+                raise RuntimeError("Editor tests failed. Read EditorTests; no release ZIP was produced.")
+
+        binary_name = ("GlooPrint_" + descriptor["VersionName"].replace("-", "_") + "_UE" +
+                       "_".join(str(version[key]) for key in ("MajorVersion", "MinorVersion", "PatchVersion")) +
+                       "_" + host)
+        binary_archive = output / (binary_name + ".zip")
+        with zipfile.ZipFile(binary_archive, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as bundle:
+            for path in sorted(package.rglob("*")):
+                if path.is_file():
+                    bundle.write(path, "GlooPrint/" + path.relative_to(package).as_posix())
+        with zipfile.ZipFile(binary_archive) as bundle:
+            if bundle.testzip() is not None:
+                raise RuntimeError("Native package archive integrity check failed.")
+        record["native_archive"] = {"file": binary_archive.name,
+                                    "sha256": hashlib.sha256(binary_archive.read_bytes()).hexdigest(),
+                                    "bytes": binary_archive.stat().st_size}
+        save_record()
 
     archive = output / ("GlooPrint_" + descriptor["VersionName"].replace("-", "_") + "_UE5_8_Source.zip")
     with zipfile.ZipFile(archive, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as bundle:
@@ -147,13 +189,16 @@ def prepare(args):
     save_record()
     print("Source archive: " + str(archive))
     print("Release evidence: " + str(record_path))
-    print("Windows testing and Fab review are still required before publication.")
+    if engine:
+        print("Native archive: " + str(binary_archive))
+    print("ReleaseRecord.json distinguishes build/editor evidence from pending manual review.")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True, help="New output directory (never overwritten)")
     parser.add_argument("--engine-root", type=Path, help="Installed UE_5.8 root; runs a strict native packaging build")
+    parser.add_argument("--run-editor-tests", action="store_true", help="Require the native editor suite to pass before creating release ZIPs")
     arguments = parser.parse_args()
     try:
         prepare(arguments)

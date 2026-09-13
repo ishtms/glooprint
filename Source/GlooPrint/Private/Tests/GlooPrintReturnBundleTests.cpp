@@ -33,6 +33,7 @@ public:
             Settings->HorizontalSpacing = Original.HorizontalSpacing; Settings->VerticalSpacing = Original.VerticalSpacing;
             Settings->CommentPadding = Original.CommentPadding; Settings->WireStyle = OriginalStyle;
             Settings->bFormattingEnabled = bOriginalEnabled; Settings->NotifyChanged();
+            FSlateApplication::Get().SetCursorPos(OriginalCursor);
         }
     }
     virtual bool Update() override
@@ -43,6 +44,7 @@ public:
             auto* Settings = GetMutableDefault<UGlooPrintSettings>();
             Original = Settings->GetLayoutSettings(); OriginalStyle = Settings->WireStyle;
             bOriginalEnabled = Settings->bFormattingEnabled; bRestore = true;
+            OriginalCursor = Slate.GetCursorPos();
             Settings->HorizontalSpacing = 96; Settings->VerticalSpacing = 48; Settings->CommentPadding = 32;
             Settings->WireStyle = Style; Settings->bFormattingEnabled = true; Settings->NotifyChanged();
             Fixture = MakeUnique<FFixture>(AActor::StaticClass(), false);
@@ -178,13 +180,29 @@ public:
         {
             MoveMouseOverGraph(Test, Window.ToSharedRef(), *Panel,
                 Panel->GetCachedGeometry().LocalToAbsolute((HoverPoint - FVector2f(Panel->GetViewOffset())) * Panel->GetZoomAmount()));
+            HoverDeadline = FPlatformTime::Seconds() + 2; HoverRetries = 0;
             Phase = 5; Frames = 0; return false;
         }
         UEdGraphPin* A = nullptr; UEdGraphPin* B = nullptr;
         const auto& Pins = HoverPins[HoverIndex];
-        Test.TestTrue(FString::Printf(TEXT("Independent bundled wire %d hovers its exact original pin pair"), HoverIndex),
-            Panel->GetPreviousFrameSplineOverlap().GetPins(*Panel, A, B) &&
-            ((A == Pins.Key && B == Pins.Value) || (A == Pins.Value && B == Pins.Key)));
+        const bool bHovered = Panel->GetPreviousFrameSplineOverlap().GetPins(*Panel, A, B) &&
+            ((A == Pins.Key && B == Pins.Value) || (A == Pins.Value && B == Pins.Key));
+        if (!bHovered && FPlatformTime::Seconds() < HoverDeadline)
+        {
+            // Native cursor events and cached paint can settle after the first
+            // synthetic move following a window reopen or pan. Await a painted
+            // result at the requested position, with a bounded failure deadline.
+            MoveMouseOverGraph(Test, Window.ToSharedRef(), *Panel,
+                Panel->GetCachedGeometry().LocalToAbsolute((HoverPoint - FVector2f(Panel->GetViewOffset())) * Panel->GetZoomAmount()));
+            Panel->Invalidate(EInvalidateWidgetReason::Paint); ++HoverRetries;
+            Frames = 0; return false;
+        }
+        Test.TestTrue(FString::Printf(TEXT("Independent bundled wire %d hovers its exact original pin pair"), HoverIndex), bHovered);
+        if (HoverRetries > 0)
+        {
+            Test.AddInfo(FString::Printf(TEXT("Bundled hover %d: %d paint retries; ready=%d; cursor %s."),
+                HoverIndex, HoverRetries, bHovered, *Slate.GetCursorPos().ToString()));
+        }
         Test.TestEqual(TEXT("Pan, zoom and hover reuse cached bundle routing"), Cache->GetBuildCount(), Builds);
         CheckPaths(Cache->GetRoutes());
         if (HoverIndex == 1) { Capture(TEXT("Returns")); }
@@ -297,7 +315,9 @@ private:
     TArray<uint8> Before, BeforeValues, After;
     TMap<FString, FString> Properties;
     FVector2f HoverPoint;
-    double Deadline = 0;
+    double Deadline = 0, HoverDeadline = 0;
+    FVector2D OriginalCursor = FVector2D::ZeroVector;
+    int32 HoverRetries = 0;
     int32 Frames = 0, Phase = 0, HoverIndex = 0, Builds = 0, Queue = 0;
     bool bRestore = false, bOriginalEnabled = true, bLinksValid = true;
 };

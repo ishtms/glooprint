@@ -495,7 +495,7 @@ public:
                     }
                 }
             }
-            TArray<FColor> Pixels; FIntVector Size;
+            TArray<FColor> Pixels; FIntVector Size = FIntVector::ZeroValue;
             if ((Target == 0 || IsSpecializedTarget(Graph)) &&
                 Test.TestTrue(TEXT("Capture expanded native fixture"), Slate.TakeScreenshot(Editor.ToSharedRef(), Pixels, Size)))
             {

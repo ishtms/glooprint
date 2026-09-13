@@ -120,6 +120,7 @@ void ReportNodeDifferences(FAutomationTestBase& Test, const TMap<FString, FStrin
     const TMap<FGuid, TArray<uint8>>* BeforeBytes = nullptr);
 const FMeasuredNode& Find(const FGraphMeasurement& Measurement, const FGuid& Id);
 void Compare(FAutomationTestBase& Test, const FGraphMeasurement& A, const FGraphMeasurement& B);
+void ActivateEditorApplication();
 void MoveMouseOverGraph(FAutomationTestBase& Test, const TSharedRef<SWindow>& Window, SGraphPanel& Panel, FVector2f ScreenPosition);
 }
 #endif

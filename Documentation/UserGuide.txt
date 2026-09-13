@@ -1,5 +1,5 @@
 GLOOPRINT - USER GUIDE
-Release candidate 1.0.0-rc1 | Unreal Engine 5.8
+Release candidate 1.0.0-rc2 | Unreal Engine 5.8
 Copyright 2026 Ishtmeet Singh. All Rights Reserved.
 
 GET STARTED
@@ -12,13 +12,21 @@ can undo a changed layout in one step.
 
 INSTALLATION
 
+Download the packaged assets from https://github.com/ishtms/glooprint/releases.
+For Windows with UE 5.8.2, choose the Win64.zip asset. Close the editor and
+extract its GlooPrint folder into YourProject/Plugins. The descriptor must be
+YourProject/Plugins/GlooPrint/GlooPrint.uplugin. Open the project, enable
+GlooPrint under Edit > Plugins, and restart if prompted. Use the binary with
+the matching engine build listed in the release notes.
+
 For a Fab installation, install GlooPrint to your supported engine version
 through the Epic Games Launcher library. Open your project, find GlooPrint in
 Edit > Plugins, enable it, and restart the editor if prompted. Do not keep both
 an engine installation and a project installation of GlooPrint.
 
-For a source installation or release-candidate test, close your project and
-place the GlooPrint folder inside YourProject/Plugins. The descriptor must be
+For macOS or a source installation, choose the Source.zip release asset,
+close your project, and place its GlooPrint folder inside YourProject/Plugins.
+The descriptor must be
 YourProject/Plugins/GlooPrint/GlooPrint.uplugin, with Source beside it. Compile
 with the matching Unreal Engine 5.8 C++ toolchain, then open the project and
 enable the plugin. A source ZIP contains no prebuilt DLL or dylib; it is not a
@@ -66,7 +74,9 @@ Horizontal Spacing - 96 graph units by default (range 16-2048).
 Vertical Spacing - 48 graph units by default (range 16-2048).
 Comment Padding - 32 graph units by default (range 8-512).
 
-Spacing applies when you next format. Wire-style changes refresh drawing.
+Spacing applies when you next format. Layout uses native dimensions at 1:1
+graph zoom so zooming does not change the saved arrangement.
+
 Native uses Unreal's spline rendering. To disable both GlooPrint behaviors,
 turn formatting off and choose Native, or disable the plugin and restart.
 
@@ -102,10 +112,11 @@ machines, Materials, Niagara, Control Rig, behavior trees and other graph
 schemas are outside this release's scope. Third-party custom node widgets
 are not universally supported.
 
-The launch target is UE 5.8 on Windows 64-bit and macOS. Windows release
-verification is pending for this candidate. Local development validation uses
-UE 5.8.1 on Apple Silicon. A universal macOS compile is not proof of runtime
-testing on Intel hardware. Do not infer Linux or other UE-version support.
+The launch target is UE 5.8 on Windows 64-bit and macOS. Windows validation
+uses UE 5.8.2 and the native MSVC toolchain; the GitHub release notes
+record the tested scope. Earlier Mac validation used
+UE 5.8.2 on Apple Silicon with a universal compile. Do not infer Linux or
+other UE-version support.
 
 GlooPrint has one editor-only module and no runtime module, network service,
 external account requirement, subscription or third-party plugin dependency.

@@ -205,6 +205,18 @@ private:
     void CheckPaintedBounds()
     {
         auto* Panel = Editor->GetGraphPanel();
+        // Layout is deliberately independent of viewport zoom. Font hinting can
+        // change native widget sizes at fractional zoom (notably on Windows).
+        // Check requested padding in layout space, and painted containment using
+        // the actual zoomed widgets. Neither check may change the saved layout.
+        FGraphMeasurement LayoutMeasurement; FString LayoutReason;
+        const auto BeforeMeasurement = SerializeNodes(*Fixture->Graph);
+        if (!Test.TestTrue(TEXT("Measure comment padding at the formatter's display scale"), MeasureGraph(Fixture->Graph,
+            Window->GetDPIScaleFactor() * FSlateApplication::Get().GetApplicationScale(), LayoutMeasurement, LayoutReason)))
+        {
+            Test.AddError(LayoutReason); return;
+        }
+        Test.TestTrue(TEXT("Comment bounds verification preserves serialized graph values"), BeforeMeasurement == SerializeNodes(*Fixture->Graph));
         for (auto* C : Comments)
         {
             const auto Native = Panel->GetNodeWidgetFromGuid(C->NodeGuid);
@@ -222,10 +234,17 @@ private:
             {
                 const auto Child = Panel->GetNodeWidgetFromGuid(Member->NodeGuid);
                 const FVector2f Size(Child->GetDesiredSize());
-                Test.TestTrue(TEXT("Nested direct members clear the painted header and all padded edges"),
-                    Member->NodePosX >= C->NodePosX + 31.5f && Member->NodePosY >= Title.Bottom + 31.5f &&
-                    Member->NodePosX + Size.X <= C->NodePosX + C->NodeWidth - 31.5f &&
-                    Member->NodePosY + Size.Y <= C->NodePosY + C->NodeHeight - 31.5f);
+                const auto& LayoutMember = Find(LayoutMeasurement, Member->NodeGuid);
+                const auto& LayoutComment = Find(LayoutMeasurement, C->NodeGuid);
+                Test.TestTrue(TEXT("Nested direct members retain requested padding at the layout scale"),
+                    Member->NodePosX >= C->NodePosX + 31.5f &&
+                    Member->NodePosY >= C->NodePosY + LayoutComment.CommentHeader.GetValue().Max.Y + 31.5f &&
+                    Member->NodePosX + LayoutMember.BodySize.X <= C->NodePosX + C->NodeWidth - 31.5f &&
+                    Member->NodePosY + LayoutMember.BodySize.Y <= C->NodePosY + C->NodeHeight - 31.5f);
+                Test.TestTrue(TEXT("Zoomed native members remain inside the painted comment and below its header"),
+                    Member->NodePosX > C->NodePosX && Member->NodePosY > Title.Bottom &&
+                    Member->NodePosX + Size.X < C->NodePosX + C->NodeWidth &&
+                    Member->NodePosY + Size.Y < C->NodePosY + C->NodeHeight);
             }
         }
         for (int32 I = 0; I < Fixture->Graph->Nodes.Num(); ++I)

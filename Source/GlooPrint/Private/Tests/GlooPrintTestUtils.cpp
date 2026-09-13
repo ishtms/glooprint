@@ -3,6 +3,7 @@
 #if WITH_DEV_AUTOMATION_TESTS
 #include "GlooPrintTestUtils.h"
 #include "Framework/Application/SlateApplication.h"
+#include "HAL/PlatformApplicationMisc.h"
 #include "Input/HittestGrid.h"
 #include "SGraphPanel.h"
 #include "Serialization/ObjectWriter.h"
@@ -11,6 +12,30 @@
 
 namespace GlooPrint::Tests
 {
+void ActivateEditorApplication()
+{
+#if PLATFORM_MAC
+    // macOS exposes application activation separately from raising a window.
+    FPlatformApplicationMisc::ActivateApplication();
+#else
+    auto& Slate = FSlateApplication::Get();
+    if (const auto Window = Slate.GetActiveTopLevelWindow())
+    {
+        Window->ShowWindow();
+        // On Windows BringToFront activates a regular window only within this
+        // process. Native pointer tests require OS foreground ownership too.
+        Window->HACK_ForceToFront();
+    }
+    else
+    {
+        for (const auto& Candidate : Slate.GetInteractiveTopLevelWindows())
+        {
+            if (Candidate->IsVisible()) { Candidate->HACK_ForceToFront(); break; }
+        }
+    }
+#endif
+}
+
 void MoveMouseOverGraph(FAutomationTestBase& Test, const TSharedRef<SWindow>& Window, SGraphPanel& Panel, FVector2f ScreenPosition)
 {
     auto& Slate = FSlateApplication::Get();
