@@ -1,6 +1,8 @@
 // Copyright 2026 Ishtmeet Singh. All Rights Reserved.
 
 #include "GlooPrintGraph.h"
+#include "GlooPrintGraphAdapter.h"
+#include "GlooPrintMeasurementCache.h"
 
 #include "EdGraph/EdGraph.h"
 #include "EdGraphNode_Comment.h"
@@ -22,18 +24,8 @@ bool CanFormatGraph(UEdGraph* Graph, FString& OutReason)
         OutReason = TEXT("Formatting requires a live graph on the editor thread.");
         return false;
     }
-    if (!Graph->GetSchema() || Graph->GetSchema()->GetClass() != UEdGraphSchema_K2::StaticClass())
-    {
-        OutReason = TEXT("Format Graph supports ordinary Blueprint K2 graphs.");
-        return false;
-    }
-    UBlueprint* Blueprint = FBlueprintEditorUtils::FindBlueprintForGraph(Graph);
-    if (!IsValid(Blueprint) || Blueprint->bBeingCompiled || Blueprint->bIsRegeneratingOnLoad)
-    {
-        OutReason = TEXT("The Blueprint is unavailable or is being compiled/reconstructed.");
-        return false;
-    }
-    if (FBlueprintEditorUtils::IsGraphReadOnly(Graph) || GEditor->PlayWorld || GEditor->bIsSimulatingInEditor)
+    if (!ValidateGraphOwner(Graph, OutReason)) { return false; }
+    if (IsGraphReadOnly(Graph) || GEditor->PlayWorld || GEditor->bIsSimulatingInEditor)
     {
         OutReason = TEXT("Formatting is unavailable in a read-only graph or during play/simulation.");
         return false;
@@ -74,8 +66,9 @@ static bool BuildSnapshot(UEdGraph* Graph, FGraphMeasurement Measurement, const 
         Item.FirstPin = Result.Pins.Num();
         Item.PinCount = Node->Pins.Num();
         Item.bComment = Node->IsA<UEdGraphNode_Comment>();
-        Item.bReroute = Node->IsA<UK2Node_Knot>();
+        Item.bReroute = IsRerouteNode(*Node);
         Item.OriginalSize = FIntPoint(Node->NodeWidth, Node->NodeHeight);
+        if (GetGraphFamily(Graph) == EGraphFamily::Material) { Item.BackingState = CaptureMeasurementState(*Node); }
         bool bExecutionInput = false;
         bool bExecutionOutput = false;
         for (int32 Ordinal = 0; Ordinal < Node->Pins.Num(); ++Ordinal)
@@ -86,9 +79,7 @@ static bool BuildSnapshot(UEdGraph* Graph, FGraphMeasurement Measurement, const 
             Value.Node = NodeIndex;
             Value.Ordinal = Ordinal;
             Value.bOutput = Pin->Direction == EGPD_Output;
-            Value.Kind = Pin->PinType.PinCategory == UEdGraphSchema_K2::PC_Exec ? ELinkKind::Execution :
-                (Pin->PinType.PinCategory == UEdGraphSchema_K2::PC_Delegate ||
-                    Pin->PinType.PinCategory == UEdGraphSchema_K2::PC_MCDelegate ? ELinkKind::Delegate : ELinkKind::Data);
+            Value.Kind = GetLinkKind(*Pin);
             Value.Offset = Item.Geometry.Pins[Ordinal].AttachmentOffset;
             bExecutionInput |= Value.Kind == ELinkKind::Execution && !Value.bOutput;
             bExecutionOutput |= Value.Kind == ELinkKind::Execution && Value.bOutput;
@@ -105,10 +96,9 @@ static bool BuildSnapshot(UEdGraph* Graph, FGraphMeasurement Measurement, const 
         {
             const int32* Other = PinIndices.Find(Linked);
             if (!Other || Result.Pins[Index].bOutput == Result.Pins[*Other].bOutput ||
-                Result.Pins[Index].Kind != Result.Pins[*Other].Kind ||
-                !Result.Pins[Index].Offset.IsSet() || !Result.Pins[*Other].Offset.IsSet())
+                Result.Pins[Index].Kind != Result.Pins[*Other].Kind)
             {
-                OutReason = TEXT("A connection has a missing, incompatible, external, or unmeasured endpoint.");
+                OutReason = TEXT("A connection has a missing, incompatible, or external endpoint.");
                 return false;
             }
             const uint64 Key = (uint64(uint32(Index)) << 32) | uint32(*Other);
@@ -132,7 +122,15 @@ static bool BuildSnapshot(UEdGraph* Graph, FGraphMeasurement Measurement, const 
         }
         if (Result.Pins[From].bOutput)
         {
-            Result.Edges.Add({From, To, Result.Pins[From].Kind});
+            Result.Connections.Add({From, To, Result.Pins[From].Kind});
+            if (Result.Pins[From].Offset.IsSet() && Result.Pins[To].Offset.IsSet())
+            {
+                Result.Edges.Add({From, To, Result.Pins[From].Kind});
+            }
+            else if (GetGraphFamily(Graph) != EGraphFamily::Material)
+            {
+                OutReason = TEXT("A connection has an unmeasured endpoint."); return false;
+            }
         }
     }
     Result.Edges.Sort([](const FLayoutEdge& A, const FLayoutEdge& B)
@@ -144,6 +142,20 @@ static bool BuildSnapshot(UEdGraph* Graph, FGraphMeasurement Measurement, const 
         const FLayoutEdge& Edge = Result.Edges[Index];
         Result.Nodes[Result.Pins[Edge.From].Node].Outgoing.Add(Index);
         Result.Nodes[Result.Pins[Edge.To].Node].Incoming.Add(Index);
+    }
+    if (GetGraphFamily(Graph) == EGraphFamily::Material)
+    {
+        TOptional<int32> Priority;
+        for (int32 Index = 0; Index < Result.Nodes.Num(); ++Index)
+        {
+            const auto& Node = Result.Nodes[Index];
+            if (!Node.bComment && Selection.Contains(Node.Geometry.Id)) { Result.Anchor = Index; break; }
+            const auto Candidate = GetDefaultAnchorPriority(*NodesById.FindChecked(Node.Geometry.Id));
+            if (Candidate && (!Priority || Candidate.GetValue() < Priority.GetValue()))
+            {
+                Priority = Candidate; Result.Anchor = Index;
+            }
+        }
     }
     for (int32 Pass = 0; Pass < 4 && Result.Anchor == INDEX_NONE; ++Pass)
     {

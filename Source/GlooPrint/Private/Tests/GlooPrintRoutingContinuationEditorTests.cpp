@@ -486,7 +486,7 @@ private:
                 const auto Widget = Widgets[I];
                 if (!Widget->GetVisibility().IsVisible()) { continue; }
                 if (Widget->GetType() == TEXT("STextBlock") &&
-                    StaticCastSharedRef<STextBlock>(Widget)->GetText().ToString() == TEXT("Formatting Blueprint graph…"))
+                    StaticCastSharedRef<STextBlock>(Widget)->GetText().ToString() == TEXT("Formatting graph…"))
                 {
                     ++Found.Count; Found.Window = Candidate;
                     auto Parent = Widget->GetParentWidget();

@@ -4,7 +4,7 @@ Copyright 2026 Ishtmeet Singh. All Rights Reserved.
 
 GET STARTED
 
-GlooPrint tidies up your Blueprint graph when you press F. Select a node first
+GlooPrint tidies up your Blueprint or Material graph when you press F. Select a node first
 if you'd like it to stay put, then move the pointer over the graph and press F.
 The whole active graph gets formatted, including groups that aren't connected.
 Your camera, zoom and selection stay put. Other graphs are left alone, and you
@@ -108,10 +108,18 @@ disable competing graph formatters/wire overrides when diagnosing conflicts.
 
 SUPPORTED SCOPE
 
+Materials, Material Functions, Material Layers and Layer Blends are supported,
+including opened composite subgraphs, ordinary and named reroutes, material
+attributes and Substrate nodes. Only the active graph is formatted. Referenced
+functions and unopened subgraphs keep their layouts. Without a selection, the
+material result or first function output is the anchor. Use the Material Editor's
+normal Apply and Save workflow; formatting does not recompile shaders. Instances
+retain their native parameter editors; open their parent to format the graph.
+
 Standard K2 Blueprint graphs - Event Graphs, functions, macros, Construction
 Scripts, opened collapsed graphs, and pure-data graphs. An Animation
 Blueprint's ordinary Event Graph is included. Animation pose graphs, state
-machines, Materials, Niagara, Control Rig, behavior trees and other graph
+machines, Niagara, Control Rig, behavior trees and other graph
 schemas are outside this release's scope. Third-party custom node widgets
 are not universally supported.
 
@@ -119,11 +127,14 @@ The launch target is UE 5.8 on Windows 64-bit and macOS. Windows validation
 uses UE 5.8.2 and the native MSVC toolchain; the GitHub release notes
 record the tested scope. Earlier Mac validation used
 UE 5.8.2 on Apple Silicon with a universal compile. Do not infer Linux or
-other UE-version support.
+other UE-version support. The new Material graph integration has not yet
+completed the Mac build/editor checks. Its Windows measurements and remaining
+acceptance gaps are recorded in Tests/Results/Materials/Validation.md in the
+source repository; the 300-node cold-format target is not yet met.
 
 GlooPrint has one editor-only module and no runtime module, network service,
 external account requirement, subscription or third-party plugin dependency.
-Formatted Blueprints use native nodes and remain usable without GlooPrint;
+Formatted Blueprints and Materials use native nodes and remain usable without GlooPrint;
 custom wire appearance returns to Unreal's native rendering when disabled.
 
 TROUBLESHOOTING AND SUPPORT

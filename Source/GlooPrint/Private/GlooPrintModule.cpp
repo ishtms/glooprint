@@ -33,12 +33,13 @@ public:
             Editor->Initialize();
             WireDrawing = MakeShared<GlooPrint::FWireDrawing>();
             FEdGraphUtilities::RegisterVisualPinConnectionFactory(WireDrawing);
+            WireDrawing->InitializeMaterialPanels();
             auto* Settings = GetMutableDefault<UGlooPrintSettings>();
             SettingsObject = Settings;
             SettingsChangedHandle = Settings->OnChanged.AddRaw(this, &FGlooPrintModule::OnSettingsChanged);
             SettingsSection = FModuleManager::LoadModuleChecked<ISettingsModule>(TEXT("Settings")).RegisterSettings(
                 TEXT("Editor"), TEXT("Plugins"), TEXT("GlooPrint"), NSLOCTEXT("GlooPrint", "SettingsName", "GlooPrint"),
-                NSLOCTEXT("GlooPrint", "SettingsDescription", "Format Blueprint graphs and choose their wire style."), Settings);
+                NSLOCTEXT("GlooPrint", "SettingsDescription", "Format Blueprint and Material graphs and choose their wire style."), Settings);
             if (const auto Section = SettingsSection.Pin())
             {
                 Section->OnModified().BindUObject(Settings, &UGlooPrintSettings::NotifyChanged);

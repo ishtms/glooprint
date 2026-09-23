@@ -12,6 +12,8 @@ struct FEdGraphEditAction;
 struct FPropertyChangedEvent;
 class FTransactionObjectEvent;
 class FSlateFontCache;
+class SWidget;
+class FGraphNodeFactory;
 
 namespace GlooPrint
 {
@@ -29,6 +31,8 @@ public:
     bool IsReady() const { return bReady; }
     int32 GetBuildCount() const { return BuildCount; }
     int32 GetReusedPlanCount() const { return ReusedPlanCount; }
+    double GetCompletedAt() const { return CompletedAt; }
+    const TArray<double>& GetWorkSlices() const { return WorkSlices; }
     bool HasPendingRouting() const { return Capture.IsValid() || Routing.IsValid() || Planned.IsSet(); }
     UEdGraph* GetGraph() const { return Graph.Get(); }
     TSharedPtr<SGraphPanel> GetPanel() const { return Panel.Pin(); }
@@ -70,6 +74,8 @@ private:
     int32 AttemptsLeft = 3;
     int32 BuildCount = 0;
     int32 ReusedPlanCount = 0;
+    double CompletedAt = 0;
+    TArray<double> WorkSlices;
     bool bReady = false;
     bool bStopped = false;
 };
@@ -78,6 +84,7 @@ class FWireDrawing final : public FGraphPanelPinConnectionFactory
 {
 public:
     FWireDrawing();
+    void InitializeMaterialPanels();
     virtual FConnectionDrawingPolicy* CreateConnectionPolicy(const UEdGraphSchema* Schema,
         int32 BackLayer, int32 FrontLayer, float Zoom, const FSlateRect& Clip,
         FSlateWindowElementList& Elements, UEdGraph* Graph) const override;
@@ -86,6 +93,16 @@ public:
     void OnSettingsChanged();
 
 private:
+    void AttachMaterialPanels(const TSharedRef<SWidget>& Root);
+    void DiscoverMaterialPanels(float DeltaTime);
+    struct FMaterialPanelRegistration
+    {
+        TWeakPtr<SGraphPanel> Panel;
+        TWeakPtr<FGraphNodeFactory> Factory;
+    };
+    TArray<FMaterialPanelRegistration> MaterialPanels;
+    FDelegateHandle MaterialPanelsHandle;
+    double NextPanelDiscovery = 0;
     mutable TArray<TWeakPtr<FRouteCache>> Caches;
     EGlooPrintWireStyle WireStyle;
     bool bStopped = false;

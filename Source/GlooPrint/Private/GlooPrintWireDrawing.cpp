@@ -2,6 +2,8 @@
 
 #include "GlooPrintWireDrawing.h"
 #include "GlooPrintMeasurementCache.h"
+#include "GlooPrintGraphAdapter.h"
+#include "GlooPrintMaterialDrawing.h"
 #include "GlooPrintSettings.h"
 
 #include "BlueprintConnectionDrawingPolicy.h"
@@ -9,8 +11,10 @@
 #include "EdGraphSchema_K2.h"
 #include "Fonts/FontCache.h"
 #include "Framework/Application/SlateApplication.h"
+#include "GraphEditor.h"
 #include "Internationalization/TextLocalizationManager.h"
 #include "Layout/ArrangedChildren.h"
+#include "NodeFactory.h"
 #include "ProfilingDebugging/CpuProfilerTrace.h"
 #include "Rendering/DrawElementTypes.h"
 #include "Rendering/SlateRenderer.h"
@@ -86,6 +90,7 @@ void FRouteCache::Invalidate(bool bContextChanged)
     // connections can keep their last corridor until the replacement is ready.
     if (bContextChanged) { Routes = {}; }
     bReady = false; Capture.Reset(); Routing.Reset(); Planned.Reset(); ++Revision; AttemptsLeft = 3;
+    CompletedAt = 0; WorkSlices.Reset();
     WireStyle = GetDefault<UGlooPrintSettings>()->GetWireStyle();
     if (WireStyle == EGlooPrintWireStyle::Native)
     {
@@ -112,14 +117,15 @@ void FRouteCache::StagePlannedRoutes(FLayoutGraph Source, FRouteSet PlannedRoute
     Schedule();
 }
 
-static bool SameRoutingInputs(const FLayoutGraph& A, const FLayoutGraph& B)
+static bool SameRoutingInputs(const FLayoutGraph& A, const FLayoutGraph& B, bool bMaterial)
 {
     if (A.Nodes.Num() != B.Nodes.Num() || A.Pins.Num() != B.Pins.Num() || A.Edges.Num() != B.Edges.Num()) { return false; }
     for (int32 I = 0; I < A.Nodes.Num(); ++I)
     {
         const auto& X = A.Nodes[I]; const auto& Y = B.Nodes[I];
         if (X.Geometry.Id != Y.Geometry.Id || X.Geometry.Position != Y.Geometry.Position ||
-            X.Geometry.BodySize != Y.Geometry.BodySize || X.Geometry.VisualBounds != Y.Geometry.VisualBounds ||
+            X.Geometry.BodySize != Y.Geometry.BodySize ||
+            ((!bMaterial || !X.bComment) && X.Geometry.VisualBounds != Y.Geometry.VisualBounds) ||
             X.Geometry.CommentHeader != Y.Geometry.CommentHeader || X.bComment != Y.bComment ||
             X.bReroute != Y.bReroute || X.FirstPin != Y.FirstPin || X.PinCount != Y.PinCount) { return false; }
     }
@@ -139,11 +145,13 @@ static bool SameRoutingInputs(const FLayoutGraph& A, const FLayoutGraph& B)
 
 void FRouteCache::OnPostTick(float DeltaTime)
 {
+    const double Started = FPlatformTime::Seconds();
     if (!Rebuild(DeltaTime))
     {
         FSlateApplication::Get().OnPostTick().Remove(RebuildHandle);
         RebuildHandle.Reset();
     }
+    WorkSlices.Add((FPlatformTime::Seconds() - Started) * 1000);
 }
 
 bool FRouteCache::Rebuild(float DeltaTime)
@@ -185,7 +193,7 @@ bool FRouteCache::Rebuild(float DeltaTime)
         const uint64 RequestRevision = RoutingRevision;
         const uint64 RequestMeasurementRevision = MeasurementRevision;
         auto Job = MoveTemp(Capture);
-        const bool bFinished = Job->Advance(Started + 0.008);
+        const bool bFinished = Job->Advance(Started + 0.004);
         if (bStopped) { return false; }
         if (Revision != RequestRevision) { return true; }
         const auto CurrentMeasurements = Measurements.Pin();
@@ -196,14 +204,19 @@ bool FRouteCache::Rebuild(float DeltaTime)
         bool bRetry = false;
         if (!Job->TakeResult(Snapshot, Reason, &bRetry))
         {
+            if (GetGraphFamily(Graph.Get()) == EGraphFamily::Material) { UE_LOG(LogTemp, Verbose, TEXT("Material route capture: %s"), *Reason); }
             if (bRetry && AttemptsLeft-- > 0) { return true; }
             Planned.Reset();
             Owner->Invalidate(EInvalidateWidgetReason::Paint);
             return false;
         }
-        if (Planned && SameRoutingInputs(Snapshot, Planned->Source))
+        // Resized material comments get newly measured decorative bounds. Routes
+        // use their body size and measured header, both validated above, rather
+        // than those decorative bounds. Retain the completed plan in this case.
+        if (Planned && SameRoutingInputs(Snapshot, Planned->Source, GetGraphFamily(Graph.Get()) == EGraphFamily::Material))
         {
             Routes = MoveTemp(Planned->Routes); Planned.Reset(); bReady = true; ++ReusedPlanCount;
+            CompletedAt = FPlatformTime::Seconds();
             Owner->Invalidate(EInvalidateWidgetReason::Paint);
             return false;
         }
@@ -217,7 +230,8 @@ bool FRouteCache::Rebuild(float DeltaTime)
     if (Revision != JobRevision) { return true; }
     if (!bFinished) { Routing = MoveTemp(Job); return true; }
     FRouteSet Result;
-    if (Job->TakeResult(Result, Reason)) { Routes = MoveTemp(Result); bReady = true; }
+    if (Job->TakeResult(Result, Reason)) { Routes = MoveTemp(Result); bReady = true; CompletedAt = FPlatformTime::Seconds(); }
+    else if (GetGraphFamily(Graph.Get()) == EGraphFamily::Material) { UE_LOG(LogTemp, Verbose, TEXT("Material route build: %s"), *Reason); }
     Owner->Invalidate(EInvalidateWidgetReason::Paint);
     return false;
 }
@@ -226,15 +240,14 @@ void FRouteCache::OnGraphChanged(const FEdGraphEditAction& Action) { Invalidate(
 void FRouteCache::OnModified(UObject* Object)
 {
     UEdGraph* LiveGraph = Graph.Get();
-    if (Object && LiveGraph && (Object == LiveGraph || Object->IsIn(LiveGraph) || LiveGraph->IsIn(Object)))
+    if (IsObjectRelevantToGraph(Object, LiveGraph))
     {
-        Invalidate(!Object->IsA<UEdGraphNode>());
+        Invalidate(false);
     }
 }
 void FRouteCache::OnPropertyChanged(UObject* Object, FPropertyChangedEvent& Event)
 {
-    if (const auto Cache = Measurements.Pin()) { Cache->Invalidate(); }
-    OnModified(Object);
+    if (IsObjectRelevantToGraph(Object, Graph.Get())) { Invalidate(GetGraphFamily(Graph.Get()) != EGraphFamily::Material); }
 }
 void FRouteCache::OnTransacted(UObject* Object, const FTransactionObjectEvent& Event) { OnModified(Object); }
 void FRouteCache::OnSlateInvalidated(bool bClearResources) { Invalidate(); }
@@ -242,12 +255,24 @@ void FRouteCache::OnFontsReleased(const FSlateFontCache& Fonts) { Invalidate(); 
 
 namespace
 {
-class FRouteDrawingPolicy final : public FKismetConnectionDrawingPolicy
+template<typename TNativePolicy>
+class TRouteDrawingPolicy final : public TNativePolicy
 {
 public:
-    FRouteDrawingPolicy(int32 BackLayer, int32 FrontLayer, float Zoom, const FSlateRect& Clip,
+    using TNativePolicy::ZoomFactor;
+    using TNativePolicy::ClippingRect;
+    using TNativePolicy::AbsoluteMousePosition;
+    using TNativePolicy::SplineOverlapResult;
+    using TNativePolicy::ConnectionsIntersectingSliceLine;
+    using TNativePolicy::MidpointImage;
+    using TNativePolicy::BubbleImage;
+    using TNativePolicy::DrawElementsList;
+    using TNativePolicy::MidpointRadius;
+    using TNativePolicy::CheckSplineConnectionOverlapWithCursor;
+    using FSimpleConnectionData = typename TNativePolicy::FSimpleConnectionData;
+    TRouteDrawingPolicy(int32 BackLayer, int32 FrontLayer, float Zoom, const FSlateRect& Clip,
         FSlateWindowElementList& Elements, UEdGraph* Graph, TWeakPtr<const FWireDrawing> InFactory)
-        : FKismetConnectionDrawingPolicy(BackLayer, FrontLayer, Zoom, Clip, Elements, Graph), Factory(InFactory) {}
+        : TNativePolicy(BackLayer, FrontLayer, Zoom, Clip, Elements, Graph), Factory(InFactory) {}
 
     virtual void Draw(TMap<TSharedRef<SWidget>, FArrangedWidget>& Geometries, FArrangedChildren& Nodes) override
     {
@@ -265,19 +290,19 @@ public:
                 if (Cache) { Cache->ObserveContext(); }
             }
         }
-        FKismetConnectionDrawingPolicy::Draw(Geometries, Nodes);
+        TNativePolicy::Draw(Geometries, Nodes);
     }
 
     virtual bool IsConnectionCulled(const FArrangedWidget& Start, const FArrangedWidget& End) const override
     {
-        return Cache && !Cache->GetRoutes().Wires.IsEmpty() ? false : FKismetConnectionDrawingPolicy::IsConnectionCulled(Start, End);
+        return Cache && !Cache->GetRoutes().Wires.IsEmpty() ? false : TNativePolicy::IsConnectionCulled(Start, End);
     }
 
     virtual void DrawSplineWithArrow(const FGeometry& Start, const FGeometry& End, const FConnectionParams& Params) override
     {
         const TGuardValue<bool> StartGuard(bSynthesizedStart, Start.GetLocalSize().IsZero());
         const TGuardValue<bool> EndGuard(bSynthesizedEnd, End.GetLocalSize().IsZero());
-        FKismetConnectionDrawingPolicy::DrawSplineWithArrow(Start, End, Params);
+        TNativePolicy::DrawSplineWithArrow(Start, End, Params);
     }
 
     virtual void DrawConnection(int32 Layer, const FVector2f& Start, const FVector2f& End, const FConnectionParams& Params) override
@@ -285,7 +310,7 @@ public:
         const auto Owner = Panel.Pin();
         const FWireRoute* Route = nullptr;
         const bool bOriginalConnection = Owner && Cache && Params.AssociatedPin1 && Params.AssociatedPin2 &&
-            Params.StartDirection == EGPD_Output && Params.EndDirection == EGPD_Input;
+            Params.AssociatedPin1->Direction == EGPD_Output && Params.AssociatedPin2->Direction == EGPD_Input;
         if (bOriginalConnection)
         {
             const FRouteKey Key{Params.AssociatedPin1->GetOwningNode()->NodeGuid, Params.AssociatedPin1->PinId,
@@ -295,7 +320,7 @@ public:
         if (!bOriginalConnection)
         {
             AddHitPiece(Start, End, Params);
-            FKismetConnectionDrawingPolicy::DrawConnection(Layer, Start, End, Params); return;
+            TNativePolicy::DrawConnection(Layer, Start, End, Params); return;
         }
         const float Scale = ZoomFactor;
         const auto Transform = [this](FVector2f P)
@@ -352,7 +377,7 @@ public:
             if (Index == Route->Curves.Num() - 1) { B.X += 4; }
             if (Index == 0 || Index == Route->Curves.Num() - 1) { Piece.StartTangent = Piece.EndTangent = FVector2f(B.X - A.X, 0); }
             AddHitPiece(A, B, Piece);
-            FKismetConnectionDrawingPolicy::DrawConnection(Layer, A, B, Piece);
+            TNativePolicy::DrawConnection(Layer, A, B, Piece);
         }
         MidpointImage = SavedMidpoint;
         CorrectPinDistances(SplineOverlapResult, BeforeDistance, Params, Transform(PinStart), Transform(PinEnd), AbsoluteMousePosition);
@@ -417,7 +442,7 @@ public:
         TSet<FEdGraphPinReference> Hovered;
         if (A && A->GetPinObj()) { Hovered.Add(A->GetPinObj()); }
         if (B && B->GetPinObj()) { Hovered.Add(B->GetPinObj()); }
-        return FKismetConnectionDrawingPolicy::HaveConnectionsGraphicallyChanged(GraphPanel, Hovered);
+        return TNativePolicy::HaveConnectionsGraphicallyChanged(GraphPanel, Hovered);
     }
 
 private:
@@ -450,6 +475,72 @@ private:
 
 FWireDrawing::FWireDrawing() : WireStyle(GetDefault<UGlooPrintSettings>()->GetWireStyle()) {}
 
+namespace
+{
+class FMaterialPanelFactory final : public FGraphNodeFactory
+{
+public:
+    explicit FMaterialPanelFactory(TWeakPtr<const FWireDrawing> InOwner) : Owner(InOwner) {}
+    virtual FConnectionDrawingPolicy* CreateConnectionPolicy(const UEdGraphSchema* Schema,
+        int32 Back, int32 Front, float Zoom, const FSlateRect& Clip, FSlateWindowElementList& Elements, UEdGraph* Graph) override
+    {
+        if (GetGraphFamily(Graph) == EGraphFamily::Material)
+        {
+            if (const auto Factory = Owner.Pin())
+            {
+                if (auto* Policy = Factory->CreateConnectionPolicy(Schema, Back, Front, Zoom, Clip, Elements, Graph)) { return Policy; }
+            }
+        }
+        return FGraphNodeFactory::CreateConnectionPolicy(Schema, Back, Front, Zoom, Clip, Elements, Graph);
+    }
+private:
+    TWeakPtr<const FWireDrawing> Owner;
+};
+}
+
+void FWireDrawing::InitializeMaterialPanels()
+{
+    const auto Self = StaticCastSharedRef<FWireDrawing>(AsShared());
+    MaterialPanelsHandle = FSlateApplication::Get().OnPostTick().AddSP(Self, &FWireDrawing::DiscoverMaterialPanels);
+    DiscoverMaterialPanels(0);
+}
+
+void FWireDrawing::AttachMaterialPanels(const TSharedRef<SWidget>& Root)
+{
+    if (Root->GetType() == TEXT("SGraphEditor"))
+    {
+        // SGraphEditor wraps its implementation; its ordinary Slate children
+        // do not expose the graph panel in every editor hosting mode.
+        if (auto* Panel = StaticCastSharedRef<SGraphEditor>(Root)->GetGraphPanel()) { AttachMaterialPanels(Panel->AsShared()); }
+        return;
+    }
+    if (Root->GetType() == TEXT("SGraphPanel"))
+    {
+        const auto Panel = StaticCastSharedRef<SGraphPanel>(Root);
+        if (GetGraphFamily(Panel->GetGraphObj()) == EGraphFamily::Material &&
+            !MaterialPanels.ContainsByPredicate([&Panel](const auto& Entry) { return Entry.Panel == Panel; }))
+        {
+            const auto Factory = MakeShared<FMaterialPanelFactory>(StaticCastSharedRef<const FWireDrawing>(AsShared()));
+            Panel->SetNodeFactory(Factory);
+            MaterialPanels.Add({Panel, Factory}); Panel->Invalidate(EInvalidateWidgetReason::Paint);
+        }
+        // Never scan node/pin widgets. The cost is independent of material graph size.
+        return;
+    }
+    FChildren* Children = Root->GetChildren();
+    for (int32 I = 0; I < Children->Num(); ++I) { AttachMaterialPanels(Children->GetChildAt(I)); }
+}
+
+void FWireDrawing::DiscoverMaterialPanels(float DeltaTime)
+{
+    if (bStopped || FPlatformTime::Seconds() < NextPanelDiscovery) { return; }
+    NextPanelDiscovery = FPlatformTime::Seconds() + 0.25;
+    MaterialPanels.RemoveAll([](const auto& Entry) { return !Entry.Panel.IsValid(); });
+    TArray<TSharedRef<SWindow>> Windows;
+    FSlateApplication::Get().GetAllVisibleWindowsOrdered(Windows);
+    for (const auto& Window : Windows) { AttachMaterialPanels(Window); }
+}
+
 void FWireDrawing::OnSettingsChanged()
 {
     const auto CurrentStyle = GetDefault<UGlooPrintSettings>()->GetWireStyle();
@@ -463,8 +554,12 @@ FConnectionDrawingPolicy* FWireDrawing::CreateConnectionPolicy(const UEdGraphSch
     int32 BackLayer, int32 FrontLayer, float Zoom, const FSlateRect& Clip, FSlateWindowElementList& Elements, UEdGraph* Graph) const
 {
     if (bStopped || GetDefault<UGlooPrintSettings>()->GetWireStyle() == EGlooPrintWireStyle::Native ||
-        !Schema || Schema->GetClass() != UEdGraphSchema_K2::StaticClass() || !Graph) { return nullptr; }
-    return new FRouteDrawingPolicy(BackLayer, FrontLayer, Zoom, Clip, Elements, Graph, StaticCastSharedRef<const FWireDrawing>(AsShared()));
+        !Schema || GetGraphFamily(Graph) == EGraphFamily::Unsupported) { return nullptr; }
+    if (GetGraphFamily(Graph) == EGraphFamily::Material)
+    {
+        return new TRouteDrawingPolicy<FMaterialDrawingPolicy>(BackLayer, FrontLayer, Zoom, Clip, Elements, Graph, StaticCastSharedRef<const FWireDrawing>(AsShared()));
+    }
+    return new TRouteDrawingPolicy<FKismetConnectionDrawingPolicy>(BackLayer, FrontLayer, Zoom, Clip, Elements, Graph, StaticCastSharedRef<const FWireDrawing>(AsShared()));
 }
 
 TSharedPtr<FRouteCache> FWireDrawing::GetCache(TSharedRef<SGraphPanel> Panel) const
@@ -488,7 +583,19 @@ TSharedPtr<FRouteCache> FWireDrawing::GetCache(TSharedRef<SGraphPanel> Panel) co
 
 void FWireDrawing::Shutdown()
 {
+    if (bStopped) { return; }
     bStopped = true;
+    if (FSlateApplication::IsInitialized()) { FSlateApplication::Get().OnPostTick().Remove(MaterialPanelsHandle); }
+    for (const auto& Entry : MaterialPanels)
+    {
+        // Only the panel owns this factory. If another integration replaces it,
+        // our weak reference expires; leave that integration's factory alone.
+        if (const auto Panel = Entry.Panel.Pin(); Panel && Entry.Factory.IsValid())
+        {
+            Panel->SetNodeFactory(MakeShared<FGraphNodeFactory>());
+        }
+    }
+    MaterialPanels.Reset();
     for (const auto& Weak : Caches)
     {
         if (const auto Cache = Weak.Pin())

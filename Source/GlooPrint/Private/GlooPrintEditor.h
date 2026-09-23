@@ -14,10 +14,17 @@ class UEdGraphNode;
 class UEdGraphPin;
 class FSlateFontCache;
 class SNotificationItem;
+class UToolMenu;
 struct FPropertyChangedEvent;
 
 namespace GlooPrint
 {
+struct FFormatWorkStats
+{
+    TArray<double> SliceMilliseconds;
+};
+const FFormatWorkStats& GetFormatWorkStats();
+
 struct FFormatPlan
 {
     FLayoutGraph Snapshot;
@@ -93,6 +100,7 @@ private:
     void ShowProgress();
     void CloseProgress();
     void BuildMenu(FMenuBuilder& Menu);
+    void BuildMaterialMenu(UToolMenu* Menu);
     void InvalidateMeasurements();
     void OnInvalidateWidgets(bool bClearResources);
     void OnPropertyChanged(UObject* Object, FPropertyChangedEvent& Event);

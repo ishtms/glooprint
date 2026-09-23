@@ -2,6 +2,7 @@
 
 #include "GlooPrintEditor.h"
 #include "GlooPrintMeasurementCache.h"
+#include "GlooPrintGraphAdapter.h"
 #include "GlooPrintSettings.h"
 #include "GlooPrintWireDrawing.h"
 
@@ -16,6 +17,9 @@
 #include "Framework/MultiBox/MultiBoxBuilder.h"
 #include "Framework/Notifications/NotificationManager.h"
 #include "GraphEditorModule.h"
+#include "EdGraph/EdGraphSchema.h"
+#include "MaterialGraph/MaterialGraphSchema.h"
+#include "ToolMenus.h"
 #include "ProfilingDebugging/CpuProfilerTrace.h"
 #include "Rendering/SlateRenderer.h"
 #include "SGraphPanel.h"
@@ -32,6 +36,25 @@ namespace GlooPrint
 {
 namespace
 {
+struct FSettledMaterialLayout final : public ISlateMetaData
+{
+    SLATE_METADATA_TYPE(FSettledMaterialLayout, ISlateMetaData)
+    TWeakObjectPtr<UEdGraph> Graph;
+    TWeakPtr<FMeasurementCache> Cache;
+    TArray<TWeakObjectPtr<UEdGraphNode>> Nodes;
+    TArray<TArray<uint8>> States;
+    TSet<FGuid> Selection;
+    FLayoutSettings Settings;
+    EGlooPrintWireStyle Style = EGlooPrintWireStyle::Native;
+    uint64 Revision = 0;
+};
+FFormatWorkStats WorkStats;
+struct FMeasureFormatSlice
+{
+    double Started = FPlatformTime::Seconds();
+    ~FMeasureFormatSlice() { WorkStats.SliceMilliseconds.Add((FPlatformTime::Seconds() - Started) * 1000); }
+};
+
 void ReportFormatResult(bool bSuccess, int32 Changed, const FString& Reason)
 {
     if (!Reason.IsEmpty())
@@ -44,6 +67,8 @@ void ReportFormatResult(bool bSuccess, int32 Changed, const FString& Reason)
     if (bSuccess) { UE_LOG(LogGlooPrintEditor, Display, TEXT("Formatted graph: %d changed nodes."), Changed); }
 }
 }
+
+const FFormatWorkStats& GetFormatWorkStats() { return WorkStats; }
 
 bool ApplyLayout(UEdGraph* Graph, const FLayoutGraph& Snapshot, const FLayoutResult& Layout,
     int32& ChangedNodes, FString& OutReason)
@@ -88,6 +113,10 @@ bool ApplyLayout(UEdGraph* Graph, const FLayoutGraph& Snapshot, const FLayoutRes
             OutReason = TEXT("Node positions, bounds or pins changed before application."); return false;
         }
         Nodes.Add(Node);
+        if (!Original.BackingState.IsEmpty() && Original.BackingState != CaptureMeasurementState(*Node))
+        {
+            OutReason = TEXT("A material expression or its presentation changed before application."); return false;
+        }
         for (int32 P = 0; P < Node->Pins.Num(); ++P)
         {
             UEdGraphPin* Pin = Node->Pins[P];
@@ -114,11 +143,13 @@ bool ApplyLayout(UEdGraph* Graph, const FLayoutGraph& Snapshot, const FLayoutRes
                 OutReason = TEXT("A changed node does not support editor undo transactions."); return false;
             }
             Changed.Add(I);
+            if (!ValidateLayoutBackingObject(*Node, OutReason)) { return false; }
         }
     }
     TSet<uint64> ExpectedLinks;
-    ExpectedLinks.Reserve(Snapshot.Edges.Num() * 2);
-    for (const FLayoutEdge& Edge : Snapshot.Edges)
+    const auto& Connections = Snapshot.Connections.IsEmpty() ? Snapshot.Edges : Snapshot.Connections;
+    ExpectedLinks.Reserve(Connections.Num() * 2);
+    for (const FLayoutEdge& Edge : Connections)
     {
         ExpectedLinks.Add((uint64(uint32(Edge.From)) << 32) | uint32(Edge.To));
         ExpectedLinks.Add((uint64(uint32(Edge.To)) << 32) | uint32(Edge.From));
@@ -136,9 +167,10 @@ bool ApplyLayout(UEdGraph* Graph, const FLayoutGraph& Snapshot, const FLayoutRes
     }
     if (!ExpectedLinks.IsEmpty()) { OutReason = TEXT("Connections changed before application."); return false; }
     if (Changed.IsEmpty()) { return true; }
+    const double BeforeTransaction = FPlatformTime::Seconds();
     {
         TRACE_CPUPROFILER_EVENT_SCOPE(GlooPrint_ApplyTransaction);
-        const FScopedTransaction Transaction(LOCTEXT("FormatTransaction", "Format Blueprint Graph"));
+        const FScopedTransaction Transaction(LOCTEXT("FormatTransaction", "Format Graph"));
         for (const int32 I : Changed)
         {
             UEdGraphNode* Node = Nodes[I];
@@ -150,9 +182,13 @@ bool ApplyLayout(UEdGraph* Graph, const FLayoutGraph& Snapshot, const FLayoutRes
                 Node->NodeWidth = Layout.Sizes[I].X;
                 Node->NodeHeight = Layout.Sizes[I].Y;
             }
+            ApplyBackingLayout(*Node);
         }
     }
-    Graph->NotifyGraphChanged();
+    const double AfterTransaction = FPlatformTime::Seconds();
+    NotifyLayoutApplied(*Graph);
+    UE_LOG(LogGlooPrintEditor, Verbose, TEXT("Layout commit timings: transaction %.3fms, notification %.3fms"),
+        (AfterTransaction - BeforeTransaction) * 1000, (FPlatformTime::Seconds() - AfterTransaction) * 1000);
     ChangedNodes = Changed.Num();
     return true;
 }
@@ -334,10 +370,15 @@ bool PlanFormatGraph(UEdGraph* Graph, float LayoutScale, const TSet<FGuid>& Sele
 static bool ApplyFormatPlan(UEdGraph* Graph, const FFormatPlan& Plan, int32& ChangedNodes, FString& OutReason,
     FMeasurementCache* MeasurementCache = nullptr)
 {
+    const double Start = FPlatformTime::Seconds();
     const TSharedPtr<FMeasurementCache> Cache = MeasurementCache ? MeasurementCache->AsShared() : TSharedPtr<FMeasurementCache>();
     auto Reuse = Cache ? Cache->PrepareLayoutReuse(Plan.Snapshot, Plan.Layout) : FMeasurementCache::FLayoutReuse();
+    const double PreparedAt = FPlatformTime::Seconds();
     if (!ApplyLayout(Graph, Plan.Snapshot, Plan.Layout, ChangedNodes, OutReason)) { return false; }
+    const double AppliedAt = FPlatformTime::Seconds();
     if (Cache && ChangedNodes > 0) { Cache->RestoreLayoutReuse(MoveTemp(Reuse)); }
+    UE_LOG(LogGlooPrintEditor, Verbose, TEXT("Layout apply timings: prepare %.3fms, apply %.3fms, reuse %.3fms; attempts %d"),
+        (PreparedAt - Start) * 1000, (AppliedAt - PreparedAt) * 1000, (FPlatformTime::Seconds() - AppliedAt) * 1000, Plan.LayoutAttempts);
     if (Plan.Layout.bLimitedComments) { OutReason = TEXT("Overlapping comment regions kept their internal arrangement."); }
     if (Plan.Routes.FallbackCount > 0 && GetDefault<UGlooPrintSettings>()->GetWireStyle() != EGlooPrintWireStyle::Native)
     {
@@ -363,7 +404,7 @@ public:
     FCommands() : TCommands(TEXT("GlooPrint"), LOCTEXT("CommandContext", "GlooPrint"), NAME_None, FAppStyle::GetAppStyleSetName()) {}
     virtual void RegisterCommands() override
     {
-        UI_COMMAND(Format, "Format Graph", "Format the entire active Blueprint graph; selection chooses the stationary anchor.",
+        UI_COMMAND(Format, "Format Graph", "Format the entire active graph; selection chooses the stationary anchor.",
             EUserInterfaceActionType::Button, FInputChord(EKeys::F));
     }
     TSharedPtr<FUICommandInfo> Format;
@@ -379,6 +420,13 @@ void FEditor::Initialize()
     auto Extender = FGraphEditorModule::FGraphEditorMenuExtender_SelectedNode::CreateSP(this, &FEditor::ExtendMenu);
     MenuHandle = Extender.GetHandle();
     GraphEditor.GetAllGraphEditorContextMenuExtender().Add(Extender);
+    {
+        FToolMenuOwnerScoped Owner(this);
+        // Node menus inherit the base graph schema menu, while pin menus inherit
+        // the concrete schema menu. The material context filter handles both.
+        UToolMenus::Get()->ExtendMenu(UEdGraphSchema::GetContextMenuName(UEdGraphSchema::StaticClass()))->AddDynamicSection(
+            TEXT("GlooPrintMaterial"), FNewToolMenuDelegate::CreateSP(this, &FEditor::BuildMaterialMenu));
+    }
     FSlateApplication::Get().RegisterInputPreProcessor(AsShared());
     InvalidateWidgetsHandle = FSlateApplication::Get().OnInvalidateAllWidgets().AddSP(this, &FEditor::OnInvalidateWidgets);
     PropertyChangedHandle = FCoreUObjectDelegates::OnObjectPropertyChanged.AddSP(this, &FEditor::OnPropertyChanged);
@@ -390,6 +438,7 @@ void FEditor::Initialize()
 void FEditor::Shutdown()
 {
     CancelPending();
+    UToolMenus::UnregisterOwner(this);
     if (FSlateApplication::IsInitialized())
     {
         FSlateApplication::Get().UnregisterInputPreProcessor(AsShared());
@@ -402,6 +451,7 @@ void FEditor::Shutdown()
         if (const auto Panel = WeakPanel.Pin())
         {
             if (const auto Cache = Panel->GetMetaData<FMeasurementCache>()) { Panel->RemoveMetaData(Cache.ToSharedRef()); }
+            if (const auto Settled = Panel->GetMetaData<FSettledMaterialLayout>()) { Panel->RemoveMetaData(Settled.ToSharedRef()); }
         }
     }
     CachedPanels.Reset(); FontCache.Reset();
@@ -425,7 +475,16 @@ void FEditor::InvalidateMeasurements()
 }
 
 void FEditor::OnInvalidateWidgets(bool bClearResources) { InvalidateMeasurements(); }
-void FEditor::OnPropertyChanged(UObject* Object, FPropertyChangedEvent& Event) { InvalidateMeasurements(); }
+void FEditor::OnPropertyChanged(UObject* Object, FPropertyChangedEvent& Event)
+{
+    for (const auto& WeakPanel : CachedPanels)
+    {
+        if (const auto Panel = WeakPanel.Pin(); Panel && IsObjectRelevantToGraph(Object, Panel->GetGraphObj()))
+        {
+            if (const auto Cache = Panel->GetMetaData<FMeasurementCache>()) { Cache->Invalidate(GetGraphFamily(Panel->GetGraphObj()) != EGraphFamily::Material); }
+        }
+    }
+}
 void FEditor::OnFontResourcesReleased(const FSlateFontCache& InFontCache) { InvalidateMeasurements(); }
 
 bool FEditor::HandleKeyDownEvent(FSlateApplication& SlateApp, const FKeyEvent& Event)
@@ -439,8 +498,7 @@ bool FEditor::HandleKeyDownEvent(FSlateApplication& SlateApp, const FKeyEvent& E
     const TSharedPtr<SWidget> Focused = SlateApp.GetKeyboardFocusedWidget();
     if (!Focused || Focused->GetType() != TEXT("SGraphPanel") || !SlateApp.IsNormalExecution()) { return false; }
     const auto Panel = StaticCastSharedPtr<SGraphPanel>(Focused);
-    if (!Panel->GetGraphObj() || !Panel->GetGraphObj()->GetSchema() ||
-        Panel->GetGraphObj()->GetSchema()->GetClass() != UEdGraphSchema_K2::StaticClass()) { return false; }
+    if (GetGraphFamily(Panel->GetGraphObj()) == EGraphFamily::Unsupported) { return false; }
     const FInputChord Chord(Event.GetKey(), Event.IsShiftDown(), Event.IsControlDown(), Event.IsAltDown(), Event.IsCommandDown());
     if (!FCommands::Get().Format->HasActiveChord(Chord)) { return false; }
     if (Event.IsRepeat()) { return true; }
@@ -471,7 +529,7 @@ void FEditor::CancelPending()
 void FEditor::ShowProgress()
 {
     if (!Pending || Progress.IsValid() || FPlatformTime::Seconds() - Pending->StartedAt < 0.25) { return; }
-    FNotificationInfo Info(LOCTEXT("FormattingProgress", "Formatting Blueprint graph…"));
+    FNotificationInfo Info(LOCTEXT("FormattingProgress", "Formatting graph…"));
     if (const auto Panel = Pending->Panel.Pin()) { Info.ForWindow = FSlateApplication::Get().FindWidgetWindow(Panel.ToSharedRef()); }
     Info.bFireAndForget = false; Info.bUseThrobber = true;
     Info.ButtonDetails.Add(FNotificationButtonInfo(LOCTEXT("CancelFormat", "Cancel"),
@@ -485,6 +543,8 @@ void FEditor::ExecutePanel(TWeakPtr<SGraphPanel> WeakPanel)
     TRACE_CPUPROFILER_EVENT_SCOPE(GlooPrint_FormatDispatch);
     auto& Slate = FSlateApplication::Get();
     if (Pending && Pending->Panel == WeakPanel && IsPendingCurrent(*Pending, Slate)) { return; }
+    WorkStats.SliceMilliseconds.Reset();
+    const FMeasureFormatSlice MeasureSlice;
     CancelPending();
     const double StartedAt = FPlatformTime::Seconds();
     const auto Panel = WeakPanel.Pin();
@@ -520,6 +580,23 @@ void FEditor::ExecutePanel(TWeakPtr<SGraphPanel> WeakPanel)
             Request.Revision = Cache->GetRevision();
             Request.Nodes.Reserve(Request.Graph->Nodes.Num());
             for (UEdGraphNode* Node : Request.Graph->Nodes) { Request.Nodes.Add({Node, CaptureMeasurementState(*Node)}); }
+            if (const auto Settled = Panel->GetMetaData<FSettledMaterialLayout>(); Settled &&
+                Settled->Graph == Request.Graph && Settled->Cache == Request.Cache && Settled->Revision == Request.Revision &&
+                Settled->Settings == Request.Settings && Settled->Style == Request.Style &&
+                Settled->Nodes.Num() == Request.Nodes.Num() && Settled->Selection.Num() == Request.Selection.Num())
+            {
+                bool bSame = true;
+                for (const auto& Id : Request.Selection) { bSame &= Settled->Selection.Contains(Id); }
+                for (int32 I = 0; bSame && I < Request.Nodes.Num(); ++I)
+                {
+                    bSame = Settled->Nodes[I] == Request.Nodes[I].Node && Settled->States[I] == Request.Nodes[I].State;
+                }
+                if (bSame)
+                {
+                    for (const auto& Node : Request.Nodes) { Cache->Find(*Node.Node.Get(), Node.State); }
+                    ReportFormatResult(true, 0, {}); return;
+                }
+            }
             ContinueRequest(MoveTemp(Request), StartedAt + 0.004);
             return;
         }
@@ -561,7 +638,7 @@ void FEditor::ContinueRequest(FPendingFormat Request, double Deadline)
     }
     if (Request.Job)
     {
-        bFinished = Request.Job->Advance(Deadline);
+        bFinished = FPlatformTime::Seconds() < Deadline && Request.Job->Advance(Deadline);
         if (bFinished) { bSuccess = Request.Job->TakePlan(Plan, Reason, &bNeedsRetry); }
     }
     if (!IsPendingCurrent(Request, Slate, false))
@@ -592,6 +669,21 @@ void FEditor::ContinueRequest(FPendingFormat Request, double Deadline)
                 if (Routes && Routes->GetGraph() == Request.Graph.Get())
                 {
                     Routes->StagePlannedRoutes(MoveTemp(Plan.RouteSource), MoveTemp(Plan.Routes), Request.Style);
+                }
+            }
+            if (bSuccess && GetGraphFamily(Request.Graph.Get()) == EGraphFamily::Material)
+            {
+                if (const auto Panel = Request.Panel.Pin())
+                {
+                    auto Settled = Panel->GetMetaData<FSettledMaterialLayout>();
+                    if (!Settled) { Settled = MakeShared<FSettledMaterialLayout>(); Panel->AddMetadata(Settled.ToSharedRef()); }
+                    Settled->Graph = Request.Graph; Settled->Cache = Request.Cache; Settled->Revision = Cache->GetRevision();
+                    Settled->Settings = Request.Settings; Settled->Style = Request.Style; Settled->Selection = Request.Selection;
+                    Settled->Nodes.Reset(); Settled->States.Reset();
+                    for (UEdGraphNode* Node : Request.Graph->Nodes)
+                    {
+                        Settled->Nodes.Add(Node); Settled->States.Add(CaptureMeasurementState(*Node));
+                    }
                 }
             }
         }
@@ -639,6 +731,7 @@ bool FEditor::IsPendingCurrent(const FPendingFormat& Request, FSlateApplication&
 void FEditor::Tick(float DeltaTime, FSlateApplication& SlateApp, TSharedRef<ICursor> Cursor)
 {
     if (!Pending || Pending->LastAttemptFrame == GFrameCounter) { return; }
+    const FMeasureFormatSlice MeasureSlice;
     TRACE_CPUPROFILER_EVENT_SCOPE(GlooPrint_FormatPendingTick);
     FPendingFormat Request = MoveTemp(Pending.GetValue()); Pending.Reset();
     if (!IsPendingCurrent(Request, SlateApp, false)) { CloseProgress(); return; }
@@ -650,8 +743,7 @@ TSharedRef<FExtender> FEditor::ExtendMenu(const TSharedRef<FUICommandList> Comma
     const UEdGraphNode* Node, const UEdGraphPin* Pin, bool bReadOnly)
 {
     const TSharedRef<FExtender> Extender = MakeShared<FExtender>();
-    if (bReadOnly || !FSlateApplication::IsInitialized() || !Graph || !Graph->GetSchema() ||
-        Graph->GetSchema()->GetClass() != UEdGraphSchema_K2::StaticClass()) { return Extender; }
+    if (bReadOnly || !FSlateApplication::IsInitialized() || GetGraphFamily(Graph) != EGraphFamily::Blueprint) { return Extender; }
     TSharedPtr<SWidget> Focused = FSlateApplication::Get().GetKeyboardFocusedWidget();
     for (int32 Depth = 0; Focused && Depth < 128; ++Depth, Focused = Focused->GetParentWidget())
     {
@@ -670,6 +762,25 @@ TSharedRef<FExtender> FEditor::ExtendMenu(const TSharedRef<FUICommandList> Comma
 }
 
 void FEditor::BuildMenu(FMenuBuilder& Menu) { Menu.AddMenuEntry(FCommands::Get().Format); }
+
+void FEditor::BuildMaterialMenu(UToolMenu* Menu)
+{
+    const auto* Context = Menu->FindContext<UGraphNodeContextMenuContext>();
+    if (!Context || GetGraphFamily(Context->Graph) != EGraphFamily::Material || IsGraphReadOnly(Context->Graph)) { return; }
+    TSharedPtr<SWidget> Focused = FSlateApplication::Get().GetKeyboardFocusedWidget();
+    for (int32 Depth = 0; Focused && Depth < 128; ++Depth, Focused = Focused->GetParentWidget())
+    {
+        if (Focused->GetType() != TEXT("SGraphPanel")) { continue; }
+        const auto Panel = StaticCastSharedPtr<SGraphPanel>(Focused);
+        if (Panel->GetGraphObj() != Context->Graph || !Panel->IsGraphEditable()) { return; }
+        const TWeakPtr<SGraphPanel> WeakPanel = Panel;
+        Menu->AddSection(TEXT("GlooPrintMaterial"), LOCTEXT("MaterialMenu", "GlooPrint")).AddMenuEntry(
+            TEXT("GlooPrintFormat"), FCommands::Get().Format->GetLabel(), FCommands::Get().Format->GetDescription(), FSlateIcon(),
+            FUIAction(FExecuteAction::CreateSP(this, &FEditor::ExecutePanel, WeakPanel),
+                FCanExecuteAction::CreateLambda([] { return GetDefault<UGlooPrintSettings>()->bFormattingEnabled; })));
+        return;
+    }
+}
 }
 
 #undef LOCTEXT_NAMESPACE

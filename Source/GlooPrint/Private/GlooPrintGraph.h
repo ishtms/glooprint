@@ -38,6 +38,8 @@ struct FLayoutNode
     bool bComment = false;
     bool bReroute = false;
     FIntPoint OriginalSize = FIntPoint::ZeroValue;
+    // Material expressions are separate UObjects; validate them again before applying a plan.
+    TArray<uint8> BackingState;
 };
 
 struct FLayoutGraph
@@ -45,6 +47,8 @@ struct FLayoutGraph
     TArray<FLayoutNode> Nodes;
     TArray<FLayoutPin> Pins;
     TArray<FLayoutEdge> Edges;
+    // Complete topology, including links to intentionally hidden material pins.
+    TArray<FLayoutEdge> Connections;
     int32 Anchor = INDEX_NONE;
 };
 

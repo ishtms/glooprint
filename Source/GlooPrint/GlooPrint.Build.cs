@@ -9,8 +9,8 @@ public class GlooPrint : ModuleRules
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
         PrivateDependencyModuleNames.AddRange(new[]
         {
-            "Core", "CoreUObject", "Engine", "Slate", "SlateCore",
-            "GraphEditor", "BlueprintGraph", "UnrealEd", "InputCore", "Settings"
+            "Core", "CoreUObject", "Engine", "Slate", "SlateCore", "RenderCore",
+            "GraphEditor", "BlueprintGraph", "UnrealEd", "InputCore", "Settings", "MaterialEditor", "ToolMenus"
         });
         if (Target.bBuildDeveloperTools)
         {

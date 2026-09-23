@@ -2,6 +2,7 @@
 
 #include "GlooPrintMeasurement.h"
 #include "GlooPrintMeasurementCache.h"
+#include "GlooPrintGraphAdapter.h"
 
 #include "EdGraph/EdGraph.h"
 #include "EdGraph/EdGraphNode.h"
@@ -76,6 +77,7 @@ bool RefreshTextControls(const TSharedRef<SGraphNode>& Node, float LayoutScale)
 
 bool IsHiddenPin(const UEdGraphPin& Pin, SGraphEditor::EPinVisibility Visibility)
 {
+    if (GetGraphFamily(Pin.GetOwningNode()->GetGraph()) == EGraphFamily::Material) { return IsMaterialPinHidden(Pin, Visibility); }
     if (!Pin.LinkedTo.IsEmpty()) { return false; }
     if (Pin.bHidden || (Pin.bAdvancedView && Pin.GetOwningNode()->AdvancedPinDisplay == ENodeAdvancedPins::Hidden)) { return true; }
     if (Pin.PinType.PinCategory == UEdGraphSchema_K2::PC_Exec) { return false; }
@@ -137,7 +139,7 @@ bool MeasureNode(UEdGraphNode& Node, float LayoutScale, FMeasuredNode& Out, FStr
     if (MeasurementPanel) { Widget->SetOwner(MeasurementPanel.ToSharedRef()); }
     if (ProposedCommentWidth.IsSet())
     {
-        if (Widget->GetType() != TEXT("SGraphNodeComment"))
+        if (Widget->GetType() != TEXT("SGraphNodeComment") && Widget->GetType() != TEXT("SGraphNodeMaterialComment"))
         {
             Reason = TEXT("The custom comment widget cannot measure a proposed title width."); return false;
         }
@@ -344,17 +346,7 @@ bool ValidateMeasurementGraph(UEdGraph* Graph, FString& OutReason)
         OutReason = TEXT("Measurement requires the editor thread and initialized Slate.");
         return false;
     }
-    if (!IsValid(Graph) || !Graph->GetSchema() || Graph->GetSchema()->GetClass() != UEdGraphSchema_K2::StaticClass())
-    {
-        OutReason = TEXT("Measurement supports standard K2 Blueprint graphs only.");
-        return false;
-    }
-    const UBlueprint* Blueprint = Graph->GetTypedOuter<UBlueprint>();
-    if (!Blueprint || Blueprint->bBeingCompiled || Blueprint->bIsRegeneratingOnLoad)
-    {
-        OutReason = TEXT("A stable Blueprint owner is required; compilation or reconstruction is active.");
-        return false;
-    }
+    if (!ValidateGraphOwner(Graph, OutReason)) { return false; }
 
     TSet<FGuid> NodeIds, PinIds;
     NodeIds.Reserve(Graph->Nodes.Num());
@@ -366,6 +358,7 @@ bool ValidateMeasurementGraph(UEdGraph* Graph, FString& OutReason)
             OutReason = TEXT("The graph has missing, reconstructed, or ambiguous node identities.");
             return false;
         }
+        if (!ValidateLayoutBackingObject(*Node, OutReason)) { return false; }
         bool bDuplicate = false;
         NodeIds.Add(Node->NodeGuid, &bDuplicate);
         if (bDuplicate) { OutReason = TEXT("The graph has missing, reconstructed, or ambiguous node identities."); return false; }
@@ -410,7 +403,7 @@ struct FMeasurementJob::FState
     SGraphEditor::EPinVisibility Visibility;
     float Scale;
     uint64 Revision = 0;
-    int32 Next = 0;
+    int32 Next = 0, NodeCount = 0, Prepared = 0;
     bool bHasCache = false, bStarted = false, bDone = false, bTaken = false, bNeedsRetry = false;
 };
 
@@ -430,9 +423,9 @@ bool FMeasurementJob::Advance(double Deadline)
     if (S.bDone) { return true; }
     const auto Fail = [&S](const TCHAR* Reason) { S.Reason = Reason; S.bDone = true; return true; };
     UEdGraph* Graph = S.Graph.Get();
-    const double ValidationStarted = FPlatformTime::Seconds();
     if (!ValidateMeasurementGraph(Graph, S.Reason)) { S.bDone = true; return true; }
-    Deadline += FPlatformTime::Seconds() - ValidationStarted;
+    const bool bMaterial = GetGraphFamily(Graph) == EGraphFamily::Material;
+    const bool bWasStarted = S.bStarted;
     const auto Cache = S.Cache.Pin();
     if (S.bHasCache && !Cache) { return Fail(TEXT("The measurement cache was closed.")); }
     if (!S.bStarted)
@@ -449,19 +442,10 @@ bool FMeasurementJob::Advance(double Deadline)
         if (Cache) { Cache->Begin(Graph, S.Scale, S.Visibility); S.Revision = Cache->GetRevision(); }
         S.Nodes.Reserve(Graph->Nodes.Num()); S.Result.Nodes.Reserve(Graph->Nodes.Num());
         S.PendingNodes.Reserve(Graph->Nodes.Num());
-        for (UEdGraphNode* Node : Graph->Nodes)
-        {
-            const int32 Index = S.Nodes.Num();
-            S.Nodes.Add({Node, CaptureMeasurementState(*Node)});
-            FMeasuredNode& Measured = S.Result.Nodes.AddDefaulted_GetRef();
-            const FMeasuredNode* Cached = Cache ? Cache->Find(*Node, S.Nodes.Last().Signature) : nullptr;
-            if (Cached) { Measured = *Cached; }
-            else { S.PendingNodes.Add(Index); }
-        }
+        S.NodeCount = Graph->Nodes.Num();
         S.bStarted = true;
-        if (S.PendingNodes.IsEmpty() && FPlatformTime::Seconds() >= Deadline) { return false; }
     }
-    if (Graph->Nodes.Num() != S.Nodes.Num() || (Cache && Cache->GetRevision() != S.Revision))
+    if (Graph->Nodes.Num() != S.NodeCount || (Cache && Cache->GetRevision() != S.Revision))
     {
         return Fail(TEXT("The graph or measurement context changed during capture."));
     }
@@ -469,6 +453,18 @@ bool FMeasurementJob::Advance(double Deadline)
     {
         if (S.Nodes[I].Node.Get() != Graph->Nodes[I]) { return Fail(TEXT("Node identities changed during capture.")); }
     }
+    while (S.Prepared < S.NodeCount)
+    {
+        UEdGraphNode* Node = Graph->Nodes[S.Prepared];
+        S.Nodes.Add({Node, CaptureMeasurementState(*Node)});
+        FMeasuredNode& Measured = S.Result.Nodes.AddDefaulted_GetRef();
+        const FMeasuredNode* Cached = Cache ? Cache->Find(*Node, S.Nodes.Last().Signature) : nullptr;
+        if (Cached) { Measured = *Cached; }
+        else { S.PendingNodes.Add(S.Prepared); }
+        ++S.Prepared;
+        if (bMaterial && FPlatformTime::Seconds() >= Deadline) { return false; }
+    }
+    if (!bWasStarted && S.PendingNodes.IsEmpty() && FPlatformTime::Seconds() >= Deadline) { return false; }
     TSharedPtr<SGraphPanel> MeasurementPanel;
     while (S.Next < S.PendingNodes.Num())
     {
@@ -498,6 +494,8 @@ bool FMeasurementJob::Advance(double Deadline)
     }
     if (!ValidateMeasurementGraph(Graph, S.Reason)) { S.bDone = true; return true; }
     if (Graph->Nodes.Num() != S.Nodes.Num()) { return Fail(TEXT("Node identities changed during capture.")); }
+    // Publish only after one atomic validation pass. Direct writes need not
+    // broadcast an edit notification, so a partially checked result is unsafe.
     for (int32 I = 0; I < S.Nodes.Num(); ++I)
     {
         const auto& Entry = S.Nodes[I];

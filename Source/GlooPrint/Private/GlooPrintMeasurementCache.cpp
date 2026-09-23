@@ -2,6 +2,8 @@
 
 #include "GlooPrintMeasurementCache.h"
 #include "GlooPrintLayout.h"
+#include "GlooPrintGraphAdapter.h"
+#include "Materials/MaterialExpression.h"
 
 #include "EdGraph/EdGraph.h"
 #include "EdGraph/EdGraphNode.h"
@@ -27,6 +29,7 @@ void AppendPresentationState(UEdGraphNode& Node, FObjectWriter& Writer)
         uint64 Identity = reinterpret_cast<UPTRINT>(Pin);
         Writer << Identity;
     }
+    AppendMaterialMeasurementState(Node, Writer);
 }
 
 class FLayoutInvariantWriter final : public FObjectWriter
@@ -38,7 +41,10 @@ public:
     }
     virtual bool ShouldSkipProperty(const FProperty* Property) const override
     {
-        return (Property->GetOwnerStruct() == UEdGraphNode::StaticClass() &&
+        return (Property->GetOwnerStruct() == UMaterialExpression::StaticClass() &&
+            (Property->GetFName() == GET_MEMBER_NAME_CHECKED(UMaterialExpression, MaterialExpressionEditorX) ||
+             Property->GetFName() == GET_MEMBER_NAME_CHECKED(UMaterialExpression, MaterialExpressionEditorY))) ||
+            (Property->GetOwnerStruct() == UEdGraphNode::StaticClass() &&
             (Property->GetFName() == GET_MEMBER_NAME_CHECKED(UEdGraphNode, NodePosX) ||
              Property->GetFName() == GET_MEMBER_NAME_CHECKED(UEdGraphNode, NodePosY))) ||
             FObjectWriter::ShouldSkipProperty(Property);
@@ -89,7 +95,10 @@ void FMeasurementCache::Begin(UEdGraph* InGraph, float LayoutScale, SGraphEditor
 
 void FMeasurementCache::Invalidate(bool bContextChanged)
 {
-    Entries.Reset(); ++Revision;
+    // Material nodes include their expression and referenced interface in their
+    // signatures. Keep unrelated geometry through repeated edit notifications.
+    if (bContextChanged || GetGraphFamily(Graph.Get()) != EGraphFamily::Material) { Entries.Reset(); }
+    ++Revision;
     if (bContextChanged) { ++ContextRevision; }
 }
 
