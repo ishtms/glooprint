@@ -1,5 +1,5 @@
 GLOOPRINT - USER GUIDE
-Version 1.0.1 | Unreal Engine 5.8
+Version 1.1.0 | Unreal Engine 5.8
 Copyright 2026 Ishtmeet Singh. All Rights Reserved.
 
 GET STARTED
