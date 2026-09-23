@@ -1,7 +1,7 @@
 {
   "FileVersion": 3,
-  "Version": 2,
-  "VersionName": "1.0.0-rc2",
+  "Version": 3,
+  "VersionName": "1.0.1",
   "FriendlyName": "GlooPrint",
   "Description": "Press F to tidy your whole Blueprint graph. Pick a node to keep in place, and choose rounded wires, 45-degree turns or Unreal's own curves.",
   "Category": "Editor",
