@@ -1,0 +1,2762 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "ISHTMS",
+			"instance": "58C8A7B3497E127ACFAA82AEA77A16A7",
+			"instanceName": "ISHTMS-26384",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9457] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 3080 Ti",
+			"cPUModel": "AMD Ryzen 9 3900X 12-Core Processor            ",
+			"rAMInGB": 32,
+			"renderMode": "D3D12_SM5",
+			"rHI": "D3D12 (SM5)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.09.23-18.26.33",
+	"succeeded": 93,
+	"succeededWithWarnings": 1,
+	"failed": 4,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 276.01486206054688,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "Diagonal",
+			"fullTestPath": "GlooPrint.Editor.DependencyGroupPacking.Diagonal",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 1.3433406352996826,
+			"dateTime": "2026.09.23-18.21.55",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Dependency MakeLiteralString: top 252.00, bottom 317.00.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.21.56"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Dependency ToUpper: top 293.00, bottom 353.00.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.21.56"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Dependency MakeLiteralString: top 365.00, bottom 430.00.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.21.56"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Dependency Append: top 293.00, bottom 383.00.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.21.56"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Pure input visual/wire envelope 1435 x 643; shared Y293; 0 repairs, 0 fallbacks.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.21.56"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Rounded",
+			"fullTestPath": "GlooPrint.Editor.DependencyGroupPacking.Rounded",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.95424222946166992,
+			"dateTime": "2026.09.23-18.21.57",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Dependency MakeLiteralString: top 252.00, bottom 317.00.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.21.57"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Dependency ToUpper: top 293.00, bottom 353.00.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.21.57"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Dependency MakeLiteralString: top 365.00, bottom 430.00.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.21.57"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Dependency Append: top 293.00, bottom 383.00.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.21.57"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Pure input visual/wire envelope 1435 x 643; shared Y293; 0 repairs, 0 fallbacks.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.21.57"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Diagonal",
+			"fullTestPath": "GlooPrint.Editor.NativeFallbackAndReopen.Diagonal",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 2.1533727645874023,
+			"dateTime": "2026.09.23-18.21.58",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Reopened graph rebuilt all three original custom routes without an F command.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.21.59"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Rounded",
+			"fullTestPath": "GlooPrint.Editor.NativeFallbackAndReopen.Rounded",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 1.710304856300354,
+			"dateTime": "2026.09.23-18.22.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Reopened graph rebuilt all three original custom routes without an F command.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.22.01"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Diagonal",
+			"fullTestPath": "GlooPrint.Editor.PureInputGapPacking.Diagonal",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.9515538215637207,
+			"dateTime": "2026.09.23-18.22.01",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Pure input visual/wire envelope 1419 x 643; shared Y293; 0 repairs, 0 fallbacks.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.22.02"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Rounded",
+			"fullTestPath": "GlooPrint.Editor.PureInputGapPacking.Rounded",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 1.3310527801513672,
+			"dateTime": "2026.09.23-18.22.02",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Pure input visual/wire envelope 1419 x 643; shared Y293; 0 repairs, 0 fallbacks.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.22.04"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Diagonal",
+			"fullTestPath": "GlooPrint.Editor.ReturnAndLongBundles.Diagonal",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 3.157768726348877,
+			"dateTime": "2026.09.23-18.22.04",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Return lane Y133.00, length1321.06, bends4.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.22.04"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Return lane Y121.00, length1267.33, bends4.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.22.04"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Return lane Y145.00, length1274.61, bends4.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.22.04"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Return bundle envelope 2316 x 245; repairs0, fallbacks0.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.22.04"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Rounded",
+			"fullTestPath": "GlooPrint.Editor.ReturnAndLongBundles.Rounded",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 3.5587835311889648,
+			"dateTime": "2026.09.23-18.22.07",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Return lane Y133.00, length1321.38, bends4.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.22.07"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Return lane Y121.00, length1265.38, bends4.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.22.07"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Return lane Y145.00, length1281.38, bends4.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.22.07"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Return bundle envelope 2316 x 245; repairs0, fallbacks0.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.22.07"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Diagonal",
+			"fullTestPath": "GlooPrint.Editor.RoutedWiresOffscreen.Diagonal",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.92616862058639526,
+			"dateTime": "2026.09.23-18.22.11",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Rounded",
+			"fullTestPath": "GlooPrint.Editor.RoutedWiresOffscreen.Rounded",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.4823823869228363,
+			"dateTime": "2026.09.23-18.22.11",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Diagonal",
+			"fullTestPath": "GlooPrint.Editor.WireZoom.Diagonal",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 1.7998571395874023,
+			"dateTime": "2026.09.23-18.22.12",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Rounded",
+			"fullTestPath": "GlooPrint.Editor.WireZoom.Rounded",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 1.6546503305435181,
+			"dateTime": "2026.09.23-18.22.14",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "AnchorRulesAndConnectionValidation",
+			"fullTestPath": "GlooPrint.Editor.AnchorRulesAndConnectionValidation",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.11171600222587585,
+			"dateTime": "2026.09.23-18.22.15",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ConnectedRerouteWaypoints",
+			"fullTestPath": "GlooPrint.Editor.ConnectedRerouteWaypoints",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 2.23679518699646,
+			"dateTime": "2026.09.23-18.22.16",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native reroutes: 0 spacing repairs, 0 fallbacks.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.22.16"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CrossingCandidateRetention",
+			"fullTestPath": "GlooPrint.Editor.CrossingCandidateRetention",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 1.9501688480377197,
+			"dateTime": "2026.09.23-18.22.18",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native crossing order: 43 retained, 44 after four sweeps, chosen2; 0 spacing repairs, 0 fallbacks.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.22.18"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DeferredMeasurement",
+			"fullTestPath": "GlooPrint.Editor.DeferredMeasurement",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 5.4977974891662598,
+			"dateTime": "2026.09.23-18.22.20",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DenseFanAndJoin",
+			"fullTestPath": "GlooPrint.Editor.DenseFanAndJoin",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 3.3341279029846191,
+			"dateTime": "2026.09.23-18.22.25",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native dense fan: first-to-second branch body padding 48.0.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.22.26"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native dense fan: 0 spacing repairs, 0 fallbacks.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.22.26"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native dense visual/wire envelope 1447 x 2115.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.22.26"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Dense execution first-turn largest gap 12.0.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.22.26"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Dense last branch turns 617.50 -> 665.50.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.22.26"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native pin inset samples: 8 (0 with interpolation roundoff).",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.22.26"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Dense last branch turns 617.50 -> 665.50.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.22.26"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native pin inset samples: 9 (0 with interpolation roundoff).",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.22.26"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Dense low-detail shared attachment: native(435.750,328.125), cached(481.100,328.500), zoom0.250.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.22.28"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DiagonalWireGestures",
+			"fullTestPath": "GlooPrint.Editor.DiagonalWireGestures",
+			"tags": [],
+			"state": "Fail",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 10.172267913818359,
+			"dateTime": "2026.09.23-18.22.29",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Editor could not become foreground for native pointer verification.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "C:\\Users\\hello\\code\\unreal\\glooprint-material-release-02\\BuildWin64\\HostProject\\Plugins\\GlooPrint\\Source\\GlooPrint\\Private\\Tests\\GlooPrintWireInteractionTests.cpp",
+					"lineNumber": 68,
+					"timestamp": "2026.09.23-18.22.39"
+				}
+			],
+			"warnings": 0,
+			"errors": 1,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DisconnectedGroupPacking",
+			"fullTestPath": "GlooPrint.Editor.DisconnectedGroupPacking",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 1.445913553237915,
+			"dateTime": "2026.09.23-18.22.39",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native packed visual/wire envelope: 1712 x 749 graph units, 0 repairs, 0 fallbacks.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.22.40"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DiskPersistence",
+			"fullTestPath": "GlooPrint.Editor.DiskPersistence",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 26.593864440917969,
+			"dateTime": "2026.09.23-18.22.40",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Fresh disk reader PID22084; evidence C:/Users/hello/code/unreal/glooprint-material-release-02/EditorTests/HostProject/Saved/DiskPersistence/CC8396C9402A14EA8B2D7B8B21AFD3B8/",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.22.42"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Disk persistence evidence and fresh-editor report: C:/Users/hello/code/unreal/glooprint-material-release-02/EditorTests/HostProject/Saved/DiskPersistence/CC8396C9402A14EA8B2D7B8B21AFD3B8/",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.23.07"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ExecutionWires",
+			"fullTestPath": "GlooPrint.Editor.ExecutionWires",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 5.8704681396484375,
+			"dateTime": "2026.09.23-18.23.07",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Warning",
+						"message": "LogConsoleManager: Console variable 'r.MotionVectorSimulation' used in the render thread. Rendering artifacts could happen. Use ECVF_RenderThreadSafe or don't use in render thread.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.23.09"
+				}
+			],
+			"warnings": 1,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FocusedShortcut",
+			"fullTestPath": "GlooPrint.Editor.FocusedShortcut",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 2.9502801895141602,
+			"dateTime": "2026.09.23-18.23.13",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FormatContinuation",
+			"fullTestPath": "GlooPrint.Editor.FormatContinuation",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 4.1893625259399414,
+			"dateTime": "2026.09.23-18.23.16",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FormatProgressCancel",
+			"fullTestPath": "GlooPrint.Editor.FormatProgressCancel",
+			"tags": [],
+			"state": "Fail",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 10.020758628845215,
+			"dateTime": "2026.09.23-18.23.20",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Editor could not become foreground for native Cancel verification.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "C:\\Users\\hello\\code\\unreal\\glooprint-material-release-02\\BuildWin64\\HostProject\\Plugins\\GlooPrint\\Source\\GlooPrint\\Private\\Tests\\GlooPrintRoutingContinuationEditorTests.cpp",
+					"lineNumber": 307,
+					"timestamp": "2026.09.23-18.23.30"
+				}
+			],
+			"warnings": 0,
+			"errors": 1,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FormatRepairLimit",
+			"fullTestPath": "GlooPrint.Editor.FormatRepairLimit",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.016050301492214203,
+			"dateTime": "2026.09.23-18.23.30",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ModuleLifecycle",
+			"fullTestPath": "GlooPrint.Editor.ModuleLifecycle",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 2.1311440467834473,
+			"dateTime": "2026.09.23-18.23.30",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "NativeBlueprintContextMenu",
+			"fullTestPath": "GlooPrint.Editor.NativeBlueprintContextMenu",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 1.3284573554992676,
+			"dateTime": "2026.09.23-18.23.32",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "NestedBranchesSwitchAndJoins",
+			"fullTestPath": "GlooPrint.Editor.NestedBranchesSwitchAndJoins",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 2.110731840133667,
+			"dateTime": "2026.09.23-18.23.33",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native nested branches: 0 spacing repairs, 0 fallbacks.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.23.34"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Switch 0: original ordinal 4, native Y 43.0, branch input Y 58.0.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.23.34"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Switch 1: original ordinal 5, native Y 75.0, branch input Y 386.0.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.23.34"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Switch 2: original ordinal 6, native Y 107.0, branch input Y 558.0.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.23.34"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Switch Default: original ordinal 0, native Y 149.0, branch input Y 742.0.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.23.34"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "NestedCommentMembership",
+			"fullTestPath": "GlooPrint.Editor.NestedCommentMembership",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 3.2640724182128906,
+			"dateTime": "2026.09.23-18.23.36",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native nested comments: 0 spacing repairs, 0 fallbacks; original native memberships and movement modes retained.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.23.39"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "OverlappingCommentMembership",
+			"fullTestPath": "GlooPrint.Editor.OverlappingCommentMembership",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 3.4922099113464355,
+			"dateTime": "2026.09.23-18.23.39",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native overlapping comments: 0 spacing repairs, 0 fallbacks; original native memberships and movement modes retained.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.23.42"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PlannedRouteReuse",
+			"fullTestPath": "GlooPrint.Editor.PlannedRouteReuse",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.83143597841262817,
+			"dateTime": "2026.09.23-18.23.42",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RoundedWireGestures",
+			"fullTestPath": "GlooPrint.Editor.RoundedWireGestures",
+			"tags": [],
+			"state": "Fail",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 10.165732383728027,
+			"dateTime": "2026.09.23-18.23.43",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Editor could not become foreground for native pointer verification.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "C:\\Users\\hello\\code\\unreal\\glooprint-material-release-02\\BuildWin64\\HostProject\\Plugins\\GlooPrint\\Source\\GlooPrint\\Private\\Tests\\GlooPrintWireInteractionTests.cpp",
+					"lineNumber": 68,
+					"timestamp": "2026.09.23-18.23.53"
+				}
+			],
+			"warnings": 0,
+			"errors": 1,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RoutedWires",
+			"fullTestPath": "GlooPrint.Editor.RoutedWires",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 1.2611005306243896,
+			"dateTime": "2026.09.23-18.23.53",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RoutingContinuation",
+			"fullTestPath": "GlooPrint.Editor.RoutingContinuation",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 5.3613176345825195,
+			"dateTime": "2026.09.23-18.23.55",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SearchedWire",
+			"fullTestPath": "GlooPrint.Editor.SearchedWire",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.48547020554542542,
+			"dateTime": "2026.09.23-18.24.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native search: 1189 expanded states, 788 segment checks, 8 bends.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.24.00"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SettingsAndWireStyles",
+			"fullTestPath": "GlooPrint.Editor.SettingsAndWireStyles",
+			"tags": [],
+			"state": "Fail",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 1.767941951751709,
+			"dateTime": "2026.09.23-18.24.01",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 3 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.24.01"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native grid32: upper/lower columns 416/416 graph units from the fixed anchor.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.24.01"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.24.01"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "LogEditCondition: UserInterfaceSettings - EditCondition attempted to use an invalid operand \"bUseCustomFontDPI\".",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.24.02"
+				}
+			],
+			"warnings": 0,
+			"errors": 1,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SharedExpressionsAndFlow",
+			"fullTestPath": "GlooPrint.Editor.SharedExpressionsAndFlow",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 1.8946027755737305,
+			"dateTime": "2026.09.23-18.24.02",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SupportedGraphsAndNativeNodes",
+			"fullTestPath": "GlooPrint.Editor.SupportedGraphsAndNativeNodes",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 52.309528350830078,
+			"dateTime": "2026.09.23-18.24.04",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "TemplateSplineMesh",
+			"fullTestPath": "GlooPrint.Editor.TemplateSplineMesh",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 4.4577960968017578,
+			"dateTime": "2026.09.23-18.24.57",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Private authored template artifacts: C:/Users/hello/code/unreal/glooprint-material-release-02/EditorTests/HostProject/Saved/TemplateBlueprint/61725CD44586F3F3FFBF38BEA6FD28A4/",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.24.57"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Installed BP_Splinemesh construction script: 40 nodes, 124 pins, 49 links, 0 spacing repairs.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.24.58"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "AuthoredRounded,40,49,6,90,5,6,24807.830,3904.000,1386.000,3904.000,1398.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.24.58"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FormattedRounded,40,49,0,78,6,6,27932.368,3958.000,1449.000,3958.000,1449.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.25.00"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FormattedDiagonal,40,49,0,78,6,6,27208.706,3958.000,1449.000,3958.000,1449.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.25.01"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "TemplateSplineSpawn",
+			"fullTestPath": "GlooPrint.Editor.TemplateSplineSpawn",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 3.4614832401275635,
+			"dateTime": "2026.09.23-18.25.01",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Private authored template artifacts: C:/Users/hello/code/unreal/glooprint-material-release-02/EditorTests/HostProject/Saved/TemplateBlueprint/8DC1E5CB4DA63221C4CB7AACB628FD56/",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.25.01"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Installed BP_SpawnMeshAlongSpline construction script: 29 nodes, 77 pins, 30 links, 0 spacing repairs.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.25.02"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "AuthoredRounded,29,30,7,52,1,4,9319.936,4160.000,956.000,4160.000,956.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.25.02"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FormattedRounded,29,30,0,46,4,4,15009.777,5436.000,751.000,5436.000,751.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.25.04"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FormattedDiagonal,29,30,0,46,4,4,14685.303,5436.000,751.000,5436.000,751.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.25.04"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "TemplateSplineZoom",
+			"fullTestPath": "GlooPrint.Editor.TemplateSplineZoom",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 12.055158615112305,
+			"dateTime": "2026.09.23-18.25.05",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Private authored template artifacts: C:/Users/hello/code/unreal/glooprint-material-release-02/EditorTests/HostProject/Saved/TemplateBlueprint/18CB0A1E443A1FCED91DF2AA48D73807/",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.25.05"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Installed BP_Splinemesh construction script: 40 nodes, 124 pins, 49 links, 0 spacing repairs.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.25.06"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "AuthoredRounded,40,49,6,90,5,6,24807.830,3904.000,1386.000,3904.000,1398.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.25.06"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FormattedRounded,40,49,0,78,6,6,27932.368,3958.000,1449.000,3958.000,1449.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.25.08"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FormattedDiagonal,40,49,0,78,6,6,27208.706,3958.000,1449.000,3958.000,1449.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.25.09"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Checked 20 supported zoom levels in both wire styles; native endpoint deltas and captures: C:/Users/hello/code/unreal/glooprint-material-release-02/EditorTests/HostProject/Saved/TemplateBlueprint/18CB0A1E443A1FCED91DF2AA48D73807/",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.25.17"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "TransactionAndColdNoOp",
+			"fullTestPath": "GlooPrint.Editor.TransactionAndColdNoOp",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.11591149866580963,
+			"dateTime": "2026.09.23-18.25.17",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ValidatedFormatAndWrappedTitle",
+			"fullTestPath": "GlooPrint.Editor.ValidatedFormatAndWrappedTitle",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.92224681377410889,
+			"dateTime": "2026.09.23-18.25.17",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Validated format starts with 59 applied transactions and 0 redo entries.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.25.17"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Validated format: 4 layouts, 2 proposed title measurements, 1 spacing repairs, 0 native fallbacks.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.25.18"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "WireAppearance",
+			"fullTestPath": "GlooPrint.Editor.WireAppearance",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 6.7362532615661621,
+			"dateTime": "2026.09.23-18.25.18",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "BodyOverlapValidation",
+			"fullTestPath": "GlooPrint.Layout.BodyOverlapValidation",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.0096936002373695374,
+			"dateTime": "2026.09.23-18.25.24",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CommentConsumerPinOrder",
+			"fullTestPath": "GlooPrint.Layout.CommentConsumerPinOrder",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.011819597333669662,
+			"dateTime": "2026.09.23-18.25.24",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CommentExecutionCorridors",
+			"fullTestPath": "GlooPrint.Layout.CommentExecutionCorridors",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.011708900332450867,
+			"dateTime": "2026.09.23-18.25.24",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ContinuationOwnership",
+			"fullTestPath": "GlooPrint.Layout.ContinuationOwnership",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.010119497776031494,
+			"dateTime": "2026.09.23-18.25.25",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DataCommentBesideFlow",
+			"fullTestPath": "GlooPrint.Layout.DataCommentBesideFlow",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.011504899710416794,
+			"dateTime": "2026.09.23-18.25.25",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DisconnectedGroupPacking",
+			"fullTestPath": "GlooPrint.Layout.DisconnectedGroupPacking",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.010499399155378342,
+			"dateTime": "2026.09.23-18.25.25",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FlowCyclesAndIslands",
+			"fullTestPath": "GlooPrint.Layout.FlowCyclesAndIslands",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.010561700910329819,
+			"dateTime": "2026.09.23-18.25.25",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FractionalCommentAlignment",
+			"fullTestPath": "GlooPrint.Layout.FractionalCommentAlignment",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.01019199937582016,
+			"dateTime": "2026.09.23-18.25.25",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GridSpacingAndPinAlignment",
+			"fullTestPath": "GlooPrint.Layout.GridSpacingAndPinAlignment",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.0098526999354362488,
+			"dateTime": "2026.09.23-18.25.25",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "HorizontalWireCapacity",
+			"fullTestPath": "GlooPrint.Layout.HorizontalWireCapacity",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.013323497027158737,
+			"dateTime": "2026.09.23-18.25.25",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Long fan detour method1, 0 search expansions.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.25.25"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Long fan detour method1, 0 search expansions.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.25.25"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "InvalidGeometryRefusal",
+			"fullTestPath": "GlooPrint.Layout.InvalidGeometryRefusal",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.0099638998508453369,
+			"dateTime": "2026.09.23-18.25.25",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "LongCycleIsBounded",
+			"fullTestPath": "GlooPrint.Layout.LongCycleIsBounded",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.019388500601053238,
+			"dateTime": "2026.09.23-18.25.25",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "NestedAndAmbiguousComments",
+			"fullTestPath": "GlooPrint.Layout.NestedAndAmbiguousComments",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.010117899626493454,
+			"dateTime": "2026.09.23-18.25.25",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PureInputGapPacking",
+			"fullTestPath": "GlooPrint.Layout.PureInputGapPacking",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.010954897850751877,
+			"dateTime": "2026.09.23-18.25.25",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RetainsBestCrossingCandidate",
+			"fullTestPath": "GlooPrint.Layout.RetainsBestCrossingCandidate",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.010598402470350266,
+			"dateTime": "2026.09.23-18.25.25",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SharedInputsNearConsumers",
+			"fullTestPath": "GlooPrint.Layout.SharedInputsNearConsumers",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.0099307000637054443,
+			"dateTime": "2026.09.23-18.25.25",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Shared expression: horizontal consumer gap 112.0; first chain Y 0..0; second chain Y 148..148.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.25.25"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "TallSequenceCompaction",
+			"fullTestPath": "GlooPrint.Layout.TallSequenceCompaction",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.010272897779941559,
+			"dateTime": "2026.09.23-18.25.25",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Tall Sequence: first-to-second branch row gap 180.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.25.25"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Families",
+			"fullTestPath": "GlooPrint.Materials.CaptureLayoutUndo.Families",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.70038843154907227,
+			"dateTime": "2026.09.23-18.25.25",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Blend",
+			"fullTestPath": "GlooPrint.Materials.NativeEditor.Blend",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 8.4184141159057617,
+			"dateTime": "2026.09.23-18.25.26",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native preview mean RGB difference after format/Apply: 0.12121/255",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.25.32"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Function",
+			"fullTestPath": "GlooPrint.Materials.NativeEditor.Function",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 7.7779831886291504,
+			"dateTime": "2026.09.23-18.25.34",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native preview mean RGB difference after format/Apply: 0.11824/255",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.25.40"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Layer",
+			"fullTestPath": "GlooPrint.Materials.NativeEditor.Layer",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 7.6806702613830566,
+			"dateTime": "2026.09.23-18.25.42",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native preview mean RGB difference after format/Apply: 0.12121/255",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.25.48"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Material",
+			"fullTestPath": "GlooPrint.Materials.NativeEditor.Material",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 8.5305213928222656,
+			"dateTime": "2026.09.23-18.25.49",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native preview mean RGB difference after format/Apply: 0.12959/255",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.25.56"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Diagonal",
+			"fullTestPath": "GlooPrint.Materials.WireGestures.Diagonal",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 12.044337272644043,
+			"dateTime": "2026.09.23-18.25.58",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Rounded",
+			"fullTestPath": "GlooPrint.Materials.WireGestures.Rounded",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 10.523773193359375,
+			"dateTime": "2026.09.23-18.26.10",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CachesAndStalePlans",
+			"fullTestPath": "GlooPrint.Materials.CachesAndStalePlans",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.12108069658279419,
+			"dateTime": "2026.09.23-18.26.21",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CompositesCommentsSubstrate",
+			"fullTestPath": "GlooPrint.Materials.CompositesCommentsSubstrate",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.16160149872303009,
+			"dateTime": "2026.09.23-18.26.21",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Substrate enabled: false",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.26.21"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FactoryOwnership",
+			"fullTestPath": "GlooPrint.Materials.FactoryOwnership",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.080120101571083069,
+			"dateTime": "2026.09.23-18.26.21",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FunctionInterfaceAndManyPins",
+			"fullTestPath": "GlooPrint.Materials.FunctionInterfaceAndManyPins",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.48191329836845398,
+			"dateTime": "2026.09.23-18.26.21",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "HiddenConnectionsAndReroutes",
+			"fullTestPath": "GlooPrint.Materials.HiddenConnectionsAndReroutes",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.10080999881029129,
+			"dateTime": "2026.09.23-18.26.22",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "NativeWireAppearance",
+			"fullTestPath": "GlooPrint.Materials.NativeWireAppearance",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.01214120164513588,
+			"dateTime": "2026.09.23-18.26.22",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CacheInvalidation",
+			"fullTestPath": "GlooPrint.Measurement.CacheInvalidation",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.11956730484962463,
+			"dateTime": "2026.09.23-18.26.22",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ColdAndReadOnly",
+			"fullTestPath": "GlooPrint.Measurement.ColdAndReadOnly",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.054520901292562485,
+			"dateTime": "2026.09.23-18.26.22",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Continuation",
+			"fullTestPath": "GlooPrint.Measurement.Continuation",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.1362839937210083,
+			"dateTime": "2026.09.23-18.26.22",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FailWithoutPartialResults",
+			"fullTestPath": "GlooPrint.Measurement.FailWithoutPartialResults",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.012586798518896103,
+			"dateTime": "2026.09.23-18.26.22",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "HiddenPinsWithoutDefaults",
+			"fullTestPath": "GlooPrint.Measurement.HiddenPinsWithoutDefaults",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.86481630802154541,
+			"dateTime": "2026.09.23-18.26.23",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native fixture screenshot: ../../../../../../Users/hello/code/unreal/glooprint-material-release-02/EditorTests/HostProject/Saved/GlooPrint-Geometry-PinMode2.png",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.26.23"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "HiddenUnconnectedPins",
+			"fullTestPath": "GlooPrint.Measurement.HiddenUnconnectedPins",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 1.0312676429748535,
+			"dateTime": "2026.09.23-18.26.23",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native fixture screenshot: ../../../../../../Users/hello/code/unreal/glooprint-material-release-02/EditorTests/HostProject/Saved/GlooPrint-Geometry-PinMode1.png",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.26.24"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "LayoutReuse",
+			"fullTestPath": "GlooPrint.Measurement.LayoutReuse",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.17010539770126343,
+			"dateTime": "2026.09.23-18.26.24",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "MixedCacheContinuation",
+			"fullTestPath": "GlooPrint.Measurement.MixedCacheContinuation",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.061551801860332489,
+			"dateTime": "2026.09.23-18.26.25",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "OffscreenVersusPaintedNative",
+			"fullTestPath": "GlooPrint.Measurement.OffscreenVersusPaintedNative",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.46934959292411804,
+			"dateTime": "2026.09.23-18.26.25",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native fixture screenshot: ../../../../../../Users/hello/code/unreal/glooprint-material-release-02/EditorTests/HostProject/Saved/GlooPrint-Geometry.png",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.26.25"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PaintedDisplayScales",
+			"fullTestPath": "GlooPrint.Measurement.PaintedDisplayScales",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 7.2211480140686035,
+			"dateTime": "2026.09.23-18.26.25",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Painted display-scale fixture: requested 1.00, native DPI 1.00, application scale 1.000, pin mode 0.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.26.25"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native fixture screenshot: ../../../../../../Users/hello/code/unreal/glooprint-material-release-02/EditorTests/HostProject/Saved/GlooPrint-Geometry-Scale1.00-PinMode0.png",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.26.26"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Painted display-scale fixture: requested 1.00, native DPI 1.00, application scale 1.000, pin mode 1.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.26.26"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native fixture screenshot: ../../../../../../Users/hello/code/unreal/glooprint-material-release-02/EditorTests/HostProject/Saved/GlooPrint-Geometry-Scale1.00-PinMode1.png",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.26.26"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Painted display-scale fixture: requested 1.00, native DPI 1.00, application scale 1.000, pin mode 2.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.26.27"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native fixture screenshot: ../../../../../../Users/hello/code/unreal/glooprint-material-release-02/EditorTests/HostProject/Saved/GlooPrint-Geometry-Scale1.00-PinMode2.png",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.26.27"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Painted display-scale fixture: requested 1.25, native DPI 1.00, application scale 1.250, pin mode 0.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.26.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native fixture screenshot: ../../../../../../Users/hello/code/unreal/glooprint-material-release-02/EditorTests/HostProject/Saved/GlooPrint-Geometry-Scale1.25-PinMode0.png",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.26.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Painted display-scale fixture: requested 1.25, native DPI 1.00, application scale 1.250, pin mode 1.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.26.29"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native fixture screenshot: ../../../../../../Users/hello/code/unreal/glooprint-material-release-02/EditorTests/HostProject/Saved/GlooPrint-Geometry-Scale1.25-PinMode1.png",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.26.29"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Painted display-scale fixture: requested 1.25, native DPI 1.00, application scale 1.250, pin mode 2.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.26.29"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native fixture screenshot: ../../../../../../Users/hello/code/unreal/glooprint-material-release-02/EditorTests/HostProject/Saved/GlooPrint-Geometry-Scale1.25-PinMode2.png",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.26.30"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Painted display-scale fixture: requested 1.50, native DPI 1.00, application scale 1.500, pin mode 0.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.26.30"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native fixture screenshot: ../../../../../../Users/hello/code/unreal/glooprint-material-release-02/EditorTests/HostProject/Saved/GlooPrint-Geometry-Scale1.50-PinMode0.png",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.26.30"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Painted display-scale fixture: requested 1.50, native DPI 1.00, application scale 1.500, pin mode 1.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.26.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native fixture screenshot: ../../../../../../Users/hello/code/unreal/glooprint-material-release-02/EditorTests/HostProject/Saved/GlooPrint-Geometry-Scale1.50-PinMode1.png",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.26.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Painted display-scale fixture: requested 1.50, native DPI 1.00, application scale 1.500, pin mode 2.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.26.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native fixture screenshot: ../../../../../../Users/hello/code/unreal/glooprint-material-release-02/EditorTests/HostProject/Saved/GlooPrint-Geometry-Scale1.50-PinMode2.png",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.26.32"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ChannelCoordinateBounds",
+			"fullTestPath": "GlooPrint.Routing.ChannelCoordinateBounds",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.010127101093530655,
+			"dateTime": "2026.09.23-18.26.32",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ContinuationOwnership",
+			"fullTestPath": "GlooPrint.Routing.ContinuationOwnership",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.01984960213303566,
+			"dateTime": "2026.09.23-18.26.32",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CrowdedPinEscape",
+			"fullTestPath": "GlooPrint.Routing.CrowdedPinEscape",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.025263801217079163,
+			"dateTime": "2026.09.23-18.26.32",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DenseFanCorridors",
+			"fullTestPath": "GlooPrint.Routing.DenseFanCorridors",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.015223100781440735,
+			"dateTime": "2026.09.23-18.26.33",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DiagonalClearance",
+			"fullTestPath": "GlooPrint.Routing.DiagonalClearance",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.011879999190568924,
+			"dateTime": "2026.09.23-18.26.33",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FractionalSharedPinTurn",
+			"fullTestPath": "GlooPrint.Routing.FractionalSharedPinTurn",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.010766800493001938,
+			"dateTime": "2026.09.23-18.26.33",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GrowingTerminalIndex",
+			"fullTestPath": "GlooPrint.Routing.GrowingTerminalIndex",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.010491397231817245,
+			"dateTime": "2026.09.23-18.26.33",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "LargeFanFrontiers",
+			"fullTestPath": "GlooPrint.Routing.LargeFanFrontiers",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.30629339814186096,
+			"dateTime": "2026.09.23-18.26.33",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "LongQueriesAndSpills",
+			"fullTestPath": "GlooPrint.Routing.LongQueriesAndSpills",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.012267697602510452,
+			"dateTime": "2026.09.23-18.26.33",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ObstaclesCornersAndFeedback",
+			"fullTestPath": "GlooPrint.Routing.ObstaclesCornersAndFeedback",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.011087499558925629,
+			"dateTime": "2026.09.23-18.26.33",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ReservedPinApproaches",
+			"fullTestPath": "GlooPrint.Routing.ReservedPinApproaches",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.010864999145269394,
+			"dateTime": "2026.09.23-18.26.33",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SharedTerminalCorridors",
+			"fullTestPath": "GlooPrint.Routing.SharedTerminalCorridors",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.011089600622653961,
+			"dateTime": "2026.09.23-18.26.33",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ShiftedTerminalTurns",
+			"fullTestPath": "GlooPrint.Routing.ShiftedTerminalTurns",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.010785002261400223,
+			"dateTime": "2026.09.23-18.26.33",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SparseSearchAndLimits",
+			"fullTestPath": "GlooPrint.Routing.SparseSearchAndLimits",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"58C8A7B3497E127ACFAA82AEA77A16A7"
+			],
+			"duration": 0.017772000283002853,
+			"dateTime": "2026.09.23-18.26.33",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Maze: 449 expanded states, 361 segment checks, 24 x 21 channels, 8 bends.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.26.33"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Sealed target: 2048 expanded / 5806 created states; 4095 segment checks.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.26.33"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

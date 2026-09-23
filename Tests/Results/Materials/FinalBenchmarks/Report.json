@@ -1,0 +1,3369 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "ISHTMS",
+			"instance": "DF5D984A47629E2A62FF0D8F213490FD",
+			"instanceName": "ISHTMS-15896",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9457] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 3080 Ti",
+			"cPUModel": "AMD Ryzen 9 3900X 12-Core Processor            ",
+			"rAMInGB": 32,
+			"renderMode": "D3D12_SM5",
+			"rHI": "D3D12 (SM5)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.09.23-18.58.24",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 3,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 405.06640625,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "1000",
+			"fullTestPath": "GlooPrint.Performance.Materials.1000",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"DF5D984A47629E2A62FF0D8F213490FD"
+			],
+			"duration": 39.013065338134766,
+			"dateTime": "2026.09.23-18.51.38",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Diagnostic/stress run only; no performance acceptance claim.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.52.15"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "150",
+			"fullTestPath": "GlooPrint.Performance.Materials.150",
+			"tags": [],
+			"state": "Fail",
+			"deviceInstance": [
+				"DF5D984A47629E2A62FF0D8F213490FD"
+			],
+			"duration": 121.8128662109375,
+			"dateTime": "2026.09.23-18.52.18",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 118 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.52.29"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 149 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.52.29"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.52.30"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 118 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.52.35"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 149 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.52.35"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.52.36"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 118 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.52.41"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 149 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.52.41"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.52.42"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 118 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.52.47"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 149 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.52.47"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.52.48"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 118 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.52.53"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 149 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.52.53"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.52.53"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 118 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.52.58"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 149 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.52.58"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.52.59"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 118 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.04"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 149 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.04"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.04"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 118 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.09"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 149 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.09"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 118 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.15"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 149 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.15"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.16"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 118 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.21"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 149 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.21"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.21"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 118 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.27"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 149 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.27"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.27"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 118 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.32"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 149 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.32"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.33"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 118 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.38"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 149 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.38"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.38"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 118 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.43"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 149 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.43"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.44"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 118 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.49"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 149 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.49"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.49"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 118 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.55"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 149 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.55"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.53.55"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 118 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.00"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 149 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.00"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.01"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 118 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.06"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 149 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.06"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.06"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 118 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.11"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 149 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.11"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.12"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 118 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.17"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 149 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.17"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.17"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "150 material nodes, 20 samples: p95 cold 3714.141ms, repeat 16.246ms, slice 10.778ms, max slice 218.326ms; CPU AMD Ryzen 9 3900X 12-Core Processor            ",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.17"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Material cold format p95 <= 1000ms' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "C:\\Users\\hello\\code\\unreal\\glooprint-material-package-final\\HostProject\\Plugins\\GlooPrint\\Source\\GlooPrint\\Private\\Tests\\GlooPrintMaterialEditorTests.cpp",
+					"lineNumber": 399,
+					"timestamp": "2026.09.23-18.54.17"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Material work slices p95 <= 8ms' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "C:\\Users\\hello\\code\\unreal\\glooprint-material-package-final\\HostProject\\Plugins\\GlooPrint\\Source\\GlooPrint\\Private\\Tests\\GlooPrintMaterialEditorTests.cpp",
+					"lineNumber": 401,
+					"timestamp": "2026.09.23-18.54.17"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No material work slice > 50ms' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "C:\\Users\\hello\\code\\unreal\\glooprint-material-package-final\\HostProject\\Plugins\\GlooPrint\\Source\\GlooPrint\\Private\\Tests\\GlooPrintMaterialEditorTests.cpp",
+					"lineNumber": 401,
+					"timestamp": "2026.09.23-18.54.17"
+				}
+			],
+			"warnings": 0,
+			"errors": 3,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "300",
+			"fullTestPath": "GlooPrint.Performance.Materials.300",
+			"tags": [],
+			"state": "Fail",
+			"deviceInstance": [
+				"DF5D984A47629E2A62FF0D8F213490FD"
+			],
+			"duration": 175.96337890625,
+			"dateTime": "2026.09.23-18.54.19",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: ================================================",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: === FShaderJobCache stats ===",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Total job queries 591, among them cache hits 256 (43.32%), DDC hits 221 (37.39%), Duplicates 68 (11.51%)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Tracking 236 distinct input hashes that result in 158 distinct outputs (66.95%)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: RAM used: 1.18 MiB of 1.60 GiB budget. Usage: 0.07%",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: === Shader Compilation stats ===",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Shaders Compiled: 68",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Jobs assigned 68, completed 68 (100%)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Average time worker was idle: 8.41 s",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Time job spent in pending queue: average 0.08 s, longest 0.14 s",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Job execution time: average 1.16 s, max 5.76 s",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Job life time (pending + execution): average 1.24 s, max 5.86",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Shader code size: total 353.961 KiB, numShaders 68, average 5.205 KiB, min 2.766 KiB, max 7.559 KiB",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Time at least one job was in flight (either pending or executed): 42.02 s",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Jobs were issued in 68 batches (only local compilation was used), average 1.00 jobs/batch",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Average processing rate: 1.62 jobs/sec",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Total thread time: 63.664 s",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Total thread preprocess time: 14.041 s",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Percentage time preprocessing: 22.05%",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Effective parallelization: 1.51 (times faster than compiling all shaders on one thread). Compare with number of workers: 12 - 0.126246",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Top 5 most expensive shader types by average time:",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers:                                 TBasePassPSFNoLightMapPolicy (compiled   38 times, average 1.15 sec, max 1.48 sec, min 0.88 sec)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers:                                 TBasePassVSFNoLightMapPolicy (compiled   30 times, average 0.67 sec, max 1.10 sec, min 0.53 sec)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers:                                 FLandscapePhysicalMaterialPS (compiled    0 times, average 0.00 sec, max 0.00 sec, min 0.00 sec)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers:                                      FLandscapeGrassWeightPS (compiled    0 times, average 0.00 sec, max 0.00 sec, min 0.00 sec)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers:                                             FDebugViewModeVS (compiled    0 times, average 0.00 sec, max 0.00 sec, min 0.00 sec)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Top 5 shader types by total compile time:",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers:                                 TBasePassPSFNoLightMapPolicy - 68.55% of total time (compiled   38 times, average 1.15 sec, max 1.48 sec, min 0.88 sec)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers:                                 TBasePassVSFNoLightMapPolicy - 31.45% of total time (compiled   30 times, average 0.67 sec, max 1.10 sec, min 0.53 sec)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers:                                      FLandscapeGrassWeightPS - 0.00% of total time (compiled    0 times, average 0.00 sec, max 0.00 sec, min 0.00 sec)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers:                                             FDebugViewModeVS - 0.00% of total time (compiled    0 times, average 0.00 sec, max 0.00 sec, min 0.00 sec)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers:                                 FLandscapePhysicalMaterialPS - 0.00% of total time (compiled    0 times, average 0.00 sec, max 0.00 sec, min 0.00 sec)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: === Material stats ===",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Materials Cooked:        0",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Materials Translated:    243",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Material Total Translate Time: 0.37 s",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Material Translation Only: 0.27 s (74%)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Material DDC Serialization Only: 0.00 s (0%)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Material Cache Hits: 23 (9%)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: ================================================",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 288 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.29"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 299 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.29"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.30"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 288 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.38"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 299 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.38"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.39"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 288 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.47"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 299 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.47"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.48"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 288 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.56"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 299 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.56"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.54.57"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 288 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.55.05"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 299 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.55.05"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.55.06"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 288 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.55.14"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 299 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.55.14"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.55.14"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 288 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.55.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 299 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.55.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.55.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 288 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.55.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 299 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.55.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.55.32"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 288 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.55.40"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 299 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.55.40"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.55.41"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 288 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.55.49"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 299 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.55.49"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.55.49"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 288 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.55.57"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 299 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.55.57"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.55.58"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 288 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.56.05"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 299 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.56.05"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.56.06"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 288 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.56.14"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 299 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.56.14"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.56.14"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 288 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.56.22"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 299 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.56.22"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.56.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 288 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.56.30"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 299 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.56.30"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.56.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 288 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.56.39"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 299 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.56.39"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.56.40"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 288 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.56.48"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 299 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.56.48"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.56.48"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 288 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.56.56"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 299 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.56.56"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.56.57"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 288 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.04"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 299 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.04"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.05"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 288 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.13"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 299 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.13"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.14"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "300 material nodes, 20 samples: p95 cold 6877.779ms, repeat 26.967ms, slice 5.612ms, max slice 334.798ms; CPU AMD Ryzen 9 3900X 12-Core Processor            ",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.14"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Material cold format p95 <= 1000ms' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "C:\\Users\\hello\\code\\unreal\\glooprint-material-package-final\\HostProject\\Plugins\\GlooPrint\\Source\\GlooPrint\\Private\\Tests\\GlooPrintMaterialEditorTests.cpp",
+					"lineNumber": 399,
+					"timestamp": "2026.09.23-18.57.14"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No material work slice > 50ms' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "C:\\Users\\hello\\code\\unreal\\glooprint-material-package-final\\HostProject\\Plugins\\GlooPrint\\Source\\GlooPrint\\Private\\Tests\\GlooPrintMaterialEditorTests.cpp",
+					"lineNumber": 401,
+					"timestamp": "2026.09.23-18.57.14"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Material wire paint: 637 connections, 20 samples, p95 0.854ms",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.14"
+				}
+			],
+			"warnings": 0,
+			"errors": 2,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "50",
+			"fullTestPath": "GlooPrint.Performance.Materials.50",
+			"tags": [],
+			"state": "Fail",
+			"deviceInstance": [
+				"DF5D984A47629E2A62FF0D8F213490FD"
+			],
+			"duration": 68.277107238769531,
+			"dateTime": "2026.09.23-18.57.15",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 21 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.20"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 49 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.20"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.21"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 21 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 49 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.24"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 21 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.26"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 49 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.26"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.27"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: ================================================",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: === FShaderJobCache stats ===",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Total job queries 959, among them cache hits 534 (55.68%), DDC hits 229 (23.88%), Duplicates 117 (12.20%)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Tracking 249 distinct input hashes that result in 162 distinct outputs (65.06%)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: RAM used: 1.19 MiB of 1.60 GiB budget. Usage: 0.07%",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: === Shader Compilation stats ===",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Shaders Compiled: 124",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Jobs assigned 124, completed 124 (100%)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Average time worker was idle: 15.30 s",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Time job spent in pending queue: average 0.07 s, longest 0.14 s",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Job execution time: average 1.02 s, max 5.76 s",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Job life time (pending + execution): average 1.09 s, max 5.86",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Shader code size: total 669.746 KiB, numShaders 124, average 5.4 KiB, min 2.766 KiB, max 7.559 KiB",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Time at least one job was in flight (either pending or executed): 69.05 s",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Jobs were issued in 124 batches (only local compilation was used), average 1.00 jobs/batch",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Average processing rate: 1.80 jobs/sec",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Total thread time: 105.912 s",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Total thread preprocess time: 21.326 s",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Percentage time preprocessing: 20.14%",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Effective parallelization: 1.53 (times faster than compiling all shaders on one thread). Compare with number of workers: 12 - 0.127816",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Top 5 most expensive shader types by average time:",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers:                                 TBasePassPSFNoLightMapPolicy (compiled   68 times, average 1.06 sec, max 1.48 sec, min 0.84 sec)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers:                                 TBasePassVSFNoLightMapPolicy (compiled   56 times, average 0.61 sec, max 1.10 sec, min 0.47 sec)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers:                                 FLandscapePhysicalMaterialPS (compiled    0 times, average 0.00 sec, max 0.00 sec, min 0.00 sec)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers:                                      FLandscapeGrassWeightPS (compiled    0 times, average 0.00 sec, max 0.00 sec, min 0.00 sec)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers:                                             FDebugViewModeVS (compiled    0 times, average 0.00 sec, max 0.00 sec, min 0.00 sec)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Top 5 shader types by total compile time:",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers:                                 TBasePassPSFNoLightMapPolicy - 67.78% of total time (compiled   68 times, average 1.06 sec, max 1.48 sec, min 0.84 sec)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers:                                 TBasePassVSFNoLightMapPolicy - 32.22% of total time (compiled   56 times, average 0.61 sec, max 1.10 sec, min 0.47 sec)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers:                                      FLandscapeGrassWeightPS - 0.00% of total time (compiled    0 times, average 0.00 sec, max 0.00 sec, min 0.00 sec)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers:                                             FDebugViewModeVS - 0.00% of total time (compiled    0 times, average 0.00 sec, max 0.00 sec, min 0.00 sec)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers:                                 FLandscapePhysicalMaterialPS - 0.00% of total time (compiled    0 times, average 0.00 sec, max 0.00 sec, min 0.00 sec)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: === Material stats ===",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Materials Cooked:        0",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Materials Translated:    317",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Material Total Translate Time: 0.51 s",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Material Translation Only: 0.39 s (77%)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Material DDC Serialization Only: 0.00 s (0%)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Material Cache Hits: 23 (7%)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: ================================================",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.28"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 21 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.29"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 49 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.29"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.30"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 21 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.33"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 49 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.33"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.33"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 21 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.36"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 49 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.36"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.36"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 21 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.39"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 49 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.39"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.39"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 21 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.42"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 49 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.42"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.43"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 21 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.46"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 49 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.46"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.46"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 21 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.49"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 49 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.49"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.50"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 21 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.53"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 49 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.53"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.53"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 21 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.56"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 49 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.56"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.57"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 21 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.59"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 49 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.57.59"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.58.00"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 21 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.58.03"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 49 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.58.03"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.58.03"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 21 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.58.06"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 49 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.58.06"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.58.06"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 21 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.58.09"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 49 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.58.09"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.58.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 21 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.58.12"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 49 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.58.12"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.58.13"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 21 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.58.15"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 49 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.58.15"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.58.16"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 21 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.58.19"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 49 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.58.19"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.58.19"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: 21 connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.58.22"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 49 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.58.22"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.58.22"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "50 material nodes, 20 samples: p95 cold 1507.322ms, repeat 5.711ms, slice 14.363ms, max slice 87.065ms; CPU AMD Ryzen 9 3900X 12-Core Processor            ",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.58.22"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Material cold format p95 <= 1000ms' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "C:\\Users\\hello\\code\\unreal\\glooprint-material-package-final\\HostProject\\Plugins\\GlooPrint\\Source\\GlooPrint\\Private\\Tests\\GlooPrintMaterialEditorTests.cpp",
+					"lineNumber": 399,
+					"timestamp": "2026.09.23-18.58.22"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Material work slices p95 <= 8ms' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "C:\\Users\\hello\\code\\unreal\\glooprint-material-package-final\\HostProject\\Plugins\\GlooPrint\\Source\\GlooPrint\\Private\\Tests\\GlooPrintMaterialEditorTests.cpp",
+					"lineNumber": 401,
+					"timestamp": "2026.09.23-18.58.22"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No material work slice > 50ms' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "C:\\Users\\hello\\code\\unreal\\glooprint-material-package-final\\HostProject\\Plugins\\GlooPrint\\Source\\GlooPrint\\Private\\Tests\\GlooPrintMaterialEditorTests.cpp",
+					"lineNumber": 401,
+					"timestamp": "2026.09.23-18.58.22"
+				}
+			],
+			"warnings": 0,
+			"errors": 3,
+			"artifacts": []
+		}
+	]
+}

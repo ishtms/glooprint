@@ -1,0 +1,332 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "ISHTMS",
+			"instance": "76FCF83147141C3D5BCAD6B4C94CF53B",
+			"instanceName": "ISHTMS-35288",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9457] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 3080 Ti",
+			"cPUModel": "AMD Ryzen 9 3900X 12-Core Processor            ",
+			"rAMInGB": 32,
+			"renderMode": "D3D12_SM5",
+			"rHI": "D3D12 (SM5)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.09.23-18.48.39",
+	"succeeded": 14,
+	"succeededWithWarnings": 0,
+	"failed": 1,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 104.35341644287109,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "ModuleLifecycle",
+			"fullTestPath": "GlooPrint.Editor.ModuleLifecycle",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"76FCF83147141C3D5BCAD6B4C94CF53B"
+			],
+			"duration": 2.5832085609436035,
+			"dateTime": "2026.09.23-18.46.55",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PlannedRouteReuse",
+			"fullTestPath": "GlooPrint.Editor.PlannedRouteReuse",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"76FCF83147141C3D5BCAD6B4C94CF53B"
+			],
+			"duration": 0.69823527336120605,
+			"dateTime": "2026.09.23-18.46.58",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Families",
+			"fullTestPath": "GlooPrint.Materials.CaptureLayoutUndo.Families",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"76FCF83147141C3D5BCAD6B4C94CF53B"
+			],
+			"duration": 0.93838751316070557,
+			"dateTime": "2026.09.23-18.46.58",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Blend",
+			"fullTestPath": "GlooPrint.Materials.NativeEditor.Blend",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"76FCF83147141C3D5BCAD6B4C94CF53B"
+			],
+			"duration": 56.432693481445312,
+			"dateTime": "2026.09.23-18.46.59",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native preview mean RGB difference after format/Apply: 0.12762/255",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.47.55"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Function",
+			"fullTestPath": "GlooPrint.Materials.NativeEditor.Function",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"76FCF83147141C3D5BCAD6B4C94CF53B"
+			],
+			"duration": 9.5647602081298828,
+			"dateTime": "2026.09.23-18.47.56",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native preview mean RGB difference after format/Apply: 0.11864/255",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.48.04"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Layer",
+			"fullTestPath": "GlooPrint.Materials.NativeEditor.Layer",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"76FCF83147141C3D5BCAD6B4C94CF53B"
+			],
+			"duration": 9.0704727172851562,
+			"dateTime": "2026.09.23-18.48.05",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native preview mean RGB difference after format/Apply: 0.12217/255",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.48.14"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Material",
+			"fullTestPath": "GlooPrint.Materials.NativeEditor.Material",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"76FCF83147141C3D5BCAD6B4C94CF53B"
+			],
+			"duration": 9.5566587448120117,
+			"dateTime": "2026.09.23-18.48.14",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native preview mean RGB difference after format/Apply: 0.12668/255",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.48.23"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Diagonal",
+			"fullTestPath": "GlooPrint.Materials.WireGestures.Diagonal",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"76FCF83147141C3D5BCAD6B4C94CF53B"
+			],
+			"duration": 11.242480278015137,
+			"dateTime": "2026.09.23-18.48.24",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Rounded",
+			"fullTestPath": "GlooPrint.Materials.WireGestures.Rounded",
+			"tags": [],
+			"state": "Fail",
+			"deviceInstance": [
+				"76FCF83147141C3D5BCAD6B4C94CF53B"
+			],
+			"duration": 3.0471525192260742,
+			"dateTime": "2026.09.23-18.48.35",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Native hover resolves original material pins' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "C:\\Users\\hello\\code\\unreal\\glooprint-material-package-final\\HostProject\\Plugins\\GlooPrint\\Source\\GlooPrint\\Private\\Tests\\GlooPrintMaterialWireTests.cpp",
+					"lineNumber": 87,
+					"timestamp": "2026.09.23-18.48.38"
+				}
+			],
+			"warnings": 0,
+			"errors": 1,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CachesAndStalePlans",
+			"fullTestPath": "GlooPrint.Materials.CachesAndStalePlans",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"76FCF83147141C3D5BCAD6B4C94CF53B"
+			],
+			"duration": 0.16032639145851135,
+			"dateTime": "2026.09.23-18.48.38",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CompositesCommentsSubstrate",
+			"fullTestPath": "GlooPrint.Materials.CompositesCommentsSubstrate",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"76FCF83147141C3D5BCAD6B4C94CF53B"
+			],
+			"duration": 0.20481580495834351,
+			"dateTime": "2026.09.23-18.48.38",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Substrate enabled: true",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.48.38"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FactoryOwnership",
+			"fullTestPath": "GlooPrint.Materials.FactoryOwnership",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"76FCF83147141C3D5BCAD6B4C94CF53B"
+			],
+			"duration": 0.087473198771476746,
+			"dateTime": "2026.09.23-18.48.39",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FunctionInterfaceAndManyPins",
+			"fullTestPath": "GlooPrint.Materials.FunctionInterfaceAndManyPins",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"76FCF83147141C3D5BCAD6B4C94CF53B"
+			],
+			"duration": 0.62151920795440674,
+			"dateTime": "2026.09.23-18.48.39",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "HiddenConnectionsAndReroutes",
+			"fullTestPath": "GlooPrint.Materials.HiddenConnectionsAndReroutes",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"76FCF83147141C3D5BCAD6B4C94CF53B"
+			],
+			"duration": 0.13473370671272278,
+			"dateTime": "2026.09.23-18.48.39",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "NativeWireAppearance",
+			"fullTestPath": "GlooPrint.Materials.NativeWireAppearance",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"76FCF83147141C3D5BCAD6B4C94CF53B"
+			],
+			"duration": 0.010506097227334976,
+			"dateTime": "2026.09.23-18.48.39",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

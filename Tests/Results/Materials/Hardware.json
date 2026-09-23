@@ -1,0 +1,22 @@
+{
+  "Time": "2026-09-23T22:23:58.3160145+05:30",
+  "CPU": {
+    "Name": "AMD Ryzen 9 3900X 12-Core Processor            ",
+    "NumberOfCores": 12,
+    "NumberOfLogicalProcessors": 24
+  },
+  "Computer": {
+    "Model": "System Product Name",
+    "TotalPhysicalMemory": 34265382912
+  },
+  "GPU": {
+    "Name": "NVIDIA GeForce RTX 3080 Ti",
+    "DriverVersion": "32.0.16.1714",
+    "AdapterRAM": 4293918720
+  },
+  "OS": {
+    "Caption": "Microsoft Windows 11 Pro",
+    "Version": "10.0.26200",
+    "BuildNumber": "26200"
+  }
+}

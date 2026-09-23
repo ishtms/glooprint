@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "assets": [
+    {
+      "fixture": "12-Family0-NativeEditor",
+      "expressions": 11,
+      "status": "passed"
+    },
+    {
+      "fixture": "12-Family1-NativeEditor",
+      "expressions": 12,
+      "status": "passed"
+    },
+    {
+      "fixture": "12-Family2-NativeEditor",
+      "expressions": 13,
+      "status": "passed"
+    },
+    {
+      "fixture": "12-Family3-NativeEditor",
+      "expressions": 13,
+      "status": "passed"
+    }
+  ]
+}

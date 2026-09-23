@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "platform": "Win64",
+  "engine": {
+    "MajorVersion": 5,
+    "MinorVersion": 8,
+    "PatchVersion": 2,
+    "Changelist": 56702186,
+    "CompatibleChangelist": 55116800,
+    "IsLicenseeVersion": 0,
+    "IsPromotedBuild": 1,
+    "BranchName": "++UE5+Release-5.8"
+  },
+  "plugin_version": "1.0.1",
+  "command": [
+    "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+    "C:\\Users\\hello\\code\\unreal\\glooprint-material-tests-20\\HostProject\\GlooPrintHost.uproject",
+    "-unattended",
+    "-nosplash",
+    "-nosound",
+    "-NoLiveCoding",
+    "-stdout",
+    "-FullStdOutLogOutput",
+    "-ExecCmds=Automation SetFilter Engine;RunTests GlooPrint.Materials.WireGestures;SoftQuit",
+    "-ReportExportPath=C:\\Users\\hello\\code\\unreal\\glooprint-material-tests-20\\Report",
+    "-abslog=C:\\Users\\hello\\code\\unreal\\glooprint-material-tests-20\\Editor.log"
+  ],
+  "test_filter": "Engine",
+  "test_prefix": "GlooPrint.Materials.WireGestures",
+  "exit_code": 0,
+  "total": 2,
+  "succeeded": 2,
+  "succeeded_with_warnings": 0,
+  "failures": [],
+  "elapsed_seconds": 44.37
+}

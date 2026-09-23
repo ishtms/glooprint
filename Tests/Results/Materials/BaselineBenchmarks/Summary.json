@@ -1,0 +1,244 @@
+{
+  "source": "C:\\Users\\hello\\code\\unreal\\glooprint-material-perf-05\\HostProject\\Saved\\GlooPrintMaterials",
+  "fixtures": [
+    {
+      "nodes": 1000,
+      "cold": {
+        "samples": 1,
+        "min_ms": 37552.9521,
+        "p50_ms": 37552.9521,
+        "p95_ms": 37552.9521,
+        "max_ms": 37552.9521
+      },
+      "repeat": {
+        "samples": 1,
+        "min_ms": 65.600697,
+        "p50_ms": 65.600697,
+        "p95_ms": 65.600697,
+        "max_ms": 65.600697
+      },
+      "fallbacks": [
+        1092
+      ],
+      "final_capture_cache": [
+        [
+          999,
+          1
+        ],
+        [
+          1000,
+          0
+        ]
+      ],
+      "slices": {
+        "samples": 1411,
+        "min_ms": 2.940901,
+        "p50_ms": 4.470699,
+        "p95_ms": 5.0641,
+        "max_ms": 1056.763303
+      },
+      "format_slices": {
+        "samples": 1160,
+        "min_ms": 4.030399,
+        "p50_ms": 4.496701,
+        "p95_ms": 5.134702,
+        "max_ms": 1056.763303
+      },
+      "routes_slices": {
+        "samples": 251,
+        "min_ms": 2.940901,
+        "p50_ms": 4.277501,
+        "p95_ms": 4.783798,
+        "max_ms": 132.270001
+      },
+      "acceptance": "stress or diagnostic only"
+    },
+    {
+      "nodes": 150,
+      "cold": {
+        "samples": 20,
+        "min_ms": 3974.648099,
+        "p50_ms": 4261.0965,
+        "p95_ms": 5619.131401,
+        "max_ms": 6342.023499
+      },
+      "repeat": {
+        "samples": 20,
+        "min_ms": 11.615001,
+        "p50_ms": 12.894701,
+        "p95_ms": 19.0355,
+        "max_ms": 23.1262
+      },
+      "fallbacks": [
+        119
+      ],
+      "final_capture_cache": [
+        [
+          149,
+          1
+        ],
+        [
+          150,
+          0
+        ]
+      ],
+      "slices": {
+        "samples": 3332,
+        "min_ms": 0.399999,
+        "p50_ms": 4.403602,
+        "p95_ms": 7.374201,
+        "max_ms": 321.061298
+      },
+      "format_slices": {
+        "samples": 2775,
+        "min_ms": 4.015397,
+        "p50_ms": 4.458398,
+        "p95_ms": 7.7492,
+        "max_ms": 321.061298
+      },
+      "routes_slices": {
+        "samples": 557,
+        "min_ms": 0.399999,
+        "p50_ms": 4.227698,
+        "p95_ms": 4.847098,
+        "max_ms": 25.699198
+      },
+      "acceptance": {
+        "cold_p95_1000ms": false,
+        "repeat_p95_250ms": true,
+        "slice_p95_8ms": true,
+        "slice_max_50ms": false
+      }
+    },
+    {
+      "nodes": 300,
+      "cold": {
+        "samples": 20,
+        "min_ms": 7641.538102,
+        "p50_ms": 8790.899999,
+        "p95_ms": 10957.5256,
+        "max_ms": 13809.1067
+      },
+      "repeat": {
+        "samples": 20,
+        "min_ms": 21.158002,
+        "p50_ms": 22.4666,
+        "p95_ms": 27.821299,
+        "max_ms": 29.509701
+      },
+      "fallbacks": [
+        286
+      ],
+      "final_capture_cache": [
+        [
+          299,
+          1
+        ],
+        [
+          300,
+          0
+        ]
+      ],
+      "slices": {
+        "samples": 7295,
+        "min_ms": 0.167899,
+        "p50_ms": 4.4218,
+        "p95_ms": 6.270099,
+        "max_ms": 491.7555
+      },
+      "format_slices": {
+        "samples": 6125,
+        "min_ms": 4.019901,
+        "p50_ms": 4.462,
+        "p95_ms": 6.3572,
+        "max_ms": 491.7555
+      },
+      "routes_slices": {
+        "samples": 1170,
+        "min_ms": 0.167899,
+        "p50_ms": 4.245602,
+        "p95_ms": 4.738301,
+        "max_ms": 54.026097
+      },
+      "acceptance": {
+        "cold_p95_1000ms": false,
+        "repeat_p95_250ms": true,
+        "slice_p95_8ms": true,
+        "slice_max_50ms": false
+      }
+    },
+    {
+      "nodes": 50,
+      "cold": {
+        "samples": 20,
+        "min_ms": 1529.632699,
+        "p50_ms": 1641.329501,
+        "p95_ms": 1930.682302,
+        "max_ms": 1951.390401
+      },
+      "repeat": {
+        "samples": 20,
+        "min_ms": 5.039301,
+        "p50_ms": 5.3977,
+        "p95_ms": 6.159302,
+        "max_ms": 6.949399
+      },
+      "fallbacks": [
+        25
+      ],
+      "final_capture_cache": [
+        [
+          49,
+          1
+        ],
+        [
+          50,
+          0
+        ]
+      ],
+      "slices": {
+        "samples": 874,
+        "min_ms": 1.1384,
+        "p50_ms": 4.554801,
+        "p95_ms": 14.737401,
+        "max_ms": 116.8047
+      },
+      "format_slices": {
+        "samples": 734,
+        "min_ms": 4.031401,
+        "p50_ms": 4.793402,
+        "p95_ms": 16.793899,
+        "max_ms": 116.8047
+      },
+      "routes_slices": {
+        "samples": 140,
+        "min_ms": 1.1384,
+        "p50_ms": 4.147597,
+        "p95_ms": 9.228803,
+        "max_ms": 10.7328
+      },
+      "acceptance": {
+        "cold_p95_1000ms": false,
+        "repeat_p95_250ms": true,
+        "slice_p95_8ms": false,
+        "slice_max_50ms": false
+      }
+    }
+  ],
+  "wire_paint": [
+    {
+      "file": "300-WirePaint.csv",
+      "connections": [
+        637
+      ],
+      "timing": {
+        "samples": 20,
+        "min_ms": 0.826299,
+        "p50_ms": 0.850298,
+        "p95_ms": 0.9197,
+        "max_ms": 0.996303
+      },
+      "p95_2ms": true
+    }
+  ]
+}

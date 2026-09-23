@@ -1,0 +1,3146 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "ISHTMS",
+			"instance": "40199B9A4D22FA2D518C589FDF0BFE0A",
+			"instanceName": "ISHTMS-9708",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9457] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 3080 Ti",
+			"cPUModel": "AMD Ryzen 9 3900X 12-Core Processor            ",
+			"rAMInGB": 32,
+			"renderMode": "D3D12_SM5",
+			"rHI": "D3D12 (SM5)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.09.23-18.14.18",
+	"succeeded": 92,
+	"succeededWithWarnings": 1,
+	"failed": 5,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 286.53375244140625,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "Diagonal",
+			"fullTestPath": "GlooPrint.Editor.DependencyGroupPacking.Diagonal",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 1.6488655805587769,
+			"dateTime": "2026.09.23-18.09.28",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Dependency MakeLiteralString: top 252.00, bottom 317.00.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.30"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Dependency ToUpper: top 293.00, bottom 353.00.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.30"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Dependency MakeLiteralString: top 365.00, bottom 430.00.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.30"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Dependency Append: top 293.00, bottom 383.00.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.30"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Pure input visual/wire envelope 1435 x 643; shared Y293; 0 repairs, 0 fallbacks.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.30"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Rounded",
+			"fullTestPath": "GlooPrint.Editor.DependencyGroupPacking.Rounded",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.95059812068939209,
+			"dateTime": "2026.09.23-18.09.30",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Dependency MakeLiteralString: top 252.00, bottom 317.00.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Dependency ToUpper: top 293.00, bottom 353.00.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Dependency MakeLiteralString: top 365.00, bottom 430.00.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Dependency Append: top 293.00, bottom 383.00.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Pure input visual/wire envelope 1435 x 643; shared Y293; 0 repairs, 0 fallbacks.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.31"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Diagonal",
+			"fullTestPath": "GlooPrint.Editor.NativeFallbackAndReopen.Diagonal",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 2.1772992610931396,
+			"dateTime": "2026.09.23-18.09.31",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Reopened graph rebuilt all three original custom routes without an F command.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.32"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Rounded",
+			"fullTestPath": "GlooPrint.Editor.NativeFallbackAndReopen.Rounded",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 1.6833664178848267,
+			"dateTime": "2026.09.23-18.09.33",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Reopened graph rebuilt all three original custom routes without an F command.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.34"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Diagonal",
+			"fullTestPath": "GlooPrint.Editor.PureInputGapPacking.Diagonal",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.90767776966094971,
+			"dateTime": "2026.09.23-18.09.35",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Pure input visual/wire envelope 1419 x 643; shared Y293; 0 repairs, 0 fallbacks.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.36"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Rounded",
+			"fullTestPath": "GlooPrint.Editor.PureInputGapPacking.Rounded",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 1.2821505069732666,
+			"dateTime": "2026.09.23-18.09.36",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Pure input visual/wire envelope 1419 x 643; shared Y293; 0 repairs, 0 fallbacks.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.37"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Diagonal",
+			"fullTestPath": "GlooPrint.Editor.ReturnAndLongBundles.Diagonal",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 3.1296665668487549,
+			"dateTime": "2026.09.23-18.09.37",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Return lane Y133.00, length1321.06, bends4.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.38"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Return lane Y121.00, length1267.33, bends4.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.38"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Return lane Y145.00, length1274.61, bends4.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.38"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Return bundle envelope 2316 x 245; repairs0, fallbacks0.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.38"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Rounded",
+			"fullTestPath": "GlooPrint.Editor.ReturnAndLongBundles.Rounded",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 3.4177823066711426,
+			"dateTime": "2026.09.23-18.09.40",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Return lane Y133.00, length1321.38, bends4.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.41"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Return lane Y121.00, length1265.38, bends4.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.41"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Return lane Y145.00, length1281.38, bends4.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.41"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Return bundle envelope 2316 x 245; repairs0, fallbacks0.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.41"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Diagonal",
+			"fullTestPath": "GlooPrint.Editor.RoutedWiresOffscreen.Diagonal",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.55437940359115601,
+			"dateTime": "2026.09.23-18.09.44",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Rounded",
+			"fullTestPath": "GlooPrint.Editor.RoutedWiresOffscreen.Rounded",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.72147542238235474,
+			"dateTime": "2026.09.23-18.09.44",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Diagonal",
+			"fullTestPath": "GlooPrint.Editor.WireZoom.Diagonal",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 1.7261693477630615,
+			"dateTime": "2026.09.23-18.09.45",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Rounded",
+			"fullTestPath": "GlooPrint.Editor.WireZoom.Rounded",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 1.6816353797912598,
+			"dateTime": "2026.09.23-18.09.47",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "AnchorRulesAndConnectionValidation",
+			"fullTestPath": "GlooPrint.Editor.AnchorRulesAndConnectionValidation",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.11287739872932434,
+			"dateTime": "2026.09.23-18.09.49",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ConnectedRerouteWaypoints",
+			"fullTestPath": "GlooPrint.Editor.ConnectedRerouteWaypoints",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 2.285308837890625,
+			"dateTime": "2026.09.23-18.09.49",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native reroutes: 0 spacing repairs, 0 fallbacks.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.49"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CrossingCandidateRetention",
+			"fullTestPath": "GlooPrint.Editor.CrossingCandidateRetention",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 2.0391647815704346,
+			"dateTime": "2026.09.23-18.09.51",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native crossing order: 43 retained, 44 after four sweeps, chosen2; 0 spacing repairs, 0 fallbacks.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.51"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DeferredMeasurement",
+			"fullTestPath": "GlooPrint.Editor.DeferredMeasurement",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 5.5918197631835938,
+			"dateTime": "2026.09.23-18.09.53",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DenseFanAndJoin",
+			"fullTestPath": "GlooPrint.Editor.DenseFanAndJoin",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 3.2665424346923828,
+			"dateTime": "2026.09.23-18.09.59",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native dense fan: first-to-second branch body padding 48.0.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.59"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native dense fan: 0 spacing repairs, 0 fallbacks.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.59"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native dense visual/wire envelope 1447 x 2115.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.59"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Dense execution first-turn largest gap 12.0.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.59"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Dense last branch turns 617.50 -> 665.50.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.59"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native pin inset samples: 8 (0 with interpolation roundoff).",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.59"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Dense last branch turns 617.50 -> 665.50.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.59"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native pin inset samples: 9 (0 with interpolation roundoff).",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.09.59"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Dense low-detail shared attachment: native(435.750,328.125), cached(481.100,328.500), zoom0.250.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.10.01"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DiagonalWireGestures",
+			"fullTestPath": "GlooPrint.Editor.DiagonalWireGestures",
+			"tags": [],
+			"state": "Fail",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 10.165925979614258,
+			"dateTime": "2026.09.23-18.10.02",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Editor could not become foreground for native pointer verification.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "C:\\Users\\hello\\code\\unreal\\glooprint-material-release-01\\BuildWin64\\HostProject\\Plugins\\GlooPrint\\Source\\GlooPrint\\Private\\Tests\\GlooPrintWireInteractionTests.cpp",
+					"lineNumber": 68,
+					"timestamp": "2026.09.23-18.10.12"
+				}
+			],
+			"warnings": 0,
+			"errors": 1,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DisconnectedGroupPacking",
+			"fullTestPath": "GlooPrint.Editor.DisconnectedGroupPacking",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 1.4972646236419678,
+			"dateTime": "2026.09.23-18.10.12",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native packed visual/wire envelope: 1712 x 749 graph units, 0 repairs, 0 fallbacks.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.10.13"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DiskPersistence",
+			"fullTestPath": "GlooPrint.Editor.DiskPersistence",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 26.696100234985352,
+			"dateTime": "2026.09.23-18.10.14",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Fresh disk reader PID15208; evidence C:/Users/hello/code/unreal/glooprint-material-release-01/EditorTests/HostProject/Saved/DiskPersistence/3C8278AE4B45DD1D42B7FBBA3E8FAAA6/",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.10.15"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Disk persistence evidence and fresh-editor report: C:/Users/hello/code/unreal/glooprint-material-release-01/EditorTests/HostProject/Saved/DiskPersistence/3C8278AE4B45DD1D42B7FBBA3E8FAAA6/",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.10.40"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ExecutionWires",
+			"fullTestPath": "GlooPrint.Editor.ExecutionWires",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 4.8961257934570312,
+			"dateTime": "2026.09.23-18.10.40",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Warning",
+						"message": "LogConsoleManager: Console variable 'r.MotionVectorSimulation' used in the render thread. Rendering artifacts could happen. Use ECVF_RenderThreadSafe or don't use in render thread.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.10.43"
+				}
+			],
+			"warnings": 1,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FocusedShortcut",
+			"fullTestPath": "GlooPrint.Editor.FocusedShortcut",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 3.0365822315216064,
+			"dateTime": "2026.09.23-18.10.45",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FormatContinuation",
+			"fullTestPath": "GlooPrint.Editor.FormatContinuation",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 4.2139158248901367,
+			"dateTime": "2026.09.23-18.10.48",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FormatProgressCancel",
+			"fullTestPath": "GlooPrint.Editor.FormatProgressCancel",
+			"tags": [],
+			"state": "Fail",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 10.020743370056152,
+			"dateTime": "2026.09.23-18.10.52",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Editor could not become foreground for native Cancel verification.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "C:\\Users\\hello\\code\\unreal\\glooprint-material-release-01\\BuildWin64\\HostProject\\Plugins\\GlooPrint\\Source\\GlooPrint\\Private\\Tests\\GlooPrintRoutingContinuationEditorTests.cpp",
+					"lineNumber": 307,
+					"timestamp": "2026.09.23-18.11.03"
+				}
+			],
+			"warnings": 0,
+			"errors": 1,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FormatRepairLimit",
+			"fullTestPath": "GlooPrint.Editor.FormatRepairLimit",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.016635000705718994,
+			"dateTime": "2026.09.23-18.11.03",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ModuleLifecycle",
+			"fullTestPath": "GlooPrint.Editor.ModuleLifecycle",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 2.098416805267334,
+			"dateTime": "2026.09.23-18.11.03",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "NativeBlueprintContextMenu",
+			"fullTestPath": "GlooPrint.Editor.NativeBlueprintContextMenu",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 1.3646359443664551,
+			"dateTime": "2026.09.23-18.11.05",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "NestedBranchesSwitchAndJoins",
+			"fullTestPath": "GlooPrint.Editor.NestedBranchesSwitchAndJoins",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 2.1122441291809082,
+			"dateTime": "2026.09.23-18.11.06",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native nested branches: 0 spacing repairs, 0 fallbacks.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.11.06"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Switch 0: original ordinal 4, native Y 43.0, branch input Y 58.0.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.11.06"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Switch 1: original ordinal 5, native Y 75.0, branch input Y 386.0.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.11.06"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Switch 2: original ordinal 6, native Y 107.0, branch input Y 558.0.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.11.06"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Switch Default: original ordinal 0, native Y 149.0, branch input Y 742.0.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.11.06"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "NestedCommentMembership",
+			"fullTestPath": "GlooPrint.Editor.NestedCommentMembership",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 3.2808585166931152,
+			"dateTime": "2026.09.23-18.11.08",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native nested comments: 0 spacing repairs, 0 fallbacks; original native memberships and movement modes retained.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.11.11"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "OverlappingCommentMembership",
+			"fullTestPath": "GlooPrint.Editor.OverlappingCommentMembership",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 3.4817934036254883,
+			"dateTime": "2026.09.23-18.11.11",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native overlapping comments: 0 spacing repairs, 0 fallbacks; original native memberships and movement modes retained.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.11.15"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PlannedRouteReuse",
+			"fullTestPath": "GlooPrint.Editor.PlannedRouteReuse",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.80122041702270508,
+			"dateTime": "2026.09.23-18.11.15",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RoundedWireGestures",
+			"fullTestPath": "GlooPrint.Editor.RoundedWireGestures",
+			"tags": [],
+			"state": "Fail",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 10.157444000244141,
+			"dateTime": "2026.09.23-18.11.16",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Editor could not become foreground for native pointer verification.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "C:\\Users\\hello\\code\\unreal\\glooprint-material-release-01\\BuildWin64\\HostProject\\Plugins\\GlooPrint\\Source\\GlooPrint\\Private\\Tests\\GlooPrintWireInteractionTests.cpp",
+					"lineNumber": 68,
+					"timestamp": "2026.09.23-18.11.26"
+				}
+			],
+			"warnings": 0,
+			"errors": 1,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RoutedWires",
+			"fullTestPath": "GlooPrint.Editor.RoutedWires",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 1.2411574125289917,
+			"dateTime": "2026.09.23-18.11.26",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RoutingContinuation",
+			"fullTestPath": "GlooPrint.Editor.RoutingContinuation",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 5.3032331466674805,
+			"dateTime": "2026.09.23-18.11.27",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SearchedWire",
+			"fullTestPath": "GlooPrint.Editor.SearchedWire",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.44576460123062134,
+			"dateTime": "2026.09.23-18.11.33",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native search: 1189 expanded states, 788 segment checks, 8 bends.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.11.33"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SettingsAndWireStyles",
+			"fullTestPath": "GlooPrint.Editor.SettingsAndWireStyles",
+			"tags": [],
+			"state": "Fail",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 2.0632920265197754,
+			"dateTime": "2026.09.23-18.11.33",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 3 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.11.34"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native grid32: upper/lower columns 416/416 graph units from the fixed anchor.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.11.34"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.11.34"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "LogEditCondition: UserInterfaceSettings - EditCondition attempted to use an invalid operand \"bUseCustomFontDPI\".",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.11.35"
+				}
+			],
+			"warnings": 0,
+			"errors": 1,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SharedExpressionsAndFlow",
+			"fullTestPath": "GlooPrint.Editor.SharedExpressionsAndFlow",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 1.8787708282470703,
+			"dateTime": "2026.09.23-18.11.35",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SupportedGraphsAndNativeNodes",
+			"fullTestPath": "GlooPrint.Editor.SupportedGraphsAndNativeNodes",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 52.668094635009766,
+			"dateTime": "2026.09.23-18.11.37",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "TemplateSplineMesh",
+			"fullTestPath": "GlooPrint.Editor.TemplateSplineMesh",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 4.5677924156188965,
+			"dateTime": "2026.09.23-18.12.30",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Private authored template artifacts: C:/Users/hello/code/unreal/glooprint-material-release-01/EditorTests/HostProject/Saved/TemplateBlueprint/808DF08B4DBA9321872ECDACD5021323/",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.12.30"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Installed BP_Splinemesh construction script: 40 nodes, 124 pins, 49 links, 0 spacing repairs.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.12.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "AuthoredRounded,40,49,6,90,5,6,24807.830,3904.000,1386.000,3904.000,1398.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.12.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FormattedRounded,40,49,0,78,6,6,27932.368,3958.000,1449.000,3958.000,1449.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.12.33"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FormattedDiagonal,40,49,0,78,6,6,27208.706,3958.000,1449.000,3958.000,1449.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.12.34"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "TemplateSplineSpawn",
+			"fullTestPath": "GlooPrint.Editor.TemplateSplineSpawn",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 3.4261593818664551,
+			"dateTime": "2026.09.23-18.12.34",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Private authored template artifacts: C:/Users/hello/code/unreal/glooprint-material-release-01/EditorTests/HostProject/Saved/TemplateBlueprint/8072E8FF400876B2504CD6B4C5C1E66E/",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.12.34"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Installed BP_SpawnMeshAlongSpline construction script: 29 nodes, 77 pins, 30 links, 0 spacing repairs.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.12.35"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "AuthoredRounded,29,30,7,52,1,4,9319.936,4160.000,956.000,4160.000,956.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.12.35"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FormattedRounded,29,30,0,46,4,4,15009.777,5436.000,751.000,5436.000,751.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.12.37"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FormattedDiagonal,29,30,0,46,4,4,14685.303,5436.000,751.000,5436.000,751.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.12.37"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "TemplateSplineZoom",
+			"fullTestPath": "GlooPrint.Editor.TemplateSplineZoom",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 12.365839004516602,
+			"dateTime": "2026.09.23-18.12.38",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Private authored template artifacts: C:/Users/hello/code/unreal/glooprint-material-release-01/EditorTests/HostProject/Saved/TemplateBlueprint/C23DC30244FC6F04486B54B8EC091DDA/",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.12.38"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Installed BP_Splinemesh construction script: 40 nodes, 124 pins, 49 links, 0 spacing repairs.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.12.39"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "AuthoredRounded,40,49,6,90,5,6,24807.830,3904.000,1386.000,3904.000,1398.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.12.39"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FormattedRounded,40,49,0,78,6,6,27932.368,3958.000,1449.000,3958.000,1449.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.12.41"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FormattedDiagonal,40,49,0,78,6,6,27208.706,3958.000,1449.000,3958.000,1449.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.12.42"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Checked 20 supported zoom levels in both wire styles; native endpoint deltas and captures: C:/Users/hello/code/unreal/glooprint-material-release-01/EditorTests/HostProject/Saved/TemplateBlueprint/C23DC30244FC6F04486B54B8EC091DDA/",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.12.50"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "TransactionAndColdNoOp",
+			"fullTestPath": "GlooPrint.Editor.TransactionAndColdNoOp",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.11905109882354736,
+			"dateTime": "2026.09.23-18.12.50",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ValidatedFormatAndWrappedTitle",
+			"fullTestPath": "GlooPrint.Editor.ValidatedFormatAndWrappedTitle",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.95228010416030884,
+			"dateTime": "2026.09.23-18.12.50",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Validated format starts with 59 applied transactions and 0 redo entries.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.12.51"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Validated format: 4 layouts, 2 proposed title measurements, 1 spacing repairs, 0 native fallbacks.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.12.51"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "WireAppearance",
+			"fullTestPath": "GlooPrint.Editor.WireAppearance",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 6.7676429748535156,
+			"dateTime": "2026.09.23-18.12.51",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "BodyOverlapValidation",
+			"fullTestPath": "GlooPrint.Layout.BodyOverlapValidation",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.012514501810073853,
+			"dateTime": "2026.09.23-18.12.58",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CommentConsumerPinOrder",
+			"fullTestPath": "GlooPrint.Layout.CommentConsumerPinOrder",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.01348939910531044,
+			"dateTime": "2026.09.23-18.12.58",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CommentExecutionCorridors",
+			"fullTestPath": "GlooPrint.Layout.CommentExecutionCorridors",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.011666901409626007,
+			"dateTime": "2026.09.23-18.12.58",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ContinuationOwnership",
+			"fullTestPath": "GlooPrint.Layout.ContinuationOwnership",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.0090348012745380402,
+			"dateTime": "2026.09.23-18.12.58",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DataCommentBesideFlow",
+			"fullTestPath": "GlooPrint.Layout.DataCommentBesideFlow",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.0095045976340770721,
+			"dateTime": "2026.09.23-18.12.58",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DisconnectedGroupPacking",
+			"fullTestPath": "GlooPrint.Layout.DisconnectedGroupPacking",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.010825198143720627,
+			"dateTime": "2026.09.23-18.12.58",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FlowCyclesAndIslands",
+			"fullTestPath": "GlooPrint.Layout.FlowCyclesAndIslands",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.0096578001976013184,
+			"dateTime": "2026.09.23-18.12.58",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FractionalCommentAlignment",
+			"fullTestPath": "GlooPrint.Layout.FractionalCommentAlignment",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.0095352008938789368,
+			"dateTime": "2026.09.23-18.12.58",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GridSpacingAndPinAlignment",
+			"fullTestPath": "GlooPrint.Layout.GridSpacingAndPinAlignment",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.009415600448846817,
+			"dateTime": "2026.09.23-18.12.58",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "HorizontalWireCapacity",
+			"fullTestPath": "GlooPrint.Layout.HorizontalWireCapacity",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.012300800532102585,
+			"dateTime": "2026.09.23-18.12.58",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Long fan detour method1, 0 search expansions.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.12.58"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Long fan detour method1, 0 search expansions.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.12.58"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "InvalidGeometryRefusal",
+			"fullTestPath": "GlooPrint.Layout.InvalidGeometryRefusal",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.010169599205255508,
+			"dateTime": "2026.09.23-18.12.58",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "LongCycleIsBounded",
+			"fullTestPath": "GlooPrint.Layout.LongCycleIsBounded",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.017799098044633865,
+			"dateTime": "2026.09.23-18.12.58",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "NestedAndAmbiguousComments",
+			"fullTestPath": "GlooPrint.Layout.NestedAndAmbiguousComments",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.0092552974820137024,
+			"dateTime": "2026.09.23-18.12.58",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PureInputGapPacking",
+			"fullTestPath": "GlooPrint.Layout.PureInputGapPacking",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.011296000331640244,
+			"dateTime": "2026.09.23-18.12.58",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RetainsBestCrossingCandidate",
+			"fullTestPath": "GlooPrint.Layout.RetainsBestCrossingCandidate",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.0092848986387252808,
+			"dateTime": "2026.09.23-18.12.58",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SharedInputsNearConsumers",
+			"fullTestPath": "GlooPrint.Layout.SharedInputsNearConsumers",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.0083729997277259827,
+			"dateTime": "2026.09.23-18.12.58",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Shared expression: horizontal consumer gap 112.0; first chain Y 0..0; second chain Y 148..148.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.12.58"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "TallSequenceCompaction",
+			"fullTestPath": "GlooPrint.Layout.TallSequenceCompaction",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.021624699234962463,
+			"dateTime": "2026.09.23-18.12.58",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Tall Sequence: first-to-second branch row gap 180.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.12.58"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Families",
+			"fullTestPath": "GlooPrint.Materials.CaptureLayoutUndo.Families",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.85069131851196289,
+			"dateTime": "2026.09.23-18.12.58",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Blend",
+			"fullTestPath": "GlooPrint.Materials.NativeEditor.Blend",
+			"tags": [],
+			"state": "Fail",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 14.138191223144531,
+			"dateTime": "2026.09.23-18.12.59",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogStreaming: FlushAsyncLoading(469): 1 QueuedPackages, 0 AsyncPackages",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.12.59"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogShaderCompilers: Cancelled job 0x00000296B0145A00 with pending SubmitJob call.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.00"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogSlate: Font face '../../Content/Slate/Fonts/Roboto-Regular.ttf' subface index 0 successfully added to font face map in Game thread.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.00"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 12 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.04"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.07"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogGlooPrintEditor: Formatted graph: 0 changed nodes.",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.07"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native preview mean RGB difference after format/Apply: 0.12121/255",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.09"
+				},
+				{
+					"event":
+					{
+						"type": "Warning",
+						"message": "LogOutputDevice: \n\nScript Stack (0 frames) :\n",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.12"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "LogOutputDevice: === Handled ensure: ===",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.12"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "LogOutputDevice: ",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.12"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "LogOutputDevice: Ensure condition failed: !bInitialized  [File:D:\\build\\++UE5\\Sync\\Engine\\Source\\Runtime\\Engine\\Private\\Subsystems\\WorldSubsystem.cpp] [Line: 118] ",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.12"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "LogOutputDevice: Tickable subsystem LandscapeSubsystem /Engine/Maps/Entry.Entry:LandscapeSubsystem_0 was destroyed while still initialized! Check for missing Super::Deinitialize call",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.12"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "LogOutputDevice: Stack: ",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.12"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "LogOutputDevice: [Callstack] 0x00007fff76669c5e UnrealEditor-Engine.dll!UnknownFunction []",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.12"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "LogOutputDevice: [Callstack] 0x00007fff75b0dab4 UnrealEditor-Engine.dll!UnknownFunction []",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.12"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "LogOutputDevice: [Callstack] 0x00007fff8519e927 UnrealEditor-CoreUObject.dll!UnknownFunction []",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.12"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "LogOutputDevice: [Callstack] 0x00007fff850d62ad UnrealEditor-CoreUObject.dll!UnknownFunction []",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.12"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "LogOutputDevice: [Callstack] 0x00007fff8501802d UnrealEditor-CoreUObject.dll!UnknownFunction []",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.12"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "LogOutputDevice: [Callstack] 0x00007fff8509ca3a UnrealEditor-CoreUObject.dll!UnknownFunction []",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.12"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "LogOutputDevice: [Callstack] 0x00007fff85047d3b UnrealEditor-CoreUObject.dll!UnknownFunction []",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.12"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "LogOutputDevice: [Callstack] 0x00007fff0f44fd83 UnrealEditor-GlooPrint.dll!GlooPrint::Tests::FMaterialEditorCleanup::Update() [C:\\Users\\hello\\code\\unreal\\glooprint-material-release-01\\BuildWin64\\HostProject\\Plugins\\GlooPrint\\Source\\GlooPrint\\Private\\Tests\\GlooPrintMaterialEditorTests.cpp:538]",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.12"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "LogOutputDevice: [Callstack] 0x00007fff7fa1ef43 UnrealEditor-Core.dll!UnknownFunction []",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.12"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "LogOutputDevice: [Callstack] 0x00000296c05e131c UnrealEditor-AutomationWorker.dll!UnknownFunction []",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.12"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "LogOutputDevice: [Callstack] 0x00007ff79003325d UnrealEditor.exe!UnknownFunction []",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.12"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "LogOutputDevice: [Callstack] 0x00007ff79001c4ac UnrealEditor.exe!UnknownFunction []",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.12"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "LogOutputDevice: [Callstack] 0x00007ff79001c5ba UnrealEditor.exe!UnknownFunction []",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.12"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "LogOutputDevice: [Callstack] 0x00007ff790021256 UnrealEditor.exe!UnknownFunction []",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.12"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "LogOutputDevice: [Callstack] 0x00007ff790035c74 UnrealEditor.exe!UnknownFunction []",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.12"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "LogOutputDevice: [Callstack] 0x00007ff79003902a UnrealEditor.exe!UnknownFunction []",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.12"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "LogOutputDevice: [Callstack] 0x00007ff87d73cd87 KERNEL32.DLL!UnknownFunction []",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.12"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "LogOutputDevice: [Callstack] 0x00007ff87e36caec ntdll.dll!UnknownFunction []",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.12"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "LogOutputDevice: ",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.12"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "EnsureFailed: Ensure condition failed: !bInitialized  [File:D:\\build\\++UE5\\Sync\\Engine\\Source\\Runtime\\Engine\\Private\\Subsystems\\WorldSubsystem.cpp] [Line: 118] \r\nTickable subsystem LandscapeSubsystem /Engine/Maps/Entry.Entry:LandscapeSubsystem_0 was destroyed while still initialized! Check for missing Super::Deinitialize call\r\nStack: \r\n0x00007fff76669c5e UnrealEditor-Engine.dll!UnknownFunction []\r\n0x00007fff75b0dab4 UnrealEditor-Engine.dll!UnknownFunction []\r\n0x00007fff8519e927 UnrealEditor-CoreUObject.dll!UnknownFunction []\r\n0x00007fff850d62ad UnrealEditor-CoreUObject.dll!UnknownFunction []\r\n0x00007fff8501802d UnrealEditor-CoreUObject.dll!UnknownFunction []\r\n0x00007fff8509ca3a UnrealEditor-CoreUObject.dll!UnknownFunction []\r\n0x00007fff85047d3b UnrealEditor-CoreUObject.dll!UnknownFunction []\r\n0x00007fff0f44fd83 UnrealEditor-GlooPrint.dll!GlooPrint::Tests::FMaterialEditorCleanup::Update() [C:\\Users\\hello\\code\\unreal\\glooprint-material-release-01\\BuildWin64\\HostProject\\Plugins\\GlooPrint\\Source\\GlooPrint\\Private\\Tests\\GlooPrintMaterialEditorTests.cpp:538]\r\n0x00007fff7fa1ef43 UnrealEditor-Core.dll!UnknownFunction []\r\n0x00000296c05e131c UnrealEditor-AutomationWorker.dll!UnknownFunction []\r\n0x00007ff79003325d UnrealEditor.exe!UnknownFunction []\r\n0x00007ff79001c4ac UnrealEditor.exe!UnknownFunction []\r\n0x00007ff79001c5ba UnrealEditor.exe!UnknownFunction []\r\n0x00007ff790021256 UnrealEditor.exe!UnknownFunction []\r\n0x00007ff790035c74 UnrealEditor.exe!UnknownFunction []\r\n0x00007ff79003902a UnrealEditor.exe!UnknownFunction []\r\n0x00007ff87d73cd87 KERNEL32.DLL!UnknownFunction []\r\n0x00007ff87e36caec ntdll.dll!UnknownFunction []\r\n",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.13"
+				}
+			],
+			"warnings": 1,
+			"errors": 25,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Function",
+			"fullTestPath": "GlooPrint.Materials.NativeEditor.Function",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 8.4938211441040039,
+			"dateTime": "2026.09.23-18.13.13",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native preview mean RGB difference after format/Apply: 0.11824/255",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.20"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Layer",
+			"fullTestPath": "GlooPrint.Materials.NativeEditor.Layer",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 8.6310262680053711,
+			"dateTime": "2026.09.23-18.13.22",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native preview mean RGB difference after format/Apply: 0.12121/255",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.29"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Material",
+			"fullTestPath": "GlooPrint.Materials.NativeEditor.Material",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 11.541451454162598,
+			"dateTime": "2026.09.23-18.13.31",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native preview mean RGB difference after format/Apply: 0.12959/255",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.13.40"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Diagonal",
+			"fullTestPath": "GlooPrint.Materials.WireGestures.Diagonal",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 9.9874143600463867,
+			"dateTime": "2026.09.23-18.13.42",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Rounded",
+			"fullTestPath": "GlooPrint.Materials.WireGestures.Rounded",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 11.827926635742188,
+			"dateTime": "2026.09.23-18.13.53",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CachesAndStalePlans",
+			"fullTestPath": "GlooPrint.Materials.CachesAndStalePlans",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.13726760447025299,
+			"dateTime": "2026.09.23-18.14.04",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CompositesCommentsSubstrate",
+			"fullTestPath": "GlooPrint.Materials.CompositesCommentsSubstrate",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.36381208896636963,
+			"dateTime": "2026.09.23-18.14.05",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Substrate enabled: false",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.14.05"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FactoryOwnership",
+			"fullTestPath": "GlooPrint.Materials.FactoryOwnership",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.08577430248260498,
+			"dateTime": "2026.09.23-18.14.06",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FunctionInterfaceAndManyPins",
+			"fullTestPath": "GlooPrint.Materials.FunctionInterfaceAndManyPins",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.64619708061218262,
+			"dateTime": "2026.09.23-18.14.06",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "HiddenConnectionsAndReroutes",
+			"fullTestPath": "GlooPrint.Materials.HiddenConnectionsAndReroutes",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.17263729870319366,
+			"dateTime": "2026.09.23-18.14.06",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "NativeWireAppearance",
+			"fullTestPath": "GlooPrint.Materials.NativeWireAppearance",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.017439000308513641,
+			"dateTime": "2026.09.23-18.14.07",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CacheInvalidation",
+			"fullTestPath": "GlooPrint.Measurement.CacheInvalidation",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.20371890068054199,
+			"dateTime": "2026.09.23-18.14.07",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ColdAndReadOnly",
+			"fullTestPath": "GlooPrint.Measurement.ColdAndReadOnly",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.079807505011558533,
+			"dateTime": "2026.09.23-18.14.07",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Continuation",
+			"fullTestPath": "GlooPrint.Measurement.Continuation",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.20677070319652557,
+			"dateTime": "2026.09.23-18.14.07",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FailWithoutPartialResults",
+			"fullTestPath": "GlooPrint.Measurement.FailWithoutPartialResults",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.01263820007443428,
+			"dateTime": "2026.09.23-18.14.07",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "HiddenPinsWithoutDefaults",
+			"fullTestPath": "GlooPrint.Measurement.HiddenPinsWithoutDefaults",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 1.0984892845153809,
+			"dateTime": "2026.09.23-18.14.07",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native fixture screenshot: ../../../../../../Users/hello/code/unreal/glooprint-material-release-01/EditorTests/HostProject/Saved/GlooPrint-Geometry-PinMode2.png",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.14.08"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "HiddenUnconnectedPins",
+			"fullTestPath": "GlooPrint.Measurement.HiddenUnconnectedPins",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.9540979266166687,
+			"dateTime": "2026.09.23-18.14.08",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native fixture screenshot: ../../../../../../Users/hello/code/unreal/glooprint-material-release-01/EditorTests/HostProject/Saved/GlooPrint-Geometry-PinMode1.png",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.14.09"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "LayoutReuse",
+			"fullTestPath": "GlooPrint.Measurement.LayoutReuse",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.1644131988286972,
+			"dateTime": "2026.09.23-18.14.09",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "MixedCacheContinuation",
+			"fullTestPath": "GlooPrint.Measurement.MixedCacheContinuation",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.052718397229909897,
+			"dateTime": "2026.09.23-18.14.10",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "OffscreenVersusPaintedNative",
+			"fullTestPath": "GlooPrint.Measurement.OffscreenVersusPaintedNative",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.46883630752563477,
+			"dateTime": "2026.09.23-18.14.10",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native fixture screenshot: ../../../../../../Users/hello/code/unreal/glooprint-material-release-01/EditorTests/HostProject/Saved/GlooPrint-Geometry.png",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.14.10"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PaintedDisplayScales",
+			"fullTestPath": "GlooPrint.Measurement.PaintedDisplayScales",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 6.9178910255432129,
+			"dateTime": "2026.09.23-18.14.10",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Painted display-scale fixture: requested 1.00, native DPI 1.00, application scale 1.000, pin mode 0.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.14.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native fixture screenshot: ../../../../../../Users/hello/code/unreal/glooprint-material-release-01/EditorTests/HostProject/Saved/GlooPrint-Geometry-Scale1.00-PinMode0.png",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.14.11"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Painted display-scale fixture: requested 1.00, native DPI 1.00, application scale 1.000, pin mode 1.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.14.11"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native fixture screenshot: ../../../../../../Users/hello/code/unreal/glooprint-material-release-01/EditorTests/HostProject/Saved/GlooPrint-Geometry-Scale1.00-PinMode1.png",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.14.11"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Painted display-scale fixture: requested 1.00, native DPI 1.00, application scale 1.000, pin mode 2.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.14.12"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native fixture screenshot: ../../../../../../Users/hello/code/unreal/glooprint-material-release-01/EditorTests/HostProject/Saved/GlooPrint-Geometry-Scale1.00-PinMode2.png",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.14.12"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Painted display-scale fixture: requested 1.25, native DPI 1.00, application scale 1.250, pin mode 0.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.14.12"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native fixture screenshot: ../../../../../../Users/hello/code/unreal/glooprint-material-release-01/EditorTests/HostProject/Saved/GlooPrint-Geometry-Scale1.25-PinMode0.png",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.14.13"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Painted display-scale fixture: requested 1.25, native DPI 1.00, application scale 1.250, pin mode 1.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.14.13"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native fixture screenshot: ../../../../../../Users/hello/code/unreal/glooprint-material-release-01/EditorTests/HostProject/Saved/GlooPrint-Geometry-Scale1.25-PinMode1.png",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.14.14"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Painted display-scale fixture: requested 1.25, native DPI 1.00, application scale 1.250, pin mode 2.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.14.14"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native fixture screenshot: ../../../../../../Users/hello/code/unreal/glooprint-material-release-01/EditorTests/HostProject/Saved/GlooPrint-Geometry-Scale1.25-PinMode2.png",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.14.14"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Painted display-scale fixture: requested 1.50, native DPI 1.00, application scale 1.500, pin mode 0.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.14.15"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native fixture screenshot: ../../../../../../Users/hello/code/unreal/glooprint-material-release-01/EditorTests/HostProject/Saved/GlooPrint-Geometry-Scale1.50-PinMode0.png",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.14.15"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Painted display-scale fixture: requested 1.50, native DPI 1.00, application scale 1.500, pin mode 1.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.14.15"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native fixture screenshot: ../../../../../../Users/hello/code/unreal/glooprint-material-release-01/EditorTests/HostProject/Saved/GlooPrint-Geometry-Scale1.50-PinMode1.png",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.14.16"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Painted display-scale fixture: requested 1.50, native DPI 1.00, application scale 1.500, pin mode 2.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.14.16"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Native fixture screenshot: ../../../../../../Users/hello/code/unreal/glooprint-material-release-01/EditorTests/HostProject/Saved/GlooPrint-Geometry-Scale1.50-PinMode2.png",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.14.17"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ChannelCoordinateBounds",
+			"fullTestPath": "GlooPrint.Routing.ChannelCoordinateBounds",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.010303400456905365,
+			"dateTime": "2026.09.23-18.14.17",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ContinuationOwnership",
+			"fullTestPath": "GlooPrint.Routing.ContinuationOwnership",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.019152998924255371,
+			"dateTime": "2026.09.23-18.14.17",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CrowdedPinEscape",
+			"fullTestPath": "GlooPrint.Routing.CrowdedPinEscape",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.025576800107955933,
+			"dateTime": "2026.09.23-18.14.17",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DenseFanCorridors",
+			"fullTestPath": "GlooPrint.Routing.DenseFanCorridors",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.012843400239944458,
+			"dateTime": "2026.09.23-18.14.17",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DiagonalClearance",
+			"fullTestPath": "GlooPrint.Routing.DiagonalClearance",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.0087470002472400665,
+			"dateTime": "2026.09.23-18.14.17",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FractionalSharedPinTurn",
+			"fullTestPath": "GlooPrint.Routing.FractionalSharedPinTurn",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.0097269006073474884,
+			"dateTime": "2026.09.23-18.14.17",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GrowingTerminalIndex",
+			"fullTestPath": "GlooPrint.Routing.GrowingTerminalIndex",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.0093525983393192291,
+			"dateTime": "2026.09.23-18.14.17",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "LargeFanFrontiers",
+			"fullTestPath": "GlooPrint.Routing.LargeFanFrontiers",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.30140110850334167,
+			"dateTime": "2026.09.23-18.14.17",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "LongQueriesAndSpills",
+			"fullTestPath": "GlooPrint.Routing.LongQueriesAndSpills",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.011291500180959702,
+			"dateTime": "2026.09.23-18.14.18",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ObstaclesCornersAndFeedback",
+			"fullTestPath": "GlooPrint.Routing.ObstaclesCornersAndFeedback",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.010745000094175339,
+			"dateTime": "2026.09.23-18.14.18",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ReservedPinApproaches",
+			"fullTestPath": "GlooPrint.Routing.ReservedPinApproaches",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.0113677978515625,
+			"dateTime": "2026.09.23-18.14.18",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SharedTerminalCorridors",
+			"fullTestPath": "GlooPrint.Routing.SharedTerminalCorridors",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.011362597346305847,
+			"dateTime": "2026.09.23-18.14.18",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ShiftedTerminalTurns",
+			"fullTestPath": "GlooPrint.Routing.ShiftedTerminalTurns",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.010278999805450439,
+			"dateTime": "2026.09.23-18.14.18",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SparseSearchAndLimits",
+			"fullTestPath": "GlooPrint.Routing.SparseSearchAndLimits",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"40199B9A4D22FA2D518C589FDF0BFE0A"
+			],
+			"duration": 0.01710670068860054,
+			"dateTime": "2026.09.23-18.14.18",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Maze: 449 expanded states, 361 segment checks, 24 x 21 channels, 8 bends.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.14.18"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Sealed target: 2048 expanded / 5806 created states; 4095 segment checks.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.14.18"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

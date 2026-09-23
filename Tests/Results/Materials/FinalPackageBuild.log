@@ -1,0 +1,95 @@
+Running AutomationTool...
+Using bundled DotNet SDK version: 10.0 win-x64
+Starting AutomationTool...
+Parsing command line: BuildPlugin -Plugin=C:/Users/hello/code/unreal/glooprint/GlooPrint.uplugin -Package=C:/Users/hello/code/unreal/glooprint-material-package-final -Rocket -StrictIncludes -HostPlatforms=Win64 -TargetPlatforms=Win64
+Initializing script modules...
+Total script module initialization time: 0.27 s.
+Using C:\Program Files (x86)\Microsoft Visual Studio\18\BuildTools\MSBuild\Current\Bin\MSBuild.exe
+Executing commands...
+Copying 218 file(s) using max 64 thread(s)
+Reading plugin from C:\Users\hello\code\unreal\glooprint-material-package-final\HostProject\Plugins\GlooPrint\GlooPrint.uplugin...
+Building with precompiled headers and unity disabled
+Building plugin for host platforms: Win64
+Running: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\ThirdParty\DotNet\10.0\win-x64\dotnet.exe "C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" UnrealEditor Win64 Development -Project="C:\Users\hello\code\unreal\glooprint-material-package-final\HostProject\HostProject.uproject" -plugin="C:\Users\hello\code\unreal\glooprint-material-package-final\HostProject\Plugins\GlooPrint\GlooPrint.uplugin" -noubtmakefiles -manifest="C:\Users\hello\code\unreal\glooprint-material-package-final\HostProject\Saved\Manifest-UnrealEditor-Win64-Development.xml" -nohotreload -NoPCH -NoSharedPCH -DisableUnity -log="C:\Users\hello\AppData\Roaming\Unreal Engine\AutomationTool\Logs\C+Program+Files+Epic+Games+UE_5.8\UBA-UnrealEditor-Win64-Development.txt"
+Log file: C:\Users\hello\AppData\Roaming\Unreal Engine\AutomationTool\Logs\C+Program+Files+Epic+Games+UE_5.8\UBA-UnrealEditor-Win64-Development.txt
+Determining max actions to execute in parallel (12 physical cores, 24 logical cores)
+  Executing up to 12 processes, one per physical core
+  Requested 1.5 GB memory per action, 16.28 GB available: limiting max parallel actions to 10
+UbaServer - Listening on 0.0.0.0:1345
+Creating makefile for UnrealEditor (no existing makefile)
+UHT compiled-in object format Default
+Writing manifest to C:\Users\hello\code\unreal\glooprint-material-package-final\HostProject\Saved\Manifest-UnrealEditor-Win64-Development.xml
+Building UnrealEditor...
+===== Toolchain Information =====
+Using ISPC compiler (C:\Program Files\Epic Games\UE_5.8\Engine\Source\ThirdParty\Intel\ISPC\bin\Windows\ispc.exe)
+  Intel(r) Implicit SPMD Program Compiler (Intel(r) ISPC), 1.24.0 (build commit  @ 20250404, LLVM 18.1.2)
+Using Visual Studio 14.50.35737 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\18\BuildTools\VC\Tools\MSVC\14.50.35717) and Windows 10.0.26100.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+=================================
+Using Unreal Build Accelerator local executor to run 50 action(s)
+  CPU 12 physical cores, 24 logical cores
+  Memory 31.91 GB physical, 31.64 GB/54.91 GB committed
+  UBA Storage capacity 40 GB
+[1/50] Compile [x64] GlooPrintGraph.cpp
+[2/50] Compile [x64] GlooPrintEditor.cpp
+[3/50] Compile [x64] GlooPrintBranchOrderEditorTests.cpp
+[4/50] Compile [x64] GlooPrintCommentEditorTests.cpp
+[5/50] Compile [x64] GlooPrintCrossingTests.cpp
+[6/50] Compile [x64] GlooPrintFormatPlanTests.cpp
+[7/50] Compile [x64] GlooPrintDiskPersistenceTests.cpp
+[8/50] Compile [x64] GlooPrintFallbackEditorTests.cpp
+[9/50] Compile [x64] GlooPrintDenseFanEditorTests.cpp
+[10/50] Compile [x64] GlooPrintExecutionWireTests.cpp
+[11/50] Compile [x64] GlooPrintLayoutTests.cpp
+[12/50] Compile [x64] GlooPrintGraphAdapter.cpp
+[13/50] Compile [x64] GlooPrintLayout.cpp
+[14/50] Compile [x64] GlooPrintMaterialDrawing.cpp
+[15/50] Compile [x64] GlooPrintMeasurement.cpp
+[16/50] Compile [x64] GlooPrintIslandPackingTests.cpp
+[17/50] Compile [x64] GlooPrintMeasurementCache.cpp
+[18/50] Compile [x64] GlooPrintGraphCoverageTests.cpp
+[19/50] Compile [x64] GlooPrintMaterialTests.cpp
+[20/50] Compile [x64] GlooPrintMaterialWireTests.cpp
+[21/50] Compile [x64] GlooPrintModule.cpp
+[22/50] Compile [x64] GlooPrintMaterialEditorTests.cpp
+[23/50] Compile [x64] GlooPrintPerformanceTests.cpp
+[24/50] Compile [x64] GlooPrintMeasurementTests.cpp
+[25/50] Compile [x64] GlooPrintModuleLifecycleTests.cpp
+[26/50] Compile [x64] GlooPrintRouting.cpp
+[27/50] Compile [x64] GlooPrintNativeFormatPerformanceTests.cpp
+[28/50] Compile [x64] GlooPrintRoutingTests.cpp
+[29/50] Compile [x64] GlooPrintPurePackingTests.cpp
+[30/50] Compile [x64] GlooPrintRouteSearchEditorTests.cpp
+[31/50] Compile [x64] GlooPrintRerouteEditorTests.cpp
+[32/50] Compile [x64] GlooPrintReturnBundleTests.cpp
+[33/50] Compile [x64] GlooPrintSettings.cpp
+[34/50] Compile [x64] GlooPrintRoutingContinuationEditorTests.cpp
+[35/50] Compile [x64] GlooPrintSettingsTests.cpp
+[36/50] Compile [x64] GlooPrintWireDrawing.cpp
+[37/50] Compile [x64] GlooPrintTestUtils.cpp
+[38/50] Compile Resource [x64] Default.rc2
+[39/50] Compile [x64] PerModuleInline.gen.cpp
+[40/50] Compile [x64] GlooPrintSharedDataEditorTests.cpp
+[41/50] Compile [x64] GlooPrintTemplateBlueprintTests.cpp
+[42/50] Compile [x64] GlooPrintWireDrawingTests.cpp
+[43/50] Compile [x64] GlooPrintWirePaintPerformanceTests.cpp
+[44/50] Compile [x64] GlooPrintWireAppearanceTests.cpp
+[45/50] Compile [x64] GlooPrintWireZoomTests.cpp
+[46/50] Compile [x64] GlooPrintWireInteractionTests.cpp
+[47/50] Compile [x64] Module.GlooPrint.gen.cpp
+[48/50] Link [x64] UnrealEditor-GlooPrint.lib
+[49/50] Link [x64] UnrealEditor-GlooPrint.dll
+[50/50] WriteMetadata UnrealEditor.target [NoUba]
+
+Total time in Unreal Build Accelerator local executor: 116.94 seconds
+Output binary: C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\Win64\UnrealEditor.exe
+
+Result: Succeeded
+Total execution time: 126.81 seconds
+Trace written to file C:\Users\hello\AppData\Local\UnrealBuildTool\Trace.uba with size 26.5kb
+Took 127.27s to run dotnet.exe, ExitCode=0
+Building plugin for target platforms: Win64
+Reading filter rules from C:\Users\hello\code\unreal\glooprint-material-package-final\HostProject\Plugins\GlooPrint\Config\FilterPlugin.ini
+Loading FilterPluginWin64.ini
+BUILD SUCCESSFUL
+AutomationTool executed for 0h 2m 8s
+AutomationTool exiting with ExitCode=0 (Success)

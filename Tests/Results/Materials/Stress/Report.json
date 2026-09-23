@@ -1,0 +1,57 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "ISHTMS",
+			"instance": "66B3C14141731DB5A2C557B2B3F97734",
+			"instanceName": "ISHTMS-5144",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9457] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 3080 Ti",
+			"cPUModel": "AMD Ryzen 9 3900X 12-Core Processor            ",
+			"rAMInGB": 32,
+			"renderMode": "D3D12_SM5",
+			"rHI": "D3D12 (SM5)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.09.23-18.59.59",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 45.017932891845703,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "1000",
+			"fullTestPath": "GlooPrint.Performance.Materials.1000",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"66B3C14141731DB5A2C557B2B3F97734"
+			],
+			"duration": 45.017932891845703,
+			"dateTime": "2026.09.23-18.59.14",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Diagnostic/stress run only; no performance acceptance claim.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.23-18.59.56"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

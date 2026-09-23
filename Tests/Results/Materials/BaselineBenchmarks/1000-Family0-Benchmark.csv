@@ -1,0 +1,3 @@
+nodes,sample,stage,command_ms,changed,final_capture_hits,final_capture_misses,fallbacks
+1000,0,Cold,37552.952100,999,999,1,1092
+1000,0,Repeat,65.600697,0,1000,0,1092
