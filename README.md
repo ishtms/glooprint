@@ -12,7 +12,7 @@ Wire and spacing settings are under **Editor Preferences > Plugins > GlooPrint**
 
 Event Graphs, functions, macros, Construction Scripts, opened collapsed graphs and graphs made entirely of pure nodes are supported. An Animation Blueprint's ordinary Event Graph works too. Material graphs, animation pose graphs, Niagara, Control Rig and behaviour trees aren't supported.
 
-Very large graphs, or nodes with lots of pins, can take minutes on the first pass and may pause the editor. Some connections use Unreal's usual curves while GlooPrint works out a route. Other formatting and wire plugins can clash with the shortcut or drawing. The [user guide](Documentation/UserGuide.txt) covers installation from source, settings, gestures and things to check if something goes wrong.
+Very large graphs, or nodes with lots of pins, can take minutes on the first pass and may pause the editor. Wires keep the selected style while zooming and dragging. Moving connections use simple paths until routing finishes; overlapping nodes can prevent an unobstructed path. Other formatting and wire plugins can clash with the shortcut or drawing. The [user guide](Documentation/UserGuide.txt) covers installation from source, settings, gestures and things to check if something goes wrong.
 
 For macOS or a source build, download the `Source.zip` asset from [GitHub Releases](https://github.com/ishtms/glooprint/releases), place its `GlooPrint` folder in your project's `Plugins` directory, and compile with your UE 5.8 engine's C++ toolchain (Xcode on Mac or Visual Studio on Windows). The Windows binary requires the matching UE 5.8.2 engine build; the source ZIP includes no prebuilt binaries. The [user guide](Documentation/UserGuide.txt) has more installation details.
 

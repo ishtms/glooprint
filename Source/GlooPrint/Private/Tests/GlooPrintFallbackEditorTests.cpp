@@ -81,7 +81,7 @@ public:
         }
         if (Phase == 1)
         {
-            Test.TestFalse(TEXT("Unavailable measurement leaves native fallback active"), Cache->IsReady());
+            Test.TestFalse(TEXT("Unavailable measurement leaves the styled preview active"), Cache->IsReady());
             Test.TestEqual(TEXT("Route measurement stops after initial attempt and three retries"), Cache->GetBuildCount() - Builds, 4);
             Test.TestEqual(TEXT("Every attempt uses a fresh delayed native widget"), Delayed->Readiness->Creations, 4);
             Builds = Cache->GetBuildCount();
@@ -230,17 +230,19 @@ private:
                 const auto* Route = Cache.GetRoutes().Wires.Find({Node->NodeGuid, From->PinId, To->GetOwningNode()->NodeGuid, To->PinId});
                 if (bAllNative || !Route || Route->Curves.IsEmpty())
                 {
-                    Test.TestEqual(TEXT("Fallback renders one complete native curve"), Actual.Num(), 1);
-                    Test.TestTrue(TEXT("Fallback preserves native control points, color and thickness"),
-                        Actual[0].P1.Equals(Expected[0].P1, 0.1f) && Actual[0].P2.Equals(Expected[0].P2, 0.1f) &&
-                        Actual[0].GetTint().Equals(Expected[0].GetTint(), 0.001f) && FMath::IsNearlyEqual(Actual[0].GetThickness(), Expected[0].GetThickness(), 0.001f));
+                    Test.TestTrue(TEXT("Fallback retains the selected routed style"), Actual.Num() > 1);
+                    for (const auto& Piece : Actual)
+                    {
+                        Test.TestTrue(TEXT("Fallback preserves native color and thickness"),
+                            Piece.GetTint().Equals(Expected[0].GetTint(), 0.001f) && FMath::IsNearlyEqual(Piece.GetThickness(), Expected[0].GetThickness(), 0.001f));
+                    }
                 }
                 else { Test.TestEqual(TEXT("A valid neighboring route retains every custom piece"), Actual.Num(), Route->Curves.Num()); }
                 if (From != Output || To != Input) { continue; }
+                for (const auto& C : Actual)
                 for (int32 Sample = 2; Sample < 15 && !bFoundHover; ++Sample)
                 {
                     const float T = float(Sample) / 16.f, U = 1 - T;
-                    const auto& C = Expected[0];
                     const FVector2f Point = U*U*U*C.P0 + 3*U*U*T*C.P1 + 3*U*T*T*C.P2 + T*T*T*C.P3;
                     bool bBlocked = false;
                     for (int32 I = 0; I < Nodes.Num(); ++I)

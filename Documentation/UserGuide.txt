@@ -88,8 +88,11 @@ hover feedback and execution highlighting are retained. Double-click a
 visible wire to add a native reroute; use Unreal's normal connection, break,
 slice and reconnect gestures. The wire does not change the connection type.
 
-Some links may draw as native splines while geometry is being measured or a
-safe custom route is unavailable. GlooPrint keeps the connection visible.
+Wires keep the selected style while zooming and dragging. Unaffected wires
+keep their routes during a node drag; moving connections use simple paths
+until routing finishes after release. A connection also uses a simple path
+when overlapping nodes leave no clear route. These paths can cross nodes;
+move overlapping nodes apart to make room for an unobstructed route.
 Very dense graphs may still have crossings. It does not promise crossing-free
 layouts or fixed completion times. Very large or pin-heavy graphs can take
 minutes when geometry is cold and can have noticeable editor pauses. Longer

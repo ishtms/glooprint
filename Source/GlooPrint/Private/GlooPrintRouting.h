@@ -47,6 +47,7 @@ struct FRouteSearchStats
 struct FWireRoute
 {
     FRouteKey Key;
+    FVector2f FromPosition = FVector2f::ZeroVector, ToPosition = FVector2f::ZeroVector;
     TArray<FVector2f> Points;
     TArray<FRouteCurve> Curves;
     FBox2f Bounds = FBox2f(ForceInit);
@@ -84,6 +85,9 @@ bool ComputeRoutes(const FLayoutGraph& Graph, FRouteSet& OutRoutes, FString& Out
 bool ComputeLayoutRoutes(const FLayoutGraph& Graph, const FLayoutResult& Layout, FRouteSet& OutRoutes,
     FString& OutReason, EGlooPrintWireStyle Style = EGlooPrintWireStyle::Rounded90);
 FVector2f EvaluateRoute(const FWireRoute& Route, float Distance, FVector2f* OutDirection = nullptr);
+// Bounded drawing-only connectors: no graph capture, search, or graph edits.
+FWireRoute MakeWirePreview(FVector2f Start, FVector2f End, EGlooPrintWireStyle Style);
+FWireRoute AttachRouteToPins(const FWireRoute& Route, FVector2f Start, FVector2f End, EGlooPrintWireStyle Style);
 void MeasureRouteCurve(FRouteCurve& Curve);
 FVector2f EvaluateRouteCurve(const FRouteCurve& Curve, float Distance, FVector2f* OutDirection = nullptr);
 }

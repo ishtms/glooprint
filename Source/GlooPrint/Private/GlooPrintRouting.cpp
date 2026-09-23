@@ -456,6 +456,8 @@ void FRoutingJob::FState::RouteOne(int32 Index)
     const auto& From = Graph.Pins[Edge.From]; const auto& To = Graph.Pins[Edge.To];
     FWireRoute Route;
     Route.Key = {Graph.Nodes[From.Node].Geometry.Id, From.Id, Graph.Nodes[To.Node].Geometry.Id, To.Id};
+    Route.FromPosition = FVector2f(Graph.Nodes[From.Node].Geometry.Position);
+    Route.ToPosition = FVector2f(Graph.Nodes[To.Node].Geometry.Position);
     const FVector2f Start = FVector2f(Graph.Nodes[From.Node].Geometry.Position) + From.Offset.GetValue();
     const FVector2f End = FVector2f(Graph.Nodes[To.Node].Geometry.Position) + To.Offset.GetValue();
     const float OutLane = FMath::Min(FanOut[Edge.From]++, 64) * WireLaneSpacing;
@@ -829,6 +831,50 @@ bool ComputeLayoutRoutes(const FLayoutGraph& Graph, const FLayoutResult& Layout,
     if (!Job) { return false; }
     Job->Advance(TNumericLimits<double>::Max());
     return Job->TakeResult(OutRoutes, OutReason);
+}
+
+FWireRoute MakeWirePreview(FVector2f Start, FVector2f End, EGlooPrintWireStyle Style)
+{
+    FWireRoute Result;
+    if (Start.X < End.X)
+    {
+        const float MiddleX = (Start.X + End.X) * 0.5f;
+        Result.Points = {Start, {MiddleX, Start.Y}, {MiddleX, End.Y}, End};
+    }
+    else
+    {
+        const float LaneY = FMath::IsNearlyEqual(Start.Y, End.Y) ? Start.Y - 2 * WireExitLength : (Start.Y + End.Y) * 0.5f;
+        Result.Points = {Start, Start + FVector2f(WireExitLength, 0), {Start.X + WireExitLength, LaneY},
+            {End.X - WireExitLength, LaneY}, End - FVector2f(WireExitLength, 0), End};
+    }
+    Simplify(Result.Points);
+    StyleRoute(Result, FObstacles(), Style);
+    return Result;
+}
+
+FWireRoute AttachRouteToPins(const FWireRoute& Route, FVector2f Start, FVector2f End, EGlooPrintWireStyle Style)
+{
+    if (Route.Curves.Num() == 1 && Start.X < End.X)
+    {
+        // Keep an aligned execution chain direct when font hinting shifts its
+        // visible pin heights; it needs no extra lane or comment detour.
+        FWireRoute Result;
+        const FVector2f Tangent(End.X - Start.X, 0);
+        AddCurve(Result, Start, End, Tangent, Tangent);
+        return Result;
+    }
+    if (Route.Curves.Num() <= 1) { return MakeWirePreview(Start, End, Style); }
+    FWireRoute Result = MakeWirePreview(Start, Route.Curves[0].End, Style);
+    const FWireRoute Tail = MakeWirePreview(Route.Curves.Last().Start, End, Style);
+    const auto Append = [&](const FRouteCurve& Curve)
+    {
+        Result.Curves.Add(Curve); Result.Length += Curve.Length;
+        Result.Bounds += Curve.Start; Result.Bounds += Curve.End;
+        Result.Bounds += Curve.Start + Curve.StartTangent / 3; Result.Bounds += Curve.End - Curve.EndTangent / 3;
+    };
+    for (int32 I = 1; I + 1 < Route.Curves.Num(); ++I) { Append(Route.Curves[I]); }
+    for (const auto& Curve : Tail.Curves) { Append(Curve); }
+    return Result;
 }
 
 void MeasureRouteCurve(FRouteCurve& Curve)

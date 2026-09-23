@@ -34,20 +34,6 @@ public:
     virtual bool Update() override
     {
         auto& Slate = FSlateApplication::Get();
-        if (!bRequestedActivation)
-        {
-            ActivateEditorApplication(); bRequestedActivation = true;
-            ActivationDeadline = FPlatformTime::Seconds() + 10;
-            return false;
-        }
-        if (!Fixture && !FPlatformApplicationMisc::IsThisApplicationForeground())
-        {
-            if (FPlatformTime::Seconds() > ActivationDeadline)
-            {
-                Test.AddError(TEXT("Editor could not become foreground for native pointer verification.")); return Finish();
-            }
-            return false;
-        }
         if (!Fixture)
         {
             OriginalStyle = GetDefault<UGlooPrintSettings>()->WireStyle;
@@ -66,12 +52,28 @@ public:
             Window = SNew(SWindow).Title(FText::FromString(TEXT("GlooPrint wire gestures"))).ClientSize(FVector2f(1300, 1000))[Editor.ToSharedRef()];
             Slate.AddWindow(Window.ToSharedRef());
             Window->BringToFront(true);
+            // The automation host may have no visible main window. Activate the
+            // actual fixture before waiting for native pointer ownership.
+            ActivateEditorApplication();
+            ActivationDeadline = FPlatformTime::Seconds() + 10;
+            Editor->SetViewLocation(FVector2f(-100, -220), 1.f);
+            return false;
+        }
+        if (!bOwnDriver)
+        {
+            if (!FPlatformApplicationMisc::IsThisApplicationForeground())
+            {
+                if (FPlatformTime::Seconds() > ActivationDeadline)
+                {
+                    Test.AddError(TEXT("Editor could not become foreground for native pointer verification.")); return Finish();
+                }
+                return false;
+            }
             auto& Module = IAutomationDriverModule::Get();
             if (!Test.TestFalse(TEXT("No other input driver is active in the disposable fixture"), Module.IsEnabled())) { return Finish(); }
             Module.Enable(); bOwnDriver = true;
             Slate.UsePlatformCursorForCursorUser(true);
             Driver = Module.CreateAsyncDriver(); StartInputSequence();
-            Editor->SetViewLocation(FVector2f(-100, -220), 1.f);
             Slate.SetCursorPos(FVector2D::ZeroVector); Deadline = FPlatformTime::Seconds() + 45;
             return false;
         }
@@ -494,8 +496,18 @@ private:
                 Test.TestTrue(TEXT("Dragged wire remains attached to both live native pins"), Pieces[0].P0.Equals(Original[0].P0, 0.1f) && Pieces.Last().P3.Equals(Original[0].P3, 0.1f));
                 if (bTemporary)
                 {
-                    Test.TestEqual(TEXT("Held drag uses one inexpensive native curve per connection"), Pieces.Num(), 1);
-                    Test.TestTrue(TEXT("Temporary wire has the native control points"), Pieces[0].P1.Equals(Original[0].P1, 0.1f) && Pieces[0].P2.Equals(Original[0].P2, 0.1f));
+                    Test.TestTrue(TEXT("Held drag retains the selected routed wire style"), Pieces.Num() > 1);
+                    Test.TestTrue(TEXT("Held drag keeps cached corridors for unaffected wires"), !Cache.GetRoutes().Wires.IsEmpty());
+                    for (const auto& Piece : Pieces)
+                    {
+                        const FVector2f A = Piece.P1 - Piece.P0, B = Piece.P3 - Piece.P2;
+                        const auto StyledTangent = [this](FVector2f V)
+                        {
+                            return FMath::IsNearlyZero(V.X, 0.1f) || FMath::IsNearlyZero(V.Y, 0.1f) ||
+                                (Style == EGlooPrintWireStyle::Diagonal45 && FMath::IsNearlyEqual(FMath::Abs(V.X), FMath::Abs(V.Y), 0.1f));
+                        };
+                        Test.TestTrue(TEXT("Drag preview keeps orthogonal or 45 degree tangents"), StyledTangent(A) && StyledTangent(B));
+                    }
                 }
                 else
                 {
@@ -685,7 +697,6 @@ private:
     }
     bool Finish() { Restore(); if (Window) { Window->RequestDestroyWindow(); } Editor.Reset(); Window.Reset(); return true; }
     FAutomationTestBase& Test;
-    bool bRequestedActivation = false;
     double ActivationDeadline = 0;
     EGlooPrintWireStyle Style, OriginalStyle = EGlooPrintWireStyle::Rounded90;
     TUniquePtr<FFixture> Fixture;

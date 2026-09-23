@@ -82,7 +82,10 @@ void FRouteCache::Invalidate(bool bContextChanged)
 {
     if (bStopped) { return; }
     if (const auto Cache = Measurements.Pin()) { Cache->Invalidate(bContextChanged); }
-    bReady = false; Routes = {}; Capture.Reset(); Routing.Reset(); Planned.Reset(); ++Revision; AttemptsLeft = 3;
+    // Node movement invalidates the authoritative routing result, but unchanged
+    // connections can keep their last corridor until the replacement is ready.
+    if (bContextChanged) { Routes = {}; }
+    bReady = false; Capture.Reset(); Routing.Reset(); Planned.Reset(); ++Revision; AttemptsLeft = 3;
     WireStyle = GetDefault<UGlooPrintSettings>()->GetWireStyle();
     if (WireStyle == EGlooPrintWireStyle::Native)
     {
@@ -267,7 +270,7 @@ public:
 
     virtual bool IsConnectionCulled(const FArrangedWidget& Start, const FArrangedWidget& End) const override
     {
-        return Cache && Cache->IsReady() ? false : FKismetConnectionDrawingPolicy::IsConnectionCulled(Start, End);
+        return Cache && !Cache->GetRoutes().Wires.IsEmpty() ? false : FKismetConnectionDrawingPolicy::IsConnectionCulled(Start, End);
     }
 
     virtual void DrawSplineWithArrow(const FGeometry& Start, const FGeometry& End, const FConnectionParams& Params) override
@@ -281,14 +284,15 @@ public:
     {
         const auto Owner = Panel.Pin();
         const FWireRoute* Route = nullptr;
-        if (Owner && Cache && Cache->IsReady() && Params.AssociatedPin1 && Params.AssociatedPin2 &&
-            Params.StartDirection == EGPD_Output && Params.EndDirection == EGPD_Input)
+        const bool bOriginalConnection = Owner && Cache && Params.AssociatedPin1 && Params.AssociatedPin2 &&
+            Params.StartDirection == EGPD_Output && Params.EndDirection == EGPD_Input;
+        if (bOriginalConnection)
         {
             const FRouteKey Key{Params.AssociatedPin1->GetOwningNode()->NodeGuid, Params.AssociatedPin1->PinId,
                 Params.AssociatedPin2->GetOwningNode()->NodeGuid, Params.AssociatedPin2->PinId};
             Route = Cache->GetRoutes().Wires.Find(Key);
         }
-        if (!Route || Route->Curves.IsEmpty())
+        if (!bOriginalConnection)
         {
             AddHitPiece(Start, End, Params);
             FKismetConnectionDrawingPolicy::DrawConnection(Layer, Start, End, Params); return;
@@ -298,19 +302,33 @@ public:
         {
             return PaintOrigin + P * ZoomFactor;
         };
-        const FVector2f PinStart = bSynthesizedStart ? Route->Curves[0].Start : (Start + FVector2f(4, 0) - PaintOrigin) / Scale;
-        const FVector2f PinEnd = bSynthesizedEnd ? Route->Curves.Last().End : (End - FVector2f(4, 0) - PaintOrigin) / Scale;
+        const bool bHasRoute = Route && !Route->Curves.IsEmpty();
+        const FVector2f FromPosition(Params.AssociatedPin1->GetOwningNode()->GetPosition());
+        const FVector2f ToPosition(Params.AssociatedPin2->GetOwningNode()->GetPosition());
+        const FVector2f PinStart = bSynthesizedStart && bHasRoute ? Route->Curves[0].Start + FromPosition - Route->FromPosition : (Start + FVector2f(4, 0) - PaintOrigin) / Scale;
+        const FVector2f PinEnd = bSynthesizedEnd && bHasRoute ? Route->Curves.Last().End + ToPosition - Route->ToPosition : (End - FVector2f(4, 0) - PaintOrigin) / Scale;
         const auto Contains = [](const FBox2f& Region, FVector2f Point)
         {
-            return Region.bIsValid && Point.X >= Region.Min.X && Point.X <= Region.Max.X &&
-                Point.Y >= Region.Min.Y && Point.Y <= Region.Max.Y;
+            constexpr float Tolerance = 0.1f; // Screen-to-graph roundoff at fractional zoom.
+            return Region.bIsValid && Point.X >= Region.Min.X - Tolerance && Point.X <= Region.Max.X + Tolerance &&
+                Point.Y >= Region.Min.Y - Tolerance && Point.Y <= Region.Max.Y + Tolerance;
         };
-        const bool bSingle = Route->Curves.Num() == 1;
-        if (!Contains(Route->StartRegion, PinStart) || !Contains(Route->EndRegion, PinEnd) || (bSingle && PinStart.X > PinEnd.X))
+        FWireRoute Preview;
+        const auto Style = GetDefault<UGlooPrintSettings>()->GetWireStyle();
+        if (!bHasRoute || FromPosition != Route->FromPosition || ToPosition != Route->ToPosition)
         {
-            AddHitPiece(Start, End, Params);
-            FKismetConnectionDrawingPolicy::DrawConnection(Layer, Start, End, Params); return;
+            // Keep the selected style during dragging, initial measurement, and
+            // blocked-endpoint fallback. Only these connections need a preview.
+            Preview = MakeWirePreview(PinStart, PinEnd, Style); Route = &Preview;
         }
+        else if (!Contains(Route->StartRegion, PinStart) || !Contains(Route->EndRegion, PinEnd) ||
+            (Route->Curves.Num() == 1 && PinStart.X > PinEnd.X))
+        {
+            // Native pin widgets change size at low LOD. Adapt the terminal
+            // pieces while preserving the cached interior and its hit testing.
+            Preview = AttachRouteToPins(*Route, PinStart, PinEnd, Style); Route = &Preview;
+        }
+        const bool bSingle = Route->Curves.Num() == 1;
         FRouteCurve First = Route->Curves[0], Last = Route->Curves.Last();
         First.Start = PinStart;
         if (bSingle) { First.End = PinEnd; }

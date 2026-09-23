@@ -342,7 +342,7 @@ static bool ApplyFormatPlan(UEdGraph* Graph, const FFormatPlan& Plan, int32& Cha
     if (Plan.Routes.FallbackCount > 0 && GetDefault<UGlooPrintSettings>()->GetWireStyle() != EGlooPrintWireStyle::Native)
     {
         if (!OutReason.IsEmpty()) { OutReason += TEXT(" "); }
-        OutReason += FString::Printf(TEXT("%d connections use native wires where clear custom routes were unavailable."), Plan.Routes.FallbackCount);
+        OutReason += FString::Printf(TEXT("%d connections use simple paths where clear routes were unavailable. Move overlapping nodes apart for more clearance."), Plan.Routes.FallbackCount);
     }
     return true;
 }
