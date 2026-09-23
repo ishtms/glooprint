@@ -146,7 +146,7 @@ def prepare(args):
             record["editor_tests"] = {"status": "running", "evidence": "EditorTests/TestRecord.json"}
             save_record()
             test_args = argparse.Namespace(engine_root=engine, plugin=package, output=test_output,
-                                           tests="GlooPrint", test_filter="Engine", timeout=1800)
+                                           tests="GlooPrint", test_filter="Engine", timeout=1800, visible=True)
             try:
                 test_result = run_editor_tests(test_args)
             except (OSError, ValueError, KeyError) as error:

@@ -78,6 +78,7 @@ def run(args):
                "-ExecCmds=Automation SetFilter " + args.test_filter + ";RunTests " + args.tests + ";SoftQuit",
                "-ReportExportPath=" + str(output / "Report"),
                "-abslog=" + str(output / "Editor.log")]
+    command.extend(getattr(args, "editor_arg", None) or [])
     record = {"status": "running", "platform": host, "engine": version,
               "plugin_version": descriptor["VersionName"], "command": command,
               "test_filter": args.test_filter, "test_prefix": args.tests}
@@ -94,7 +95,7 @@ def run(args):
         if host == "Win64":
             startup = subprocess.STARTUPINFO()
             startup.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-            startup.wShowWindow = subprocess.SW_HIDE
+            startup.wShowWindow = 1 if getattr(args, "visible", False) else subprocess.SW_HIDE  # SW_SHOWNORMAL
             options["startupinfo"] = startup
         else:
             # A disk-persistence test launches a second editor. Keep it in our
@@ -136,6 +137,8 @@ if __name__ == "__main__":
     parser.add_argument("--tests", default="GlooPrint", help="Automation test prefix")
     parser.add_argument("--test-filter", choices=("Engine", "Perf"), default="Engine")
     parser.add_argument("--timeout", type=float, default=1800, help="Maximum editor runtime in seconds")
+    parser.add_argument("--editor-arg", action="append", default=[], help="Extra editor argument; use --editor-arg=-Flag")
+    parser.add_argument("--visible", action="store_true", help="Show the Windows editor host for tests requiring native foreground input")
     try:
         sys.exit(run(parser.parse_args()))
     except (OSError, ValueError, KeyError) as error:
