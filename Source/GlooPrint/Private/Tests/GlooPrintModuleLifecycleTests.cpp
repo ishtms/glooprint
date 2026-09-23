@@ -98,6 +98,7 @@ public:
             auto* Module = Modules.GetModule(TEXT("GlooPrint"));
             if (!Test.TestNotNull(TEXT("Native module manager owns GlooPrint"), Module)) { return Finish(); }
             PreviousModuleIdentity = Module;
+            Test.TestTrue(TEXT("Loaded module cleans up before editor exit"), FEditorDelegates::OnEditorPreExit.IsBoundToObject(Module));
             Test.TestTrue(TEXT("Loaded module owns its settings delegate"), GetDefault<UGlooPrintSettings>()->OnChanged.IsBoundToObject(Module));
             Module->PreUnloadCallback();
             bNeedsReload = Modules.UnloadModule(TEXT("GlooPrint"), false, false);
@@ -189,6 +190,7 @@ private:
         Test.TestEqual(TEXT("Exactly one graph-menu extender follows module lifetime"), CurrentMenus, MenuCount - (bLoaded ? 0 : 1));
         if (!bLoaded)
         {
+            Test.TestFalse(TEXT("The destroyed module leaves no raw pre-exit delegate"), FEditorDelegates::OnEditorPreExit.IsBoundToObject(PreviousModuleIdentity));
             Test.TestFalse(TEXT("The destroyed module leaves no raw settings delegate"), GetDefault<UGlooPrintSettings>()->OnChanged.IsBoundToObject(PreviousModuleIdentity));
         }
         else

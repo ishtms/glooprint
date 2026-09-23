@@ -74,8 +74,9 @@ def run(args):
                "-NoLiveCoding", "-stdout", "-FullStdOutLogOutput",
                # Keep both operations in one Automation invocation: separate
                # console invocations reinitialize UE's controller and reset the filter.
-               "-ExecCmds=Automation SetFilter " + args.test_filter + ";RunTests " + args.tests,
-               "-TestExit=Automation Test Queue Empty", "-ReportExportPath=" + str(output / "Report"),
+               # TestExit forces termination and skips module/UObject teardown.
+               "-ExecCmds=Automation SetFilter " + args.test_filter + ";RunTests " + args.tests + ";SoftQuit",
+               "-ReportExportPath=" + str(output / "Report"),
                "-abslog=" + str(output / "Editor.log")]
     record = {"status": "running", "platform": host, "engine": version,
               "plugin_version": descriptor["VersionName"], "command": command,

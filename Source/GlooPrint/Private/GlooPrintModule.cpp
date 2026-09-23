@@ -6,12 +6,14 @@
 #include "GlooPrintSettings.h"
 
 #include "EdGraph/EdGraph.h"
+#include "Editor.h"
 #include "Framework/Application/SlateApplication.h"
 #include "HAL/IConsoleManager.h"
 #include "ISettingsModule.h"
 #include "ISettingsSection.h"
 #include "Modules/ModuleManager.h"
 #include "UObject/UObjectGlobals.h"
+#include "UObject/WeakObjectPtrTemplates.h"
 #include "Widgets/SWindow.h"
 
 DEFINE_LOG_CATEGORY_STATIC(LogGlooPrint, Log, All);
@@ -21,6 +23,10 @@ class FGlooPrintModule final : public IModuleInterface
 public:
     virtual void StartupModule() override
     {
+        bStopped = false;
+        // Normal editor exit destroys Slate and UObjects before unloading modules.
+        // Release our editor integrations while both systems are still available.
+        PreExitHandle = FEditorDelegates::OnEditorPreExit.AddRaw(this, &FGlooPrintModule::ShutdownModule);
         if (!IsRunningCommandlet() && FSlateApplication::IsInitialized())
         {
             Editor = MakeShared<GlooPrint::FEditor>();
@@ -28,6 +34,7 @@ public:
             WireDrawing = MakeShared<GlooPrint::FWireDrawing>();
             FEdGraphUtilities::RegisterVisualPinConnectionFactory(WireDrawing);
             auto* Settings = GetMutableDefault<UGlooPrintSettings>();
+            SettingsObject = Settings;
             SettingsChangedHandle = Settings->OnChanged.AddRaw(this, &FGlooPrintModule::OnSettingsChanged);
             SettingsSection = FModuleManager::LoadModuleChecked<ISettingsModule>(TEXT("Settings")).RegisterSettings(
                 TEXT("Editor"), TEXT("Plugins"), TEXT("GlooPrint"), NSLOCTEXT("GlooPrint", "SettingsName", "GlooPrint"),
@@ -45,13 +52,20 @@ public:
 
     virtual void ShutdownModule() override
     {
+        if (bStopped) { return; }
+        bStopped = true;
+        FEditorDelegates::OnEditorPreExit.Remove(PreExitHandle);
+        PreExitHandle.Reset();
+        // Never fetch/create a CDO during teardown, including commandlet shutdown.
+        if (auto* Settings = SettingsObject.Get()) { Settings->OnChanged.Remove(SettingsChangedHandle); }
+        SettingsObject.Reset();
+        SettingsChangedHandle.Reset();
         if (const auto Section = SettingsSection.Pin()) { Section->OnModified().Unbind(); }
         SettingsSection.Reset();
         if (auto* SettingsModule = FModuleManager::GetModulePtr<ISettingsModule>(TEXT("Settings")))
         {
             SettingsModule->UnregisterSettings(TEXT("Editor"), TEXT("Plugins"), TEXT("GlooPrint"));
         }
-        GetMutableDefault<UGlooPrintSettings>()->OnChanged.Remove(SettingsChangedHandle);
         if (WireDrawing)
         {
             FEdGraphUtilities::UnregisterVisualPinConnectionFactory(WireDrawing);
@@ -117,7 +131,10 @@ private:
     TSharedPtr<GlooPrint::FEditor> Editor;
     TSharedPtr<GlooPrint::FWireDrawing> WireDrawing;
     TWeakPtr<ISettingsSection> SettingsSection;
+    TWeakObjectPtr<UGlooPrintSettings> SettingsObject;
     FDelegateHandle SettingsChangedHandle;
+    FDelegateHandle PreExitHandle;
+    bool bStopped = false;
 };
 
 IMPLEMENT_MODULE(FGlooPrintModule, GlooPrint)
