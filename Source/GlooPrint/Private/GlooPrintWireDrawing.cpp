@@ -5,6 +5,7 @@
 #include "GlooPrintGraphAdapter.h"
 #include "GlooPrintMaterialDrawing.h"
 #include "GlooPrintSettings.h"
+#include "GlooPrintVoxelDrawing.h"
 
 #include "BlueprintConnectionDrawingPolicy.h"
 #include "EdGraph/EdGraph.h"
@@ -484,7 +485,7 @@ public:
     virtual FConnectionDrawingPolicy* CreateConnectionPolicy(const UEdGraphSchema* Schema,
         int32 Back, int32 Front, float Zoom, const FSlateRect& Clip, FSlateWindowElementList& Elements, UEdGraph* Graph) override
     {
-        if (GetGraphFamily(Graph) == EGraphFamily::Material)
+        if (IsDataflowFamily(GetGraphFamily(Graph)))
         {
             if (const auto Factory = Owner.Pin())
             {
@@ -517,7 +518,9 @@ void FWireDrawing::AttachMaterialPanels(const TSharedRef<SWidget>& Root)
     if (Root->GetType() == TEXT("SGraphPanel"))
     {
         const auto Panel = StaticCastSharedRef<SGraphPanel>(Root);
-        if (GetGraphFamily(Panel->GetGraphObj()) == EGraphFamily::Material &&
+        // Voxel panels too. The Voxel Plugin's global factory may be registered ahead of ours, and the
+        // first factory to answer wins, so these panels are given one that asks GlooPrint first.
+        if (IsDataflowFamily(GetGraphFamily(Panel->GetGraphObj())) &&
             !MaterialPanels.ContainsByPredicate([&Panel](const auto& Entry) { return Entry.Panel == Panel; }))
         {
             const auto Factory = MakeShared<FMaterialPanelFactory>(StaticCastSharedRef<const FWireDrawing>(AsShared()));
@@ -554,10 +557,14 @@ FConnectionDrawingPolicy* FWireDrawing::CreateConnectionPolicy(const UEdGraphSch
     int32 BackLayer, int32 FrontLayer, float Zoom, const FSlateRect& Clip, FSlateWindowElementList& Elements, UEdGraph* Graph) const
 {
     if (bStopped || GetDefault<UGlooPrintSettings>()->GetWireStyle() == EGlooPrintWireStyle::Native ||
-        !Schema || GetGraphFamily(Graph) == EGraphFamily::Unsupported) { return nullptr; }
+        !Schema || GetGraphFamily(Graph) == EGraphFamily::Unsupported || FVoxelDrawingPolicy::IsCreatingNative()) { return nullptr; }
     if (GetGraphFamily(Graph) == EGraphFamily::Material)
     {
         return new TRouteDrawingPolicy<FMaterialDrawingPolicy>(BackLayer, FrontLayer, Zoom, Clip, Elements, Graph, StaticCastSharedRef<const FWireDrawing>(AsShared()));
+    }
+    if (GetGraphFamily(Graph) == EGraphFamily::Voxel)
+    {
+        return new TRouteDrawingPolicy<FVoxelDrawingPolicy>(BackLayer, FrontLayer, Zoom, Clip, Elements, Graph, StaticCastSharedRef<const FWireDrawing>(AsShared()));
     }
     return new TRouteDrawingPolicy<FKismetConnectionDrawingPolicy>(BackLayer, FrontLayer, Zoom, Clip, Elements, Graph, StaticCastSharedRef<const FWireDrawing>(AsShared()));
 }
