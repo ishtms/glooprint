@@ -23,6 +23,21 @@
 
 namespace GlooPrint
 {
+namespace
+{
+// The Voxel Plugin graph editor's classes are private to its module, so they are matched by name, which also
+// keeps GlooPrint free of a Voxel dependency.
+const FName VoxelEditorPackage(TEXT("/Script/VoxelGraphEditor"));
+const FName VoxelSchema(TEXT("VoxelGraphSchema"));
+const FName VoxelKnot(TEXT("VoxelGraphNode_Knot"));
+const FName VoxelFunctionOutput(TEXT("VoxelGraphNode_FunctionOutput"));
+
+bool IsVoxelEditorClass(const UClass* Class, FName Name)
+{
+    return Class->GetFName() == Name && Class->GetOuter()->GetFName() == VoxelEditorPackage;
+}
+}
+
 EGraphFamily GetGraphFamily(const UEdGraph* Graph)
 {
     if (!IsValid(Graph) || !Graph->GetSchema()) { return EGraphFamily::Unsupported; }
@@ -31,7 +46,13 @@ EGraphFamily GetGraphFamily(const UEdGraph* Graph)
     {
         return EGraphFamily::Material;
     }
+    if (IsVoxelEditorClass(Graph->GetSchema()->GetClass(), VoxelSchema)) { return EGraphFamily::Voxel; }
     return EGraphFamily::Unsupported;
+}
+
+bool IsDataflowFamily(EGraphFamily Family)
+{
+    return Family == EGraphFamily::Material || Family == EGraphFamily::Voxel;
 }
 
 bool ValidateGraphOwner(const UEdGraph* Graph, FString& Reason)
@@ -49,8 +70,12 @@ bool ValidateGraphOwner(const UEdGraph* Graph, FString& Reason)
             (!MaterialGraph->MaterialFunction || IsValid(MaterialGraph->MaterialFunction))) { return true; }
         Reason = TEXT("The material graph owner is unavailable or is being reconstructed."); return false;
     }
+    case EGraphFamily::Voxel:
+        // The outer is the graph's terminal graph (main graph or function) inside the voxel graph asset.
+        if (IsValid(Graph->GetOuter())) { return true; }
+        Reason = TEXT("The voxel graph owner is unavailable."); return false;
     default:
-        Reason = TEXT("Format Graph supports ordinary Blueprint and Material editor graphs."); return false;
+        Reason = TEXT("Format Graph supports ordinary Blueprint, Material and Voxel editor graphs."); return false;
     }
 }
 
@@ -62,10 +87,13 @@ bool IsGraphReadOnly(const UEdGraph* Graph)
 
 ELinkKind GetLinkKind(const UEdGraphPin& Pin)
 {
-    if (GetGraphFamily(Pin.GetOwningNode()->GetGraph()) == EGraphFamily::Material)
+    const EGraphFamily Family = GetGraphFamily(Pin.GetOwningNode()->GetGraph());
+    if (Family == EGraphFamily::Material)
     {
         return Pin.PinType.PinCategory == UMaterialGraphSchema::PC_Exec ? ELinkKind::Execution : ELinkKind::Data;
     }
+    // Voxel graphs have no execution or delegate pins; their pin categories are voxel types.
+    if (Family == EGraphFamily::Voxel) { return ELinkKind::Data; }
     return Pin.PinType.PinCategory == UEdGraphSchema_K2::PC_Exec ? ELinkKind::Execution :
         (Pin.PinType.PinCategory == UEdGraphSchema_K2::PC_Delegate || Pin.PinType.PinCategory == UEdGraphSchema_K2::PC_MCDelegate
             ? ELinkKind::Delegate : ELinkKind::Data);
@@ -73,7 +101,7 @@ ELinkKind GetLinkKind(const UEdGraphPin& Pin)
 
 bool IsRerouteNode(const UEdGraphNode& Node)
 {
-    return Node.IsA<UK2Node_Knot>() || Node.IsA<UMaterialGraphNode_Knot>();
+    return Node.IsA<UK2Node_Knot>() || Node.IsA<UMaterialGraphNode_Knot>() || IsVoxelEditorClass(Node.GetClass(), VoxelKnot);
 }
 
 bool IsMaterialPinHidden(const UEdGraphPin& Pin, SGraphEditor::EPinVisibility Visibility)
@@ -100,6 +128,14 @@ bool IsMaterialPinHidden(const UEdGraphPin& Pin, SGraphEditor::EPinVisibility Vi
 
 TOptional<int32> GetDefaultAnchorPriority(const UEdGraphNode& Node)
 {
+    if (GetGraphFamily(Node.GetGraph()) == EGraphFamily::Voxel)
+    {
+        // A main graph's output node is the one node Voxel refuses to delete (FVoxelOutputNode::CanBeDeleted);
+        // a function has output nodes instead.
+        if (!Node.CanUserDeleteNode()) { return MIN_int32; }
+        if (IsVoxelEditorClass(Node.GetClass(), VoxelFunctionOutput)) { return 0; }
+        return {};
+    }
     if (Node.IsA<UMaterialGraphNode_Root>()) { return MIN_int32; }
     if (const auto* ExpressionNode = Cast<UMaterialGraphNode>(&Node))
     {

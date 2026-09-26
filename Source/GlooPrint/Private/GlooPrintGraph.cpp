@@ -127,7 +127,7 @@ static bool BuildSnapshot(UEdGraph* Graph, FGraphMeasurement Measurement, const 
             {
                 Result.Edges.Add({From, To, Result.Pins[From].Kind});
             }
-            else if (GetGraphFamily(Graph) != EGraphFamily::Material)
+            else if (!IsDataflowFamily(GetGraphFamily(Graph)))
             {
                 OutReason = TEXT("A connection has an unmeasured endpoint."); return false;
             }
@@ -143,7 +143,7 @@ static bool BuildSnapshot(UEdGraph* Graph, FGraphMeasurement Measurement, const 
         Result.Nodes[Result.Pins[Edge.From].Node].Outgoing.Add(Index);
         Result.Nodes[Result.Pins[Edge.To].Node].Incoming.Add(Index);
     }
-    if (GetGraphFamily(Graph) == EGraphFamily::Material)
+    if (IsDataflowFamily(GetGraphFamily(Graph)))
     {
         TOptional<int32> Priority;
         for (int32 Index = 0; Index < Result.Nodes.Num(); ++Index)

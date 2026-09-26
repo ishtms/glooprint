@@ -10,9 +10,12 @@ class UEdGraphPin;
 
 namespace GlooPrint
 {
-enum class EGraphFamily : uint8 { Unsupported, Blueprint, Material };
+// Voxel is the Voxel Plugin 2 graph editor (voxel graphs and function libraries).
+enum class EGraphFamily : uint8 { Unsupported, Blueprint, Material, Voxel };
 
 EGraphFamily GetGraphFamily(const UEdGraph* Graph);
+// Material and Voxel graphs: links may end at pins their widgets hide, and an output node anchors the layout.
+bool IsDataflowFamily(EGraphFamily Family);
 bool ValidateGraphOwner(const UEdGraph* Graph, FString& Reason);
 bool IsGraphReadOnly(const UEdGraph* Graph);
 ELinkKind GetLinkKind(const UEdGraphPin& Pin);
