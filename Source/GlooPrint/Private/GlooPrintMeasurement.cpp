@@ -77,7 +77,11 @@ bool RefreshTextControls(const TSharedRef<SGraphNode>& Node, float LayoutScale)
 
 bool IsHiddenPin(const UEdGraphPin& Pin, SGraphEditor::EPinVisibility Visibility)
 {
-    if (GetGraphFamily(Pin.GetOwningNode()->GetGraph()) == EGraphFamily::Material) { return IsMaterialPinHidden(Pin, Visibility); }
+    const EGraphFamily Family = GetGraphFamily(Pin.GetOwningNode()->GetGraph());
+    if (Family == EGraphFamily::Material) { return IsMaterialPinHidden(Pin, Visibility); }
+    // Voxel node definitions (private to the Voxel plugin) hide pins, linked ones included (Interpolate's
+    // exponent under a linear curve), so no voxel pin is required and the arranged widget decides what is visible.
+    if (Family == EGraphFamily::Voxel) { return true; }
     if (!Pin.LinkedTo.IsEmpty()) { return false; }
     if (Pin.bHidden || (Pin.bAdvancedView && Pin.GetOwningNode()->AdvancedPinDisplay == ENodeAdvancedPins::Hidden)) { return true; }
     if (Pin.PinType.PinCategory == UEdGraphSchema_K2::PC_Exec) { return false; }

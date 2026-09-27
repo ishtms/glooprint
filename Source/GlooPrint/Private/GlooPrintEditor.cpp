@@ -766,7 +766,8 @@ void FEditor::BuildMenu(FMenuBuilder& Menu) { Menu.AddMenuEntry(FCommands::Get()
 void FEditor::BuildMaterialMenu(UToolMenu* Menu)
 {
     const auto* Context = Menu->FindContext<UGraphNodeContextMenuContext>();
-    if (!Context || GetGraphFamily(Context->Graph) != EGraphFamily::Material || IsGraphReadOnly(Context->Graph)) { return; }
+    // Voxel graphs too; their schema builds its node menu through the same ToolMenus parent.
+    if (!Context || !IsDataflowFamily(GetGraphFamily(Context->Graph)) || IsGraphReadOnly(Context->Graph)) { return; }
     TSharedPtr<SWidget> Focused = FSlateApplication::Get().GetKeyboardFocusedWidget();
     for (int32 Depth = 0; Focused && Depth < 128; ++Depth, Focused = Focused->GetParentWidget())
     {

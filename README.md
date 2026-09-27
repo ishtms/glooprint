@@ -10,7 +10,7 @@ Download GlooPrint from [GitHub Releases](https://github.com/ishtms/glooprint/re
 
 Wire and spacing settings are under **Editor Preferences > Plugins > GlooPrint**. It starts with rounded wires, 96 horizontal spacing, 48 vertical spacing and 32 comment padding. Settings are saved for you in the current project.
 
-Event Graphs, functions, macros, Construction Scripts, opened collapsed graphs and graphs made entirely of pure nodes are supported. An Animation Blueprint's ordinary Event Graph works too. Materials, Material Functions, Material Layers and Layer Blends, opened material subgraphs, named reroutes and Substrate nodes are also supported. Animation pose graphs, Niagara, Control Rig and behaviour trees aren't supported yet.
+Event Graphs, functions, macros, Construction Scripts, opened collapsed graphs and graphs made entirely of pure nodes are supported. An Animation Blueprint's ordinary Event Graph works too. Materials, Material Functions, Material Layers and Layer Blends, opened material subgraphs, named reroutes and Substrate nodes are also supported. With Voxel Plugin 2 installed, voxel graphs and voxel function libraries are supported as well. Animation pose graphs, Niagara, Control Rig and behaviour trees aren't supported yet.
 
 Very large graphs, or nodes with lots of pins, can take minutes on the first pass and may pause the editor. Wires keep the selected style while zooming and dragging. Moving connections use simple paths until routing finishes; overlapping nodes can prevent an unobstructed path. Other formatting and wire plugins can clash with the shortcut or drawing. The [user guide](Documentation/UserGuide.txt) covers installation from source, settings, gestures and things to check if something goes wrong.
 

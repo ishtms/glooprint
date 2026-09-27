@@ -116,6 +116,12 @@ material result or first function output is the anchor. Use the Material Editor'
 normal Apply and Save workflow; formatting does not recompile shaders. Instances
 retain their native parameter editors; open their parent to format the graph.
 
+Voxel Plugin 2 graphs - voxel graphs (height, volume, scatter, sculpt and spline)
+and function library functions, including reroutes and comments. GlooPrint does
+not link against the Voxel Plugin; it recognizes its graph editor at runtime.
+Without a selection, the main graph's output node or a function output is the
+anchor. Wires keep the Voxel Plugin's colors and hover feedback.
+
 Standard K2 Blueprint graphs - Event Graphs, functions, macros, Construction
 Scripts, opened collapsed graphs, and pure-data graphs. An Animation
 Blueprint's ordinary Event Graph is included. Animation pose graphs, state
