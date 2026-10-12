@@ -348,7 +348,7 @@ private:
                 TUniquePtr<FConnectionDrawingPolicy> Actual(FNodeFactory::CreateConnectionPolicy(Graph->GetSchema(), 0, 1, Scale, Clip, ActualElements, Graph));
                 FKismetConnectionDrawingPolicy Native(0, 1, Scale, Clip, NativeElements, Graph);
                 if (!Test.TestTrue(TEXT("Unloaded plugin leaves a native drawing policy"), Actual.IsValid())) { return false; }
-                Actual->SetAbsoluteMousePosition(FVector2f(-100000)); Native.SetAbsoluteMousePosition(FVector2f(-100000));
+                Actual->SetMousePosition(FVector2f(-100000)); Native.SetMousePosition(FVector2f(-100000));
                 Actual->Draw(Pins, Nodes); Native.Draw(Pins, Nodes);
                 const auto& A = ActualElements.GetUncachedDrawElements().Get<(uint8)EElementType::ET_Spline>();
                 const auto& B = NativeElements.GetUncachedDrawElements().Get<(uint8)EElementType::ET_Spline>();

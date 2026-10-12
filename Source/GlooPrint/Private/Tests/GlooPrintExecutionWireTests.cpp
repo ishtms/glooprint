@@ -255,7 +255,7 @@ private:
         TUniquePtr<FConnectionDrawingPolicy> Policy(Factory->CreateConnectionPolicy(Fixture->Graph->GetSchema(), 0, 1, Scale,
             FSlateRect(-100000, -100000, 100000, 100000), Elements, Fixture->Graph));
         if (!Test.TestTrue(TEXT("Custom drawing policy remains available during PIE"), Policy.IsValid())) { return; }
-        Policy->SetAbsoluteMousePosition(FVector2f(-100000, -100000));
+        Policy->SetMousePosition(FVector2f(-100000, -100000));
         Policy->Draw(Pins, Nodes);
         FConnectionParams Active, Inactive, EntryStyle;
         Policy->DetermineWiringStyle(Entry->FindPinChecked(UEdGraphSchema_K2::PN_Then), Branch->FindPinChecked(UEdGraphSchema_K2::PN_Execute), EntryStyle);

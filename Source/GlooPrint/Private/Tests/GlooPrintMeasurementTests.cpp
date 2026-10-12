@@ -2,6 +2,7 @@
 
 #if WITH_DEV_AUTOMATION_TESTS
 
+#include "Types/SlateAttributeMetaData.h"
 #include "GlooPrintMeasurement.h"
 #include "GlooPrintTestUtils.h"
 #include "GlooPrintEditor.h"
@@ -639,11 +640,11 @@ public:
             Before = SerializeNodes(*Fixture->Graph);
             BeforeProperties = DescribeNodes(*Fixture->Graph);
             bPanelEditable = false;
-            Editor->GetGraphPanel()->UpdateAllAttributes();
+            FSlateAttributeMetaData::UpdateAllAttributes(*Editor->GetGraphPanel(), FSlateAttributeMetaData::EInvalidationPermission::AllowInvalidationIfConstructed);
             Test.TestFalse(TEXT("Native panel exposes its read-only state"), Editor->GetGraphPanel()->IsGraphEditable());
             CheckRefusedF(TEXT("Read-only panel"));
             bPanelEditable = true;
-            Editor->GetGraphPanel()->UpdateAllAttributes();
+            FSlateAttributeMetaData::UpdateAllAttributes(*Editor->GetGraphPanel(), FSlateAttributeMetaData::EInvalidationPermission::AllowInvalidationIfConstructed);
             Fixture->Graph->bEditable = false;
             CheckRefusedF(TEXT("Read-only graph"), TEXT("read-only"));
             Fixture->Graph->bEditable = true;

@@ -11,7 +11,7 @@
   "SupportURL": "https://github.com/ishtms/glooprint/issues",
   "FabURL": "com.epicgames.launcher://ue/Fab/product/148b61c2-57d4-4deb-9df2-c4e6479a08b9",
   "MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/148b61c2-57d4-4deb-9df2-c4e6479a08b9",
-  "EngineVersion": "5.8.0",
+  "EngineVersion": "5.7.0",
   "SupportedTargetPlatforms": [
     "Win64",
     "Mac"

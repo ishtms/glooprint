@@ -220,7 +220,7 @@ private:
                 FKismetConnectionDrawingPolicy Native(0, 1, Scale, Clip, NativeElements, Fixture->Graph);
                 TUniquePtr<FConnectionDrawingPolicy> Custom(Factory->CreateConnectionPolicy(Fixture->Graph->GetSchema(), 0, 1, Scale, Clip, CustomElements, Fixture->Graph));
                 if (!Test.TestTrue(TEXT("Fallback uses the registered custom policy implementation"), Custom.IsValid())) { return false; }
-                Native.SetAbsoluteMousePosition(FVector2f(-100000, -100000)); Custom->SetAbsoluteMousePosition(FVector2f(-100000, -100000));
+                Native.SetMousePosition(FVector2f(-100000, -100000)); Custom->SetMousePosition(FVector2f(-100000, -100000));
                 Native.Draw(Pins, Nodes); Custom->Draw(Pins, Nodes);
                 const auto& Expected = NativeElements.GetUncachedDrawElements().Get<(uint8)EElementType::ET_Spline>();
                 const auto& Actual = CustomElements.GetUncachedDrawElements().Get<(uint8)EElementType::ET_Spline>();

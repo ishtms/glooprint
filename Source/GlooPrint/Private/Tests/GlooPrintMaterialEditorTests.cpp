@@ -443,7 +443,7 @@ private:
             FSlateWindowElementList Elements(Window);
             const double Start = FPlatformTime::Seconds();
             TUniquePtr<FConnectionDrawingPolicy> Policy(Factory->CreateConnectionPolicy(Graph->GetSchema(), 0, 1, 1, Clip, Elements, Graph));
-            Policy->SetAbsoluteMousePosition(FVector2f(-10000000)); Policy->Draw(Pins, Nodes);
+            Policy->SetMousePosition(FVector2f(-10000000)); Policy->Draw(Pins, Nodes);
             const double Ms = (FPlatformTime::Seconds() - Start) * 1000;
             const int32 Pieces = Elements.GetUncachedDrawElements().Get<(uint8)EElementType::ET_Spline>().Num();
             PaintCsv += FString::Printf(TEXT("%d,%d,%d,%.6f\n"), I, Routes->GetRoutes().Wires.Num(), Pieces, Ms);

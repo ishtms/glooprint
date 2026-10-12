@@ -1,6 +1,7 @@
 // Copyright 2026 Ishtmeet Singh. All Rights Reserved.
 
 #if WITH_DEV_AUTOMATION_TESTS
+#include "Types/SlateAttributeMetaData.h"
 #include "GlooPrintTestUtils.h"
 #include "GlooPrintSettings.h"
 #include "GlooPrintWireDrawing.h"
@@ -254,7 +255,7 @@ private:
             if (!Test.TestTrue(TEXT("Custom policy exists for appearance comparison"), Custom.IsValid())) { return; }
             for (FConnectionDrawingPolicy* Policy : {static_cast<FConnectionDrawingPolicy*>(&Native), Custom.Get()})
             {
-                Policy->SetAbsoluteMousePosition(FVector2f(-100000, -100000));
+                Policy->SetMousePosition(FVector2f(-100000, -100000));
                 if (State == EState::Hover) { Policy->SetHoveredPins({Pairs[0].Output(), Pairs[0].Input()}, {}, HoverStarted); }
                 if (State == EState::Marked) { Policy->SetMarkedPin(Editor->GetGraphPanel()->MarkedPin); }
                 if (State == EState::Selected) { Policy->SetSelectedNodes(Editor->GetGraphPanel()->GetSelectedGraphNodes()); }
@@ -295,7 +296,7 @@ private:
             const auto Current = Widgets[I];
             if (Current->GetType() == TEXT("SLayeredImage"))
             {
-                Current->UpdateAllAttributes();
+                FSlateAttributeMetaData::UpdateAllAttributes(*Current, FSlateAttributeMetaData::EInvalidationPermission::AllowInvalidationIfConstructed);
                 FHittestGrid Grid;
                 FSlateWindowElementList Elements(Window);
                 FPaintArgs Args(Pin.Get(), Grid, FVector2f::ZeroVector, FSlateApplication::Get().GetCurrentTime(), 0);

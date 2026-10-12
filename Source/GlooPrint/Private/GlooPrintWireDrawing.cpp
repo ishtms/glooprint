@@ -261,15 +261,13 @@ class TRouteDrawingPolicy final : public TNativePolicy
 public:
     using TNativePolicy::ZoomFactor;
     using TNativePolicy::ClippingRect;
-    using TNativePolicy::AbsoluteMousePosition;
+    using TNativePolicy::LocalMousePosition;
     using TNativePolicy::SplineOverlapResult;
     using TNativePolicy::ConnectionsIntersectingSliceLine;
     using TNativePolicy::MidpointImage;
     using TNativePolicy::BubbleImage;
     using TNativePolicy::DrawElementsList;
     using TNativePolicy::MidpointRadius;
-    using TNativePolicy::CheckSplineConnectionOverlapWithCursor;
-    using FSimpleConnectionData = typename TNativePolicy::FSimpleConnectionData;
     TRouteDrawingPolicy(int32 BackLayer, int32 FrontLayer, float Zoom, const FSlateRect& Clip,
         FSlateWindowElementList& Elements, UEdGraph* Graph, TWeakPtr<const FWireDrawing> InFactory)
         : TNativePolicy(BackLayer, FrontLayer, Zoom, Clip, Elements, Graph), Factory(InFactory) {}
@@ -277,7 +275,6 @@ public:
     virtual void Draw(TMap<TSharedRef<SWidget>, FArrangedWidget>& Geometries, FArrangedChildren& Nodes) override
     {
         TRACE_CPUPROFILER_EVENT_SCOPE(GlooPrint_WirePaint);
-        HitPieces.Reset();
         if (Nodes.Num() > 0)
         {
             const auto Node = StaticCastSharedRef<SGraphNode>(Nodes[0].Widget);
@@ -319,7 +316,6 @@ public:
         }
         if (!bOriginalConnection)
         {
-            AddHitPiece(Start, End, Params);
             TNativePolicy::DrawConnection(Layer, Start, End, Params); return;
         }
         const float Scale = ZoomFactor;
@@ -376,11 +372,10 @@ public:
             if (Index == 0) { A.X -= 4; }
             if (Index == Route->Curves.Num() - 1) { B.X += 4; }
             if (Index == 0 || Index == Route->Curves.Num() - 1) { Piece.StartTangent = Piece.EndTangent = FVector2f(B.X - A.X, 0); }
-            AddHitPiece(A, B, Piece);
             TNativePolicy::DrawConnection(Layer, A, B, Piece);
         }
         MidpointImage = SavedMidpoint;
-        CorrectPinDistances(SplineOverlapResult, BeforeDistance, Params, Transform(PinStart), Transform(PinEnd), AbsoluteMousePosition);
+        CorrectPinDistances(SplineOverlapResult, BeforeDistance, Params, Transform(PinStart), Transform(PinEnd), FVector2f(LocalMousePosition));
         if (ConnectionsIntersectingSliceLine.Num() > BeforeSlice + 1)
         {
             ConnectionsIntersectingSliceLine.SetNum(BeforeSlice + 1, EAllowShrinking::No);
@@ -426,35 +421,7 @@ public:
         }
     }
 
-    virtual bool HaveConnectionsGraphicallyChanged(const SGraphPanel& GraphPanel, const FVector2f& Mouse) const override
-    {
-        FGraphSplineOverlapResult Overlap;
-        for (const auto& Piece : HitPieces)
-        {
-            FConnectionParams Params = Piece.Params;
-            Params.AssociatedPin1 = Piece.StartPinHandle.GetPinObj(GraphPanel);
-            Params.AssociatedPin2 = Piece.EndPinHandle.GetPinObj(GraphPanel);
-            if (!Params.AssociatedPin1 || !Params.AssociatedPin2) { return true; }
-            CheckSplineConnectionOverlapWithCursor(Mouse, Piece.StartPoint, Piece.EndPoint, Params, Overlap);
-        }
-        TSharedPtr<SGraphPin> A, B;
-        Overlap.GetPinWidgets(GraphPanel, A, B);
-        TSet<FEdGraphPinReference> Hovered;
-        if (A && A->GetPinObj()) { Hovered.Add(A->GetPinObj()); }
-        if (B && B->GetPinObj()) { Hovered.Add(B->GetPinObj()); }
-        return TNativePolicy::HaveConnectionsGraphicallyChanged(GraphPanel, Hovered);
-    }
-
 private:
-    void AddHitPiece(FVector2f Start, FVector2f End, const FConnectionParams& Params)
-    {
-        if (!Params.AssociatedPin1 || !Params.AssociatedPin2) { return; }
-        FSimpleConnectionData Piece;
-        Piece.StartPinHandle = FGraphPinHandle(Params.AssociatedPin1); Piece.EndPinHandle = FGraphPinHandle(Params.AssociatedPin2);
-        Piece.StartPoint = Start; Piece.EndPoint = End; Piece.Params = Params;
-        Piece.Params.AssociatedPin1 = nullptr; Piece.Params.AssociatedPin2 = nullptr;
-        HitPieces.Add(MoveTemp(Piece));
-    }
     static void CorrectPinDistances(FGraphSplineOverlapResult& Result, float PreviousDistance, const FConnectionParams& Params,
         FVector2f Start, FVector2f End, FVector2f Mouse)
     {
@@ -467,7 +434,6 @@ private:
     TWeakPtr<const FWireDrawing> Factory;
     TWeakPtr<SGraphPanel> Panel;
     TSharedPtr<FRouteCache> Cache;
-    TArray<FSimpleConnectionData> HitPieces;
     FVector2f PaintOrigin = FVector2f::ZeroVector;
     bool bSynthesizedStart = false, bSynthesizedEnd = false;
 };

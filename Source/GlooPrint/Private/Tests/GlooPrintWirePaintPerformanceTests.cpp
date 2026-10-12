@@ -137,7 +137,7 @@ private:
                 TUniquePtr<FConnectionDrawingPolicy> Policy(bNative ? new FKismetConnectionDrawingPolicy(0, 1, Scale, Clip, Elements, Fixture->Graph) :
                     FNodeFactory::CreateConnectionPolicy(Fixture->Graph->GetSchema(), 0, 1, Scale, Clip, Elements, Fixture->Graph));
                 if (!Policy) { OutPieces = 0; return 0.0; }
-                Policy->SetAbsoluteMousePosition(FVector2f(-100000)); Policy->Draw(Pins, Nodes);
+                Policy->SetMousePosition(FVector2f(-100000)); Policy->Draw(Pins, Nodes);
             }
             const double Milliseconds = (FPlatformTime::Seconds() - StartTime) * 1000;
             OutPieces = Elements.GetUncachedDrawElements().Get<(uint8)EElementType::ET_Spline>().Num();

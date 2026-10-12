@@ -19,11 +19,17 @@
 #include "Misc/AutomationTest.h"
 #include "UObject/StrongObjectPtr.h"
 
+#include "SNodePanel.h"
+#include "SGraphPanel.h"
 class SWindow;
-class SGraphPanel;
 
 namespace GlooPrint::Tests
 {
+// SNodePanel keeps its zoom table protected in 5.7 and offers no getter.
+struct FZoomLevelsAccess : SNodePanel
+{
+    static const FZoomLevelsContainer* Get(const SNodePanel& Panel) { return (Panel.*(&FZoomLevelsAccess::ZoomLevels)).Get(); }
+};
 struct FFixture
 {
     TStrongObjectPtr<UBlueprint> Blueprint;

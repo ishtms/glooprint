@@ -5,7 +5,11 @@
 #include "MaterialEditor/SGraphSubstrateMaterial.h"
 #include "MaterialGraph/MaterialGraph.h"
 #include "MaterialGraph/MaterialGraphSchema.h"
+#include "Runtime/Launch/Resources/Version.h"
+#if ENGINE_MAJOR_VERSION > 5 || ENGINE_MINOR_VERSION >= 8
 #include "MaterialGraph/MaterialShaderValueTypeObject.h"
+#define GLOOPRINT_HAS_SHADER_VALUE_TYPE 1
+#endif
 #include "MaterialGraphNode_Knot.h"
 #include "SGraphPanel.h"
 #include "Widgets/SToolTip.h"
@@ -93,6 +97,7 @@ void FMaterialDrawingPolicy::DetermineWiringStyle(UEdGraphPin* Output, UEdGraphP
     {
         Params.WireColor = Settings->ExecutionPinTypeColor; Params.WireThickness = Settings->DefaultExecutionWireThickness;
     }
+#ifdef GLOOPRINT_HAS_SHADER_VALUE_TYPE
     else if (Input)
     {
         if (const auto* Type = Cast<UMaterialShaderValueTypeObject>(Input->PinType.PinSubCategoryObject.Get()))
@@ -100,6 +105,7 @@ void FMaterialDrawingPolicy::DetermineWiringStyle(UEdGraphPin* Output, UEdGraphP
             Params.WireColor = UMaterialGraphSchema::GetColorForConnectionType(Type->ValueType);
         }
     }
+#endif
     if (!HoveredPins.IsEmpty()) { ApplyHoverDeemphasis(Output, Input, Params.WireThickness, Params.WireColor); }
 }
 

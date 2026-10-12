@@ -487,7 +487,7 @@ private:
                 FKismetConnectionDrawingPolicy Native(0, 1, Scale, Clip, NativeElements, Fixture->Graph);
                 TUniquePtr<FConnectionDrawingPolicy> Custom(Factory->CreateConnectionPolicy(Fixture->Graph->GetSchema(), 0, 1, Scale, Clip, CustomElements, Fixture->Graph));
                 if (!Test.TestTrue(TEXT("Drag drawing uses the actual custom policy"), Custom.IsValid())) { return; }
-                Native.SetAbsoluteMousePosition(FVector2f(-100000, -100000)); Custom->SetAbsoluteMousePosition(FVector2f(-100000, -100000));
+                Native.SetMousePosition(FVector2f(-100000, -100000)); Custom->SetMousePosition(FVector2f(-100000, -100000));
                 Native.Draw(Pins, Nodes); Custom->Draw(Pins, Nodes);
                 const auto& Original = NativeElements.GetUncachedDrawElements().Get<(uint8)EElementType::ET_Spline>();
                 const auto& Pieces = CustomElements.GetUncachedDrawElements().Get<(uint8)EElementType::ET_Spline>();

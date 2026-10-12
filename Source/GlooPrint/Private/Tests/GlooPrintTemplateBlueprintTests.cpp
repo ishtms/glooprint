@@ -90,7 +90,7 @@ public:
             const FVector2f Available = Panel->GetCachedGeometry().GetLocalSize();
             const FVector2f Span = Bounds.Max - Bounds.Min + FVector2f(160);
             const float FitZoom = FMath::Min(0.25f, FMath::Min(Available.X / Span.X, Available.Y / Span.Y));
-            const auto& Levels = Panel->GetZoomLevels(); float CaptureZoom = 0;
+            const auto& Levels = GlooPrint::Tests::FZoomLevelsAccess::Get(*Panel); float CaptureZoom = 0;
             for (int32 I = 0; I < Levels->GetNumZoomLevels(); ++I)
             {
                 const float Amount = Levels->GetZoomAmount(I);
@@ -179,7 +179,7 @@ private:
     void SetZoomView()
     {
         auto* Panel = Editor->GetGraphPanel();
-        const float Amount = Panel->GetZoomLevels()->GetZoomAmount(ZoomIndex);
+        const float Amount = GlooPrint::Tests::FZoomLevelsAccess::Get(*Panel)->GetZoomAmount(ZoomIndex);
         const auto OutputNode = Panel->GetNodeWidgetFromGuid(ZoomOutput->GetOwningNode()->NodeGuid);
         const auto InputNode = Panel->GetNodeWidgetFromGuid(ZoomInput->GetOwningNode()->NodeGuid);
         const FVector2f Center = (OutputNode->GetPosition2f() + FVector2f(OutputNode->GetDesiredSize().X, 0) + InputNode->GetPosition2f()) * 0.5f;
@@ -189,7 +189,7 @@ private:
     bool CheckZoom(const FRouteCache& Cache)
     {
         auto* Panel = Editor->GetGraphPanel();
-        const float Amount = Panel->GetZoomLevels()->GetZoomAmount(ZoomIndex);
+        const float Amount = GlooPrint::Tests::FZoomLevelsAccess::Get(*Panel)->GetZoomAmount(ZoomIndex);
         const float Scale = Panel->GetCachedGeometry().GetAccumulatedLayoutTransform().GetScale() * Amount;
         Test.TestEqual(TEXT("Zoom check reaches the requested supported level"), Panel->GetZoomAmount(), Amount);
         Test.TestTrue(TEXT("Zoom changes no serialized Blueprint values"), After == SerializeTransactionValues(*Graph));
@@ -230,10 +230,10 @@ private:
         FKismetConnectionDrawingPolicy Native(0, 1, Scale, Clip, NativeElements, Graph);
         TUniquePtr<FConnectionDrawingPolicy> Custom(FNodeFactory::CreateConnectionPolicy(Graph->GetSchema(), 0, 1, Scale, Clip, CustomElements, Graph));
         if (!Test.TestTrue(TEXT("Zoom uses the custom connection policy"), Custom.IsValid())) { return Finish(); }
-        Native.SetAbsoluteMousePosition(FVector2f(-100000)); Native.Draw(Pins, Nodes);
+        Native.SetMousePosition(FVector2f(-100000)); Native.Draw(Pins, Nodes);
         const auto& Baseline = NativeElements.GetUncachedDrawElements().Get<(uint8)EElementType::ET_Spline>();
         if (!Test.TestEqual(TEXT("Zoom isolates one native execution wire"), Baseline.Num(), 1)) { return Finish(); }
-        Custom->SetAbsoluteMousePosition((Baseline[0].P0 + Baseline[0].P3) * 0.5f); Custom->Draw(Pins, Nodes);
+        Custom->SetMousePosition((Baseline[0].P0 + Baseline[0].P3) * 0.5f); Custom->Draw(Pins, Nodes);
         const auto& Pieces = CustomElements.GetUncachedDrawElements().Get<(uint8)EElementType::ET_Spline>();
         if (!Test.TestEqual(TEXT("Zoom draws the cached single piece without a detour"), Pieces.Num(), 1)) { return Finish(); }
         Test.TestTrue(TEXT("Zoom keeps exact native wire attachment"), Pieces[0].P0.Equals(Baseline[0].P0, 0.1f) && Pieces[0].P3.Equals(Baseline[0].P3, 0.1f));
@@ -256,7 +256,7 @@ private:
                 Test.TestTrue(TEXT("Save zoom capture"), FFileHelper::SaveArrayToFile(Png, *(Directory / Name)));
             }
         }
-        if (++ZoomIndex < Panel->GetZoomLevels()->GetNumZoomLevels()) { SetZoomView(); return false; }
+        if (++ZoomIndex < GlooPrint::Tests::FZoomLevelsAccess::Get(*Panel)->GetNumZoomLevels()) { SetZoomView(); return false; }
         if (!bZoomRounded)
         {
             bZoomRounded = true; ZoomIndex = 0;
@@ -265,7 +265,7 @@ private:
         }
         Test.TestTrue(TEXT("Save native and custom zoom evidence"), FFileHelper::SaveStringToFile(ZoomMetrics, *(Directory / TEXT("zoom.csv"))));
         Test.AddInfo(FString::Printf(TEXT("Checked %d supported zoom levels in both wire styles; native endpoint deltas and captures: %s"),
-            Panel->GetZoomLevels()->GetNumZoomLevels(), *Directory));
+            GlooPrint::Tests::FZoomLevelsAccess::Get(*Panel)->GetNumZoomLevels(), *Directory));
         return Finish();
     }
     bool Start()
@@ -380,7 +380,7 @@ private:
                 FKismetConnectionDrawingPolicy Native(0, 1, Scale, Clip, NativeElements, Graph);
                 TUniquePtr<FConnectionDrawingPolicy> Custom(FNodeFactory::CreateConnectionPolicy(Graph->GetSchema(), 0, 1, Scale, Clip, CustomElements, Graph));
                 if (!Test.TestTrue(TEXT("Authored graph uses the custom drawing policy"), Custom.IsValid())) { return; }
-                Native.SetAbsoluteMousePosition(FVector2f(-100000)); Custom->SetAbsoluteMousePosition(FVector2f(-100000));
+                Native.SetMousePosition(FVector2f(-100000)); Custom->SetMousePosition(FVector2f(-100000));
                 Native.Draw(Pins, Nodes); Custom->Draw(Pins, Nodes);
                 const auto& Baseline = NativeElements.GetUncachedDrawElements().Get<(uint8)EElementType::ET_Spline>();
                 const auto& Pieces = CustomElements.GetUncachedDrawElements().Get<(uint8)EElementType::ET_Spline>();
